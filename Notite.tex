@@ -10,6 +10,10 @@
 \usepackage{hyperref}
 % figure support
 \usepackage{import}
+\usepackage{float}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bib.bib}
+\usepackage{bookmark}
 
 \pdfminorversion=7
 \usepackage{pdfpages}
@@ -41,8 +45,7 @@ In continuare voi prezenta si argumenta pe scurt alegerile facute.
 
 \subsection{Limbajul de programare }
 O intrebare care a aparut odata cu cresterea in populariate a domeniului inteligentei artificiale este
-``Ce limbaj de programare ar trebui sa folosesc?''.Desi nu exista ``cel mai bun limbaj pentru inteligenta artificiala''[ref
-la articolulde pe tds], Python este de cele mai multe ori alegerea preferata atat a programatorilor cat si a oamenilor
+``Ce limbaj de programare ar trebui sa folosesc?''.Desi nu exista ``cel mai bun limbaj pentru inteligenta artificiala'', Python este de cele mai multe ori alegerea preferata atat a programatorilor cat si a oamenilor
 de stiinta si a statisticienilor datorita:
 \begin{enumerate}
 	\item Varietatea de framework-uri si instrumente pentru Machine Learning, Data science si modelare/interpretare
@@ -113,29 +116,74 @@ din retea si, implicit, la scaderea costurilor computationale.
 \end{itemize}
 
 
- \section {Aprofundarea tehnologiilor utilizate}
- Clasificarea instrumentelor muzicale nu este o problema noua, aceasta fiind abordata de cercetatori in invatare automata
-prin tehnici precum \textit{SVM} (rata de eroare de 30\% )(de pus referinta din 2 related work), si clasificare prin \textit{K-NN}.
+ \section {Aprofundarea tehnologiilor propuse }
+ Clasificarea instrumentelor muzicale nu este o problema noua, aceasta fiind abordata de cercetatori in
+invatare automata prin tehnici precum \textit{SVM} (rata de eroare de 30\% )
+, si clasificare prin \textit{K-NN}.
 In ultimii ani insa cercetarea s-a indreptat spre \hyperref[NN]{retele neuronale} deoarece acestea elimina nevoia unui factor uman
-care sa extraga trasaturile datelor de intrare. Apare insa problema alegerii tipului de retea neuronala. Articolul [inserat sursa
-de coparatie] compara arhitectura \textit{ leNet CNN } cu arhitectura \textit{LTSM} ( derivata din \textit{RNN}), acestea fiind
+care sa extraga trasaturile datelor de intrare. Apare insa problema alegerii tipului de retea neuronala. Articolul \cite{DLFMIR}  compara arhitectura \textit{ leNet CNN } cu arhitectura \textit{LTSM} ( derivata din \textit{RNN}), acestea fiind
 principalele candidate pentru rezolvarea problemei date.
 
 
-Rezultatul experimentului a demonstrat ca, in urma antrenarii celor doua retele neuronale cu o multime de date de intrare alcatuita
-din 200 de fisiere audio, cu lungime de aproximativ o secunda, arhitectura \textit{leNet CNN} ajunge la o acuratete foarte
-apropiata de cea a \textit{LTSM} mult mai rapid, in timp ce foloseste mult mai putine resurse, fiind deci o alegere mai buna
-pentru problema clasificarii de instrumente muzicale. Urmatoarea figura ilustreaza rezulatele obtinute in urma testului dupa un
-antrenament de 100 de epoci.
+Rezultatul experimentului a demonstrat ca, in urma antrenarii celor doua retele neuronale cu o multime de date
+de intrare alcatuita din 200 de fisiere audio, cu lungime de aproximativ o secunda, arhitectura
+\textit{leNet CNN} ajunge la o acuratete foarte apropiata de cea a \textit{LTSM} mult mai rapid, in timp ce
+foloseste mult mai putine resurse, fiind deci o alegere mai buna pentru problema clasificarii de instrumente
+muzicale. Urmatoarea figura ilustreaza rezulatele obtinute in urma testului dupa un antrenament de 100 de
+epoci.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width = 2.6in]{res.png}
 	\caption{Rezultatele obtinute comparatiei dintre LSTM si leNet}
 \label{result1}
 \end{figure}
-\section{Concluzie}
 
-\section{Bibliografie}
 
+Pentru a transforma fisierele audio in input valid vom folosi spectograme \textit{Mel}. Pentru a intelege cum
+functioneaza, este utila prezentarea conceptelor de \textit{semnale audio} si \textit{transformari Fourier}.
+
+
+Un semnal reprezinta ilustrarea unui fenoment in timp. In cazul fisierelor audio, semnalele indica variatia
+cantiatii de aer din timpul unei inregistrari. Aceasta variate este in general determinata prin masurarea la
+intervale foarte mici ( 44.1kHz $\approx$ 44100 de inregistrari pe secunda).
+
+\textit{Transformarea Fourier reprezinta} o tehnica de transformare matematica care descompune o functie
+relativ la dependentele sale spatiale si temporale.
+Semnalul audio este compus din unde sonore care ilustreaza doar amplitudinea unei anumite inregistrari.
+\textit{Transforarea Fourier} permite convertirea de la o ilustrare temporala la o ilustrare a frecventei,
+numita spectru.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 2.6in]{fourier.png}
+	\caption{Procesul de tranformare Fourier}
+\label{result2}
+\end{figure}
+
+
+O spectograma este o reprezentare grafica a aplicarii algoritmului de transformare Fourier peste semnale
+nonperiodice. Spectogramele ilustreaza caracteristici ale sunetului precum nivelul de zgomot,amplitudinea,
+variatia frecventei,nivelul de decibeli etc.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 4.6in]{spec.png}
+	\caption{Spectograma audio}
+\label{result3}
+\end{figure}
+
+
+Scala \textit{Mel} este o reprezentare a sunetelor perceptibile de catre om. Aceasta este folosita pentru
+normalizarea si eliminarea de caracteristici irelevante ale fisierelor audio.
+
+
+Procesarea datelor de intrare pentru reteaua neuronala poate fi facilitata prin intermediul \textit{Spectogra
+melor Mel}, transformand problema de recunoastere audio intr-o problema de recunastere a imaginilor.
+
+\nocite{*}
+\printbibliography[title=Bibliografie]
 \end{document}
