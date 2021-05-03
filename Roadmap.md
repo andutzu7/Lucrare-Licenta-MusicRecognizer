@@ -1,4 +1,4 @@
-### Roadmap for the project
+[###](###) Roadmap for the project
 
 
 * Gather data ✅
@@ -15,4 +15,5 @@
 * Think about the platform it will be deployed on
 * Make a few demos
 * Integrate the neural net and maya modules
+* Don't forget to cite librosa(and keep track of resources used)
 * Teploy the final app

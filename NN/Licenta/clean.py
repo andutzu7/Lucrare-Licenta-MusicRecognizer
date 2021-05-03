@@ -4,10 +4,10 @@ import argparse
 import os
 from glob import glob
 import numpy as np
-import pandas as pd
 from librosa.core import resample, to_mono
 from tqdm import tqdm
 import wavio
+import pandas as pd
 
 
 def envelope(y, rate, threshold):
@@ -46,8 +46,7 @@ def downsample_mono(path, sr):
 
 def save_sample(sample, rate, target_dir, fn, ix):
     fn = fn.split('.wav')[0]
-    dst_path = os.path.join(target_dir.split(
-        '.')[0], fn+'_{}.wav'.format(str(ix)))
+    dst_path = os.path.join(target_dir.split('.')[0], fn+'_{}.wav'.format(str(ix)))
     if os.path.exists(dst_path):
         return
     wavfile.write(dst_path, rate, sample)
@@ -99,9 +98,7 @@ def split_wavs(args):
 def test_threshold(args):
     src_root = args.src_root
     wav_paths = glob('{}/**'.format(src_root), recursive=True)
-    wav_path = ['./3a3d0279.wav']
-    print(wav_path)
-
+    wav_path = [x for x in wav_paths if args.fn in x]
     if len(wav_path) != 1:
         print('audio file not found for sub-string: {}'.format(args.fn))
         return
@@ -118,23 +115,21 @@ def test_threshold(args):
 
 
 if __name__ == '__main__':
-
+    import os
     parser = argparse.ArgumentParser(description='Cleaning audio data')
-    parser.add_argument('--src_root', type=str, default='../Input Data/Data',
+    parser.add_argument('--src_root', type=str, default='./test',
                         help='directory of audio files in total duration')
-    parser.add_argument('--dst_root', type=str, default='clean/piano',
+    parser.add_argument('--dst_root', type=str, default='./cv/Piano',
                         help='directory to put audio files split by delta_time')
     parser.add_argument('--delta_time', '-dt', type=float, default=1.0,
                         help='time in seconds to sample audio')
     parser.add_argument('--sr', type=int, default=16000,
                         help='rate to downsample audio')
-
-    parser.add_argument('--fn', type=str, default='./3a3d0279',
+    parser.add_argument('--fn', type=str, default='3a3d0279',
                         help='file to plot over time to check magnitude')
     parser.add_argument('--threshold', type=str, default=20,
                         help='threshold magnitude for np.int16 dtype')
     args, _ = parser.parse_known_args()
 
-   # test_threshold(args)
+    #test_threshold(args)
     split_wavs(args)
-
