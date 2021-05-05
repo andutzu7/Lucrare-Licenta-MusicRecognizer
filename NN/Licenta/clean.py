@@ -4,10 +4,10 @@ import argparse
 import os
 from glob import glob
 import numpy as np
+import pandas as pd
 from librosa.core import resample, to_mono
 from tqdm import tqdm
 import wavio
-import pandas as pd
 
 
 def envelope(y, rate, threshold):
@@ -115,11 +115,10 @@ def test_threshold(args):
 
 
 if __name__ == '__main__':
-    import os
     parser = argparse.ArgumentParser(description='Cleaning audio data')
-    parser.add_argument('--src_root', type=str, default='./test',
+    parser.add_argument('--src_root', type=str, default='./Licenta/test',
                         help='directory of audio files in total duration')
-    parser.add_argument('--dst_root', type=str, default='./cv/Piano',
+    parser.add_argument('--dst_root', type=str, default='./Licenta/cv',
                         help='directory to put audio files split by delta_time')
     parser.add_argument('--delta_time', '-dt', type=float, default=1.0,
                         help='time in seconds to sample audio')
