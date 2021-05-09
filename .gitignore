@@ -2,8 +2,9 @@
 !/3DModel
 !/Mayacharm-embedded
 !/NN
-/NN/*
 !/NN/Licenta
+!/NN/Licenta/VNNL
+!/NN/Licenta/NNModule
 !/OneNotes
 !/Research
 !/Textures
@@ -13,3 +14,18 @@ NN/Licenta/clean
 NN/Licenta/test
 NN/Licenta/models
 NN/Licenta/logs
+NN/.idea
+NN/.ipynb_checkpoints/
+NN/Input Data/
+NN/NNModule/fashion_mnist_images/
+NN/clean
+NN/VNNL/VNNL/Debug
+NN/VNNL/VNNL/Release
+NN/VNNL/VNNL/Libraries
+NN/VNNL/VNNL/.vs
+NN/VNNL/VNNL/VNNL/External Libraries
+NN/VNNL/VNNL/VNNL/Debug
+NN/VNNL/VNNL/VNNL/Release
+NN/VNNL/VNNL/VNNL/*.vcxproj
+NN/VNNL/VNNL/VNNL/*.vcxproj.filters
+NN/VNNL/VNNL/VNNL/*.vcxproj.user
