@@ -2,7 +2,13 @@
 
 DenseLayer::DenseLayer(size_t nr_inputs, size_t nr_neurons, float weight_regularizer_l1, float weight_regularizer_l2, float bias_regularizer_l1, float bias_regularizer_l2)
 {
-    this->weights = 0.01 * xt::random::randn<double>({nr_inputs, nr_neurons});
+ //   this->weights = 0.01 * xt::random::randn<double>({nr_inputs, nr_neurons});
+   	this->weights = {{0.01764052, 0.00400157, 0.00978738, 0.02240893, 0.01867558},
+								   {-0.00977278, 0.00950088, -0.00151357, -0.00103219, 0.00410599},
+								   {0.00144044, 0.01454273, 0.00761038, 0.00121675, 0.00443863},
+								   {0.00333674, 0.01494079, -0.00205158, 0.00313068, -0.00854096},
+								   {-0.0255299, 0.00653619, 0.00864436, -0.00742165, 0.02269755}};
+	
     this->biases = xt::zeros<double>({1, (int)nr_neurons});
     this->weight_regularizer_l1 = weight_regularizer_l1;
     this->weight_regularizer_l2 = weight_regularizer_l2;
@@ -63,6 +69,7 @@ void DenseLayer::Backward(xt::xarray<double> derivated_values)
     {
         xt::xarray<double> dL1 = regularize(this->biases);
         this->derivated_biases += this->bias_regularizer_l1 * dL1;
+        cout<<this->derivated_biases;
     }
     // L2 on biases
     if (this->bias_regularizer_l2 > 0)
