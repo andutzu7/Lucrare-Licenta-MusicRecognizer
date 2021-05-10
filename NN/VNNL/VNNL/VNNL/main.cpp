@@ -2,10 +2,18 @@
 #include <xtensor/xarray.hpp>
 #include <xtensor/xio.hpp>
 #include <xtensor/xview.hpp>
-
+#include <xtensor-blas/xlinalg.hpp>
+#include <xtensor/xexpression.hpp>
+#include <xtensor/xadapt.hpp>
+#include "DenseLayer.h"
+//note for self -> since keepdims isnt availabale, to emulate it just reshape the output
+//de fverificat Dense layer daca functioneaza p e r f e c t
+using namespace std;
 int main(int argc,char*argv[])
-{xt::xarray<double> arr1{{1.0, 2.0, 3.0},{2.0, 5.0, 7.0},{2.0, 5.0, 7.0}};
-xt::xarray<double> arr2{5.0, 6.0, 7.0};
-xt::xarray<double> res = xt::view(arr1, 1) + arr2;
-std::cout << res << std::endl;
-return 0;}
+{
+	DenseLayer dl(5,5);
+	xt::xarray<double> gradient = xt::random::randn<double>({ 10,5 });
+	dl.Forward(gradient);
+	dl.Backward(gradient);
+	return 0;
+}

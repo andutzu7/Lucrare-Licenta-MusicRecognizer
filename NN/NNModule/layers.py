@@ -14,7 +14,6 @@ class Layer_Dense:
         # Initialize weights and biases
         self.weights = 0.01 * np.random.randn(n_inputs, n_neurons)
         self.biases = np.zeros((1, n_neurons))
-        print(self.weights,self.biases)
         # Set regularization strength
         self.weight_regularizer_l1 = weight_regularizer_l1
         self.weight_regularizer_l2 = weight_regularizer_l2
@@ -38,6 +37,8 @@ class Layer_Dense:
         if self.weight_regularizer_l1 > 0:
             dL1 = np.ones_like(self.weights)
             dL1[self.weights < 0] = -1
+            print(self.weights)
+            print(dL1)
             self.dweights += self.weight_regularizer_l1 * dL1
         # L2 on weights
         if self.weight_regularizer_l2 > 0:
@@ -90,3 +91,13 @@ class Layer_Input:
     # Forward pass
     def forward(self, inputs, training):
         self.output = inputs
+
+if __name__=="__main__":
+    dl = Layer_Dense(5,5,weight_regularizer_l1=0.003)
+    
+    inputs = 0.01 * np.random.randn(5, 5)
+    
+    dl.forward(inputs,False)
+    dl.backward(inputs)
+    aux = np.arange(12)
+    aux = aux.reshape([3,4])

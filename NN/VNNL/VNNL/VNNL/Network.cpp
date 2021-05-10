@@ -1,7 +1,6 @@
 #include "Network.h"
 #include <assert.h>
 
-double Network::m_recentAverageSmoothingFactor = 100.0;
 Network::Network(const vector<unsigned>& topology)
 {
     unsigned numLayers = topology.size();
@@ -47,9 +46,6 @@ void Network::backProp(const vector<double>& targetVals)
     m_error /= outputLayer.size() - 1; // get average error squared
     m_error = sqrt(m_error); // RMS
 
-    m_recentAverageError =
-        (m_recentAverageError * m_recentAverageSmoothingFactor + m_error)
-        / (m_recentAverageSmoothingFactor + 1.0);
 
     for (unsigned n = 0; n < outputLayer.size() - 1; ++n) {
         outputLayer[n].calcOutputGradients(targetVals[n]);

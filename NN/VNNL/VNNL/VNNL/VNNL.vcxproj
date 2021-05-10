@@ -103,13 +103,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtensor-master\include;F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtl-master\xtl-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtensor-blas-master\include;F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtl-master\xtl-master\include;F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtensor-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-lcblas -llapack -DHAVE_CBLAS=1 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\Facultate\UAIC-Study\Anul 3\Sem 2\Lucrare-Licenta-MusicRecognizer\NN\VNNL\VNNL\VNNL\External Libraries\xtensor-blas-master\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
