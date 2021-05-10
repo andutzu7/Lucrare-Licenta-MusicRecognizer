@@ -5,7 +5,6 @@
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xadapt.hpp>
-#include "DropoutLayer.h"
 using namespace std;
 //fix code const correctness
 //note for self -> since keepdims isnt availabale, to emulate it just reshape the output
