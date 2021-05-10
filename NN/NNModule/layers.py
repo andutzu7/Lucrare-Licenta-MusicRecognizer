@@ -56,14 +56,12 @@ class Layer_Dense:
             dL1[self.biases < 0] = -1
             self.dbiases += self.bias_regularizer_l1 * dL1
         # L2 on biases
-        self.bias_regularizer_l2 = 0.003
         if self.bias_regularizer_l2 > 0:
             self.dbiases += 2 * self.bias_regularizer_l2 * \
                 self.biases
         # Gradient on values
         self.dinputs = np.dot(dvalues, self.weights.T)
     # Retrieve layer parameters
-        print(self.dinputs)
 
     def get_parameters(self):
         return self.weights, self.biases
@@ -110,7 +108,7 @@ class Layer_Input:
 
 
 if __name__ == "__main__":
-    dl = Layer_Dense(5, 5)
+    dl = Layer_Dropout(0.03)
 
     inputs = np.array([[0.01764052,  0.00400157,  0.00978738,  0.02240893,  0.01867558],
               [-0.00977278, 0.00950088, -0.00151357, -0.00103219,  0.00410599],
@@ -118,5 +116,10 @@ if __name__ == "__main__":
               [0.00333674,  0.01494079, -0.00205158,  0.00313068, -0.00854096],
               [-0.0255299,  0.00653619,  0.00864436, -0.00742165,  0.02269755]])
 
-    dl.forward(inputs, False)
+    dl.forward(inputs,True)
     dl.backward(inputs)
+    print(dl.inputs)
+    print(dl.binary_mask)
+    print(dl.output)
+    print(dl.dinputs)
+    #print(dl.inputs,dl.binary_mask,dl.output,dl.dinputs)

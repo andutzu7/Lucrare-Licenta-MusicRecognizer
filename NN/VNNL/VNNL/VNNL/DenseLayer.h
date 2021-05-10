@@ -6,7 +6,6 @@
 #include <xtensor/xrandom.hpp>
 #include <xtensor-blas/xlinalg.hpp>
 #include <utility>
-#include "Neuron.h"
 class DenseLayer
 {
 public:
