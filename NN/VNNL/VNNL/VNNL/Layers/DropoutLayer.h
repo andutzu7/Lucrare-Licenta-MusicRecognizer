@@ -1,8 +1,9 @@
 #pragma once
 #include <xtensor/xarray.hpp>
 #include <xtensor/xrandom.hpp>
+#include "Layer.h"
 
-class DropoutLayer
+class DropoutLayer : public Layer
 {
 public:
 	DropoutLayer(double rate);
@@ -12,8 +13,6 @@ public:
 //sa nu uit sa fac zona asta privata
 public:
     double rate;
-	xt::xarray<double> inputs;
-	xt::xarray<double> outputs;
 	xt::xarray<double> binary_mask;
 	xt::xarray<double> derivated_inputs; 
 	

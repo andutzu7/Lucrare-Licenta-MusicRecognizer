@@ -63,7 +63,6 @@ void DenseLayer::Backward(xt::xarray<double> derivated_values)
     {
         xt::xarray<double> dL1 = regularize(this->biases);
         this->derivated_biases += this->bias_regularizer_l1 * dL1;
-        cout<<this->derivated_biases;
     }
     // L2 on biases
     if (this->bias_regularizer_l2 > 0)

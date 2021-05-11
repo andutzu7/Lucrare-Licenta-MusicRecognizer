@@ -118,8 +118,5 @@ if __name__ == "__main__":
 
     dl.forward(inputs,True)
     dl.backward(inputs)
-    print(dl.inputs)
-    print(dl.binary_mask)
-    print(dl.output)
-    print(dl.dinputs)
+    print(inputs**2)
     #print(dl.inputs,dl.binary_mask,dl.output,dl.dinputs)
