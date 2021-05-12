@@ -6,7 +6,11 @@
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xadapt.hpp>
-#include "Layers/Layer.h"
+#include "Layers/DenseLayer.h"
+#include "Layers/Layer_Type.h"
+#include "Optimizers/SGD_Optimizer.h"
+
+
 using namespace std;
 //fix code const correctness
 /// TODO !!!! de verificat outputul la Optimizer
@@ -23,7 +27,19 @@ int main(int argc, char *argv[])
 								   {0.00144044, 0.01454273, 0.00761038, 0.00121675, 0.00443863},
 								   {0.00333674, 0.01494079, -0.00205158, 0.00313068, -0.00854096},
 								   {-0.0255299, 0.00653619, 0.00864436, -0.00742165, 0.02269755}};
-	auto rez = xt::square(gradient);
-	cout << gradient<<endl<<rez;
+
+	DenseLayer dl(5,5);
+	dl.weights = gradient;
+	dl.Forward(gradient);
+	dl.Backward(gradient);
+
+	cout<<dl.weights<<endl;
+	//i know, its an ugly way of writing code
+	SGD_Optimizer ag;
+	ag.dense_layer = dl;
+	ag.Update_Params(Layer_Type::dense_layer);
+	dl = ag.dense_layer;	
+	cout<<dl.weights;
+
 	return 0;
 }

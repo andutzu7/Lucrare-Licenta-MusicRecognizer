@@ -1,5 +1,8 @@
 import numpy as np
+import layers
 # SGD optimizer
+
+
 class Optimizer_SGD:
     # Initialize optimizer - set settings,
     # learning rate of 1. is default for this optimizer
@@ -206,3 +209,23 @@ class Optimizer_Adam:
 
     def post_update_params(self):
         self.iterations += 1
+
+
+if __name__ == "__main__":
+    peut_etre = Optimizer_Adagrad()
+    dl = layers.Layer_Dense(5,5)
+
+    inputs = np.array([[0.01764052,  0.00400157,  0.00978738,  0.02240893,  0.01867558],
+              [-0.00977278, 0.00950088, -0.00151357, -0.00103219,  0.00410599],
+              [0.00144044,  0.01454273,  0.00761038,  0.00121675,  0.00443863],
+              [0.00333674,  0.01494079, -0.00205158,  0.00313068, -0.00854096],
+              [-0.0255299,  0.00653619,  0.00864436, -0.00742165,  0.02269755]])
+
+    dl.weights = inputs
+    dl.forward(inputs,True)
+    dl.backward(inputs)
+
+    print(dl.weights)
+    ag = Optimizer_SGD()
+    ag.update_params(dl)
+    print(dl.weights)

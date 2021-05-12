@@ -12,7 +12,9 @@ public:
     void Post_Update_Params();
     //to make private
 public:
+    //aici trebuiesc adaugate layere
     DenseLayer dense_layer;
+
     double learning_rate;
     double current_learning_rate;
     double decay;

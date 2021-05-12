@@ -5,7 +5,7 @@ RMSProp_Optimizer::RMSProp_Optimizer(double learning_rate, double decay, double 
     this->learning_rate = learning_rate;
     this->current_learning_rate = learning_rate;
     this->decay = decay;
-    this->iterations = iterations;
+    this->iterations = 0;
     this->epsilon = epsilon;
     this->rho = rho;
 }

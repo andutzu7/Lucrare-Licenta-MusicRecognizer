@@ -5,7 +5,7 @@ Adagrad_Optimizer::Adagrad_Optimizer(double learning_rate , double decay , doubl
     this->learning_rate = learning_rate;
     this->current_learning_rate = learning_rate;
     this->decay = decay;
-    this->iterations = iterations;
+    this->iterations = 0;
     this->epsilon = epsilon;
 }
 void Adagrad_Optimizer::Update_Params(Layer_Type layer_type)

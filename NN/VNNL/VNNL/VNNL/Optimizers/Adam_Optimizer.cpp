@@ -5,7 +5,7 @@ Adam_Optimizer::Adam_Optimizer(double learning_rate, double decay, double epsilo
     this->learning_rate = learning_rate;
     this->current_learning_rate = learning_rate;
     this->decay = decay;
-    this->iterations = iterations;
+    this->iterations = 0;
     this->epsilon = epsilon;
     this->beta_1 = beta_1;
     this->beta_2 = beta_2;

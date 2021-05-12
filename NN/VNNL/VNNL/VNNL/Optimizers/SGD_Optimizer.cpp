@@ -5,7 +5,7 @@ SGD_Optimizer::SGD_Optimizer(double learning_rate  , double decay , double momen
     this->learning_rate = learning_rate;
     this->current_learning_rate = learning_rate;
     this->decay = decay;
-    this->iterations = iterations;
+    this->iterations = 0;
     this->momentum = momentum;
 }
 void SGD_Optimizer::Update_Params(Layer_Type layer_type)
