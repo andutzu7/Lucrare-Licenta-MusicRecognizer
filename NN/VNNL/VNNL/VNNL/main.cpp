@@ -6,13 +6,12 @@
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xadapt.hpp>
-#include "Layers/DenseLayer.h"
-#include "Layers/Layer_Type.h"
-#include "Optimizers/SGD_Optimizer.h"
 
 
 using namespace std;
 //fix code const correctness
+//posibil sa am prb cu cand am avut np.sum(axis=0 keepdims ) prin layers cred. sa am grije
+//de corectat optimizatoarele si ingeneral de folosit filter function din xt
 /// TODO !!!! de verificat outputul la Optimizer
 //de verificat sa nu fi uitat parametrii impliciti la functii prin cppuri
 //to remember: for optimizers and prolly others the pipeline will be like that :
@@ -27,19 +26,5 @@ int main(int argc, char *argv[])
 								   {0.00144044, 0.01454273, 0.00761038, 0.00121675, 0.00443863},
 								   {0.00333674, 0.01494079, -0.00205158, 0.00313068, -0.00854096},
 								   {-0.0255299, 0.00653619, 0.00864436, -0.00742165, 0.02269755}};
-
-	DenseLayer dl(5,5);
-	dl.weights = gradient;
-	dl.Forward(gradient);
-	dl.Backward(gradient);
-
-	cout<<dl.weights<<endl;
-	//i know, its an ugly way of writing code
-	SGD_Optimizer ag;
-	ag.dense_layer = dl;
-	ag.Update_Params(Layer_Type::dense_layer);
-	dl = ag.dense_layer;	
-	cout<<dl.weights;
-
 	return 0;
 }

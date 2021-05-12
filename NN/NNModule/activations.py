@@ -1,23 +1,7 @@
 import numpy as np
 # ReLU activation
-class Activation_ReLU:
-    # Forward pass
-    def forward(self, inputs, training):
-        # Remember input values
-        self.inputs = inputs
-        # Calculate output values from inputs
-        self.output = np.maximum(0, inputs)
-    # Backward pass
-    def backward(self, dvalues):
-        # Since we need to modify original variable,
-        # let's make a copy of values first
-        self.dinputs = dvalues.copy()
-        # Zero gradient where input values were negative
-        self.dinputs[self.inputs <= 0] = 0
-    # Calculate predictions for outputs
-    def predictions(self, outputs):
-        return outputs
-# Softmax activation
+
+
 class Activation_Softmax:
     # Forward pass
     def forward(self, inputs, training):
@@ -30,7 +14,9 @@ class Activation_Softmax:
         probabilities = exp_values / np.sum(exp_values, axis=1,
                                             keepdims=True)
         self.output = probabilities
+
     # Backward pass
+
     def backward(self, dvalues):
         # Create uninitialized array
         self.dinputs = np.empty_like(dvalues)
@@ -39,38 +25,26 @@ class Activation_Softmax:
                 enumerate(zip(self.output, dvalues)):
             # Flatten output array
             single_output = single_output.reshape(-1, 1)
-            # Calculate Jacobian matrix of the output
+            # # Calculate Jacobian matrix of the output
             jacobian_matrix = np.diagflat(single_output) - \
-                              np.dot(single_output, single_output.T)
+                             np.dot(single_output, single_output.T)
+            # # Calculate sample-wise gradient
+            # # and add it to the array of sample gradients
+            self.dinputs[index] = np.dot(jacobian_matrix,single_dvalues)
         # Calculate predictions for outputs
     def predictions(self, outputs):
         return np.argmax(outputs, axis=1)
 # Sigmoid activation
-class Activation_Sigmoid:
-    # Forward pass
-    def forward(self, inputs, training):
-        # Save input and calculate/save output
-        # of the sigmoid function
-        self.inputs = inputs
-        self.output = 1 / (1 + np.exp(-inputs))
-    # Backward pass
-    def backward(self, dvalues):
-        # Derivative - calculates from output of the sigmoid function
-        self.dinputs = dvalues * (1 - self.output) * self.output
-    # Calculate predictions for outputs
-    def predictions(self, outputs):
-        return (outputs > 0.5) * 1
-# Linear activation
-class Activation_Linear:
-    # Forward pass
-    def forward(self, inputs, training):
-        # Just remember values
-        self.inputs = inputs
-        self.output = inputs
-    # Backward pass
-    def backward(self, dvalues):
-        # derivative is 1, 1 * dvalues = dvalues - the chain rule
-        self.dinputs = dvalues.copy()
-    # Calculate predictions for outputs
-    def predictions(self, outputs):
-        return outputs
+if __name__ == "__main__":
+    rl=Activation_Softmax()
+
+    inputs=np.array([[0.01764052,  0.00400157,  0.00978738,  0.02240893,  0.01867558],
+              [-0.00977278, 0.00950088, -0.00151357, -0.00103219,  0.00410599],
+              [0.00144044,  0.01454273,  0.00761038,  0.00121675,  0.00443863],
+              [0.00333674,  0.01494079, -0.00205158,  0.00313068, -0.00854096],
+              [-0.0255299,  0.00653619,  0.00864436, -0.00742165,  0.02269755]])
+
+    rl.forward(inputs, True)
+    rl.backward(inputs)
+    print(rl.output)
+    print(rl.dinputs)
