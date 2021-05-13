@@ -8,18 +8,16 @@
 #include <xtensor/xadapt.hpp>
 #include "Layers/DenseLayer.h"
 #include "Layers/Layer_Type.h"
-#include "Metrics/Accuracy_Categorical.h"
+#include "Metrics/Accuracy_Regression.h"
 
 using namespace std;
 //fix code const correctness
 //posibil sa am prb cu cand am avut np.sum(axis=0 keepdims ) prin layers cred. sa am grije
 //de corectat optimizatoarele si ingeneral de folosit filter function din xt
-/// TODO !!!! de verificat outputul la Optimizer
 //de verificat sa nu fi uitat parametrii impliciti la functii prin cppuri
 //to remember: for optimizers and prolly others the pipeline will be like that :
 //u got a layer. the layer is then passed as a parameter for the optimizer
 //the output optimized output is then assigned back to the layer (not the smoothest metthod i know)
-//note for self -> since keepdims isnt availabale, to emulate it just reshape the output
 
 int main(int argc, char *argv[])
 {
@@ -29,15 +27,5 @@ int main(int argc, char *argv[])
 								   {0.00333674, 0.01494079, -0.00205158, 0.00313068, -0.00854096},
 								   {-0.0255299, 0.00653619, 0.00864436, -0.00742165, 0.02269755}};
 
-	// DenseLayer dl(5, 5, 0.003, 0.003, 0.003, 0.003);
-	// dl.weights = gradient;
-	// dl.Forward(gradient);
-	// dl.Backward(gradient);
-
-	Accuracy_Categorical bl(true);
-
-	bl.Calculate(gradient,gradient);
-	cout<<bl.accumulation_sum<<" "<<bl.accumulation_count<<endl;
-	cout<<bl.Calculate_accumulated();
 	return 0;
 }

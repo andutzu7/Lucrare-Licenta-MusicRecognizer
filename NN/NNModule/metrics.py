@@ -28,26 +28,6 @@ class Accuracy:
 # Accuracy calculation for classification model
 
 
-class Accuracy_Categorical(Accuracy):
-    def __init__(self,  binary=False):
-        # Binary mode?
-        self.binary = binary
-        self.accumulated_count = 0
-        self.accumulated_sum =0
-    # No initialization is needed
-
-    def init(self, y):
-        pass
-    # Compares predictions to the ground truth values
-
-    def compare(self, predictions, y):
-        if not self.binary and len(y.shape) == 2:
-            y = np.argmax(y, axis=1)
-        return predictions == y
-
-# Accuracy calculation for regression model
-
-
 class Accuracy_Regression(Accuracy):
     def __init__(self):
         # Create precision property
@@ -61,7 +41,7 @@ class Accuracy_Regression(Accuracy):
     # Compares predictions to the ground truth values
 
     def compare(self, predictions, y):
-        return np.absolute(predictions - y) < self.precision
+        print(np.absolute(predictions - y) < self.precision)
 
 
 if __name__ == "__main__":
@@ -79,7 +59,7 @@ if __name__ == "__main__":
     dl.forward(inputs, True)
     dl.backward(inputs)
 
-    l = Accuracy_Categorical(True)
-    l.calculate(inputs,inputs)
-    print(l.accumulated_sum,l.accumulated_count)
-    print(l.calculate_accumulated())
+    l = Accuracy_Regression()
+    l.init(inputs)
+    print(l.compare(inputs,inputs))
+    print(l.precision)
