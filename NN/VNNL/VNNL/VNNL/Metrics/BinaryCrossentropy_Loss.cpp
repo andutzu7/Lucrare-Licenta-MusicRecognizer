@@ -1,5 +1,4 @@
 #include "BinaryCrossentropy_Loss.h"
-#include <xtensor/xadapt.hpp>
 
 xt::xarray<double> BinaryCrossentropy::Forward(xt::xarray<double> predictions, xt::xarray<double> actual_values)
 {

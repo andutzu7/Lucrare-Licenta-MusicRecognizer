@@ -8,7 +8,7 @@
 #include <xtensor/xadapt.hpp>
 #include "Layers/DenseLayer.h"
 #include "Layers/Layer_Type.h"
-#include "Metrics/BinaryCrossentropy_Loss.h"
+#include "Metrics/MeanSquaredError_Loss.h"
 
 
 
@@ -36,9 +36,11 @@ int main(int argc, char *argv[])
 	dl.Forward(gradient);
 	dl.Backward(gradient);
 	
-	BinaryCrossentropy bl;
-	cout<<bl.Forward(gradient,gradient);
+	MeanSquaredError bl;
 	
+	cout<<bl.Forward(gradient,gradient)<<endl;
+	bl.Backward(gradient,gradient);
+	cout<<bl.derivated_inputs;
 
 	return 0;
 }

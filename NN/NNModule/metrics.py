@@ -68,39 +68,6 @@ class Loss:
         self.accumulated_sum = 0
         self.accumulated_count = 0
 
-# Cross-entropy loss
-
-class Loss_BinaryCrossentropy(Loss):
-    # Forward pass
-    def forward(self, y_pred, y_true):
-        # Clip data to prevent division by 0
-        # Clip both sides to not drag mean towards any value
-        y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
-        # Calculate sample-wise loss
-        sample_losses = -(y_true * np.log(y_pred_clipped) +
-                          (1 - y_true) * np.log(1 - y_pred_clipped))
-        sample_losses = np.mean(sample_losses, axis=-1)
-        # Return losses
-        return sample_losses
-    # Backward pass
-
-    def backward(self, dvalues, y_true):
-        # Number of samples
-        samples = len(dvalues)
-        # Number of outputs in every sample
-        # We'll use the first sample to count them
-        outputs = len(dvalues[0])
-        print(outputs)
-        # Clip data to prevent division by 0
-        # Clip both sides to not drag mean towards any value
-        clipped_dvalues = np.clip(dvalues, 1e-7, 1 - 1e-7)
-        # Calculate gradient
-        self.dinputs = -(y_true / clipped_dvalues -
-                         (1 - y_true) / (1 - clipped_dvalues)) / outputs
-        # Normalize gradient
-        self.dinputs = self.dinputs / samples
-# Mean Squared Error loss
-
 
 class Loss_MeanSquaredError(Loss):  # L2 loss
     # Forward pass
@@ -209,16 +176,21 @@ class Accuracy_Regression(Accuracy):
 if __name__ == "__main__":
 
     inputs = np.array([[0.01764052,  0.00400157,  0.00978738,  0.02240893,  0.01867558],
-              [-0.00977278, 0.00950088, -0.00151357, -0.00103219,  0.00410599],
-              [0.00144044,  0.01454273,  0.00761038,  0.00121675,  0.00443863],
-              [0.00333674,  0.01494079, -0.00205158,  0.00313068, -0.00854096],
-              [-0.0255299,  0.00653619,  0.00864436, -0.00742165,  0.02269755]])
+                       [-0.00977278, 0.00950088, -
+                           0.00151357, -0.00103219,  0.00410599],
+                       [0.00144044,  0.01454273,  0.00761038,
+                           0.00121675,  0.00443863],
+                       [0.00333674,  0.01494079, -0.00205158,
+                           0.00313068, -0.00854096],
+                       [-0.0255299,  0.00653619,  0.00864436, -0.00742165,  0.02269755]])
     dl = Layer_Dense(5, 5, 0.003, 0.003, 0.003, 0.003)
     dl.weights = inputs
-    dl.forward(inputs,True)
+    dl.forward(inputs, True)
     dl.backward(inputs)
 
-    l = Loss_BinaryCrossentropy()
+    l = Loss_MeanSquaredError()
 
     print(l.forward(inputs,inputs))
+    l.backward(inputs,inputs)
+    print(l.dinputs)
    #l.backward(np.array([1,2,3,4],[1,2,3,4]), np.array([0,1,2,4][1,2,3,4],))

@@ -1,5 +1,6 @@
 #pragma once
 #include <xtensor/xarray.hpp>
+#include <xtensor/xadapt.hpp>
 #include <utility>
 #include "../Layers/DenseLayer.h"
 #include "../Layers/Layer_Type.h"
