@@ -6,6 +6,10 @@
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xadapt.hpp>
+#include "Layers/DenseLayer.h"
+#include "Layers/Layer_Type.h"
+#include "Metrics/BinaryCrossentropy_Loss.h"
+
 
 
 using namespace std;
@@ -26,5 +30,15 @@ int main(int argc, char *argv[])
 								   {0.00144044, 0.01454273, 0.00761038, 0.00121675, 0.00443863},
 								   {0.00333674, 0.01494079, -0.00205158, 0.00313068, -0.00854096},
 								   {-0.0255299, 0.00653619, 0.00864436, -0.00742165, 0.02269755}};
+
+	DenseLayer dl(5,5,0.003,0.003,0.003,0.003);
+	dl.weights = gradient;
+	dl.Forward(gradient);
+	dl.Backward(gradient);
+	
+	BinaryCrossentropy bl;
+	cout<<bl.Forward(gradient,gradient);
+	
+
 	return 0;
 }

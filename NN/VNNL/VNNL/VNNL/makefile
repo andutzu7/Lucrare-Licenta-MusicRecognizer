@@ -1,5 +1,7 @@
 out:main.cpp
 	g++ -o out \
 	 main.cpp \
-	 Activations/Activation_Softmax.cpp \
+	 Layers/DenseLayer.cpp\
+	 Metrics/BinaryCrossentropy_Loss.cpp\
+	 Metrics/Loss.cpp\
 	 -lcblas -llapack -DHAVE_CBLAS=1
