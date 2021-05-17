@@ -1,5 +1,5 @@
 from tensorflow.keras import layers
-from tensorflow.keras.layers import TimeDistributed, LayerNormalization,MaxPooling2D,Dense,Dropout
+from tensorflow.keras.layers import LayerNormalization,MaxPooling2D,Dense,Dropout
 from tensorflow.keras.models import Model,Sequential
 from tensorflow.keras.regularizers import l2
 import kapre
