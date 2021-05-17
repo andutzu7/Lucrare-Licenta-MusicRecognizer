@@ -6,9 +6,6 @@
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xadapt.hpp>
-#include "Layers/DenseLayer.h"
-#include "Layers/Layer_Type.h"
-#include "Metrics/Accuracy_Regression.h"
 
 using namespace std;
 //fix code const correctness
