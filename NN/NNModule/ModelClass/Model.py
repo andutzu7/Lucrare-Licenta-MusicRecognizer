@@ -83,7 +83,7 @@ class Model:
                 Activation_Softmax_Loss_CategoricalCrossentropy()
     # Train the model
 
-    def train(self, X, y, *, epochs=1, batch_size=None,
+    def train(self, X, y, epochs=1, batch_size=None,
               print_every=1, validation_data=None):
         # Initialize accuracy object
         self.accuracy.init(y)

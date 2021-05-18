@@ -1,5 +1,5 @@
 from tensorflow.keras import layers
-from tensorflow.keras.layers import LayerNormalization,MaxPooling2D,Dense,Dropout
+from tensorflow.keras.layers import BatchNormalization,MaxPooling2D,Dense,Dropout
 from tensorflow.keras.models import Model,Sequential
 from tensorflow.keras.regularizers import l2
 import kapre
@@ -8,6 +8,7 @@ import tensorflow as tf
 import os
 
 import tensorflow.keras.models as models
+from tensorflow.python.keras.engine import training
 
 
 
@@ -19,7 +20,7 @@ def CNN(N_CLASSES=2, SR=16000, DT=1.0):
                                  return_decibel=True,
                                  input_data_format='channels_last',
                                  output_data_format='channels_last')
-    x = LayerNormalization(axis=2, name='batch_norm')(i.output)
+    x = BatchNormalization(axis=2, name='batch_norm')(i.output)
     x = layers.Conv2D(8, kernel_size=(7,7), activation='relu', padding='same', name='conv2d_relu_0')(x)
     x = layers.MaxPooling2D(pool_size=(2,2), padding='same', name='max_pool_2d_1')(x)
     x = layers.Conv2D(16, kernel_size=(5,5), activation='relu', padding='same', name='conv2d_relu_1')(x)
