@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class BackPropagation:
+class BatchNormalization:
 
     def __init__(self):
         self.gamma = None

@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import cv2
 
+from tensorflow.keras.layers import Conv2D
 from Layers.DenseLayer import DenseLayer
 from Activations.ActivationSoftmax import ActivationSoftmax
 from Activations.ActivationReLu import ActivationReLu
