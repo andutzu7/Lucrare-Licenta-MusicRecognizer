@@ -1,4 +1,6 @@
 ## pentru maaxpooling si conv2d metoda e ca primesc batchu la forma (N , C , W, H) si atributu input shape ia shape[1:], dar trebuie sa
+# greseala e la input batch handling si faza cu channels first
+## si faza cu training loop, dupa ce se face forward si backprop trebuie reshapeuit arrayul(in model training loop)
 ## am in vedere ca inputul primit dinainte in retea sa fie de forma asta sau sa i se faca reshape .
 import os
 import pickle
@@ -70,19 +72,17 @@ if __name__ == "__main__":
     y = y[keys]
     X_test = (X_test.reshape(X_test.shape[0], -1).astype(np.float32) -
               127.5) / 127.5
-    print(X.shape)
 #    Instantiate the model
     model = Model()
     # Add layers
-    model.add(DenseLayer(X.shape[0], 128))
-    model.add(ActivationReLu())
     model.add(Conv2D(9,(3,3)))
     model.add(ActivationReLu())
     model.add(MaxPooling2D(pool_shape=(3,3)))
     model.add(ActivationReLu())
-    model.add(DenseLayer(64, 64))
+    model.add(Flatten())
+    model.add(DenseLayer(252, 128))
     model.add(ActivationReLu())
-    model.add(DenseLayer(64, 10))
+    model.add(DenseLayer(128, 64))
     model.add(ActivationSoftmax())
     # Set loss, optimizer and accuracy objects
     model.set(

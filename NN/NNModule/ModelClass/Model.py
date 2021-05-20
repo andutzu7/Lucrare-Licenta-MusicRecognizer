@@ -1,4 +1,5 @@
 # Import modules
+import copy
 import cv2
 import os
 import numpy as np
@@ -116,6 +117,7 @@ class Model:
                     batch_X = X[step*batch_size:(step+1)*batch_size]
                     batch_y = y[step*batch_size:(step+1)*batch_size]
                 # Perform the forward pass
+                print(batch_X.shape)
                 output = self.forward(batch_X)
                 # Calculate loss
                 data_loss, regularization_loss = \
@@ -192,7 +194,7 @@ class Model:
                     step*batch_size:(step+1)*batch_size
                 ]
             # Perform the forward pass
-            output = self.forward(batch_X, training=False)
+            output = self.forward(batch_X)
             # Calculate the loss
             self.loss.calculate(output, batch_y)
             # Get predictions and calculate an accuracy
@@ -231,7 +233,7 @@ class Model:
             else:
                 batch_X = X[step*batch_size:(step+1)*batch_size]
             # Perform the forward pass
-            batch_output = self.forward(batch_X, training=False)
+            batch_output = self.forward(batch_X)
             # Append batch prediction to the list of predictions
             output.append(batch_output)
         # Stack and return results

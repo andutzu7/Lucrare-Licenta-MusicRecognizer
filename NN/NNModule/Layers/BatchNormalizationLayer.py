@@ -9,7 +9,7 @@ class BatchNormalization:
         self.moving_mean = None
         self.moving_variation = None
         self.cache = None
-        self.outputs = None
+        self.output = None
         self.derivated_outputs = None
 
     def forward(self, x, epsilon=0.001, momentum=0.999, training=True):
@@ -87,7 +87,7 @@ class BatchNormalization:
         self.moving_mean = moving_mean
         self.moving_variation = moving_variation
         self.cache = cache
-        self.outputs = out
+        self.output = out
 
     def backward(self, derivated_outputs):
         if len(derivated_outputs.shape) == 2:

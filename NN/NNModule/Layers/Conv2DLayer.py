@@ -112,7 +112,7 @@ class Conv2D():
         self.padding = padding
         self.stride = stride
         self.trainable = True
-        self.outputs = None
+        self.output = None
         self.derivated_inputs = None
 
     def initialize(self):
@@ -127,6 +127,7 @@ class Conv2D():
         return np.prod(self.W.shape) + np.prod(self.w0.shape)
 
     def forward(self, X):
+        print(X.shape)
         self.input_shape = X.shape[1:]
         self.initialize()
         batch_size, channels, height, width = X.shape
@@ -142,22 +143,11 @@ class Conv2D():
         output = output.reshape(self.output_shape() + (batch_size, ))
         # Redistribute axises so that batch size comes first
         output = output.transpose(3,0,1,2)
-        self.outputs = output
+        self.output = output
 
     def backward(self, accum_grad):
         # Reshape accumulated gradient into column shape
         accum_grad = accum_grad.transpose(1, 2, 3, 0).reshape(self.n_filters, -1)
-
-        if self.trainable:
-            # Take dot product between column shaped accum. gradient and column shape
-            # layer input to determine the gradient at the layer with respect to layer weights
-            grad_w = accum_grad.dot(self.X_col.T).reshape(self.W.shape)
-            # The gradient with respect to bias terms is the sum similarly to in Dense layer
-            grad_w0 = np.sum(accum_grad, axis=1, keepdims=True)
-
-            # Update the layers weights
-            self.W = self.W_opt.update(self.W, grad_w)
-            self.w0 = self.w0_opt.update(self.w0, grad_w0)
 
         # Recalculate the gradient which will be propogated back to prev. layer
         accum_grad = self.W_col.T.dot(accum_grad)

@@ -97,7 +97,7 @@ class MaxPooling2D:
         self.padding = padding
         self.trainable = True
         self.derivated_inputs = None
-        self.outputs = None
+        self.output = None
 
     def forward(self, X):
         self.layer_input = X
@@ -115,7 +115,7 @@ class MaxPooling2D:
         output = output.reshape(out_height, out_width, batch_size, channels)
         output = output.transpose(2, 3, 0, 1)
 
-        self.outputs = output
+        self.output = output
 
     def backward(self, accum_grad):
         batch_size, _, _, _ = accum_grad.shape
@@ -127,7 +127,7 @@ class MaxPooling2D:
         accum_grad_col[arg_max, range(accum_grad.size)] = accum_grad
 
         accum_grad = column_to_image(
-            accum_grad_col, (batch_size * channels, 1, height, width), self.pool_shape, self.stride, 0)
+            accum_grad_col, (batch_size * channels, 1, height, width), self.pool_shape, self.stride, 'same')
         accum_grad = accum_grad.reshape((batch_size,) + self.input_shape)
 
         self.derivated_inputs = accum_grad
