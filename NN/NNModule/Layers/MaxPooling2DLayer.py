@@ -2,7 +2,6 @@ import numpy as np
 import math
 
 
-
 def column_to_image(cols, images_shape, filter_shape, stride, output_shape='same'):
     batch_size, channels, height, width = images_shape
     pad_h, pad_w = determine_padding(filter_shape, output_shape)
@@ -46,7 +45,7 @@ def get_im2col_indices(images_shape, filter_shape, padding, stride=1):
     return (k, i, j)
 
 
-def determine_padding( filter_shape, output_shape="same"):
+def determine_padding(filter_shape, output_shape="same"):
 
     # No padding
     if output_shape == "valid":
@@ -54,7 +53,6 @@ def determine_padding( filter_shape, output_shape="same"):
     # Pad so that the output shape is the same as input shape (given that stride=1)
     elif output_shape == "same":
         filter_height, filter_width = filter_shape
-
         # Derived from:
         # output_height = (height + pad_h - filter_height) / stride + 1
         # In this case output_height = height and stride = 1. This gives the
@@ -67,14 +65,16 @@ def determine_padding( filter_shape, output_shape="same"):
         return (pad_h1, pad_h2), (pad_w1, pad_w2)
 
 
-def image_to_column( images, filter_shape, stride, output_shape='same'):
-
+def image_to_column(images, filter_shape, stride, output_shape='same'):
     filter_height, filter_width = filter_shape
-    pad_h, pad_w = determine_padding(
-        filter_shape, output_shape)  # Add padding to the image
-    # Calculate the indices where the dot products are to be applied between weights
+
+    pad_h, pad_w = determine_padding(filter_shape, output_shape)
+
+    # Add padding to the image
     images_padded = np.pad(
         images, ((0, 0), (0, 0), pad_h, pad_w), mode='constant')
+
+    # Calculate the indices where the dot products are to be applied between weights
     # and the image
     k, i, j = get_im2col_indices(
         images.shape, filter_shape, (pad_h, pad_w), stride)
@@ -82,34 +82,33 @@ def image_to_column( images, filter_shape, stride, output_shape='same'):
     # Get content from image at those indices
     cols = images_padded[:, k, i, j]
     channels = images.shape[1]
-    # Reshape content into column shape
     cols = cols.transpose(1, 2, 0).reshape(
         filter_height * filter_width * channels, -1)
     return cols
 
 
-
-class PoolingLayer():
+class MaxPooling2D():
     """A parent class of MaxPooling2D and AveragePooling2D
     """
-    def __init__(self, pool_shape=(2, 2), stride=1, padding=0):
+
+    def __init__(self, pool_shape=(2, 2), input_shape=None, stride=1, padding=0):
         self.pool_shape = pool_shape
+        self.input_shape = input_shape
         self.stride = stride
         self.padding = padding
         self.trainable = True
 
-    def forward_pass(self, X, training=True):
+    def forward_pass(self, X):
         self.layer_input = X
 
         batch_size, channels, height, width = X.shape
-
         _, out_height, out_width = self.output_shape()
-
         X = X.reshape(batch_size*channels, 1, height, width)
-        X_col = image_to_column(X, self.pool_shape, self.stride, self.padding)
-
-        # MaxPool or AveragePool specific method
-        output = self._pool_forward(X_col)
+        X_col = image_to_column(
+            X, self.pool_shape, self.stride, output_shape="same")
+        arg_max = np.argmax(X_col, axis=0).flatten()
+        output = X_col[arg_max, range(arg_max.size)]
+        self.cache = arg_max
 
         output = output.reshape(out_height, out_width, batch_size, channels)
         output = output.transpose(2, 3, 0, 1)
@@ -121,32 +120,18 @@ class PoolingLayer():
         channels, height, width = self.input_shape
         accum_grad = accum_grad.transpose(2, 3, 0, 1).ravel()
 
-        # MaxPool or AveragePool specific method
-        accum_grad_col = self._pool_backward(accum_grad)
+        accum_grad_col = np.zeros((np.prod(self.pool_shape), accum_grad.size))
+        arg_max = self.cache
+        accum_grad_col[arg_max, range(accum_grad.size)] = accum_grad
 
-        accum_grad = column_to_image(accum_grad_col, (batch_size * channels, 1, height, width), self.pool_shape, self.stride, 0)
+        accum_grad = column_to_image(
+            accum_grad_col, (batch_size * channels, 1, height, width), self.pool_shape, self.stride, 0)
         accum_grad = accum_grad.reshape((batch_size,) + self.input_shape)
 
         return accum_grad
 
     def output_shape(self):
         channels, height, width = self.input_shape
-        out_height = (height - self.pool_shape[0]) / self.stride + 1
-        out_width = (width - self.pool_shape[1]) / self.stride + 1
-        assert out_height % 1 == 0
-        assert out_width % 1 == 0
+        out_width = (width + self.stride - 1)//self.stride
+        out_height = (height + self.stride - 1)//self.stride
         return channels, int(out_height), int(out_width)
-
-
-class MaxPooling2D(PoolingLayer):
-    def _pool_forward(self, X_col):
-        arg_max = np.argmax(X_col, axis=0).flatten()
-        output = X_col[arg_max, range(arg_max.size)]
-        self.cache = arg_max
-        return output
-
-    def _pool_backward(self, accum_grad):
-        accum_grad_col = np.zeros((np.prod(self.pool_shape), accum_grad.size))
-        arg_max = self.cache
-        accum_grad_col[arg_max, range(accum_grad.size)] = accum_grad
-        return accum_grad_col

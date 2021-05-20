@@ -7,7 +7,7 @@ class Flatten():
         self.trainable = True
         self.input_shape = input_shape
 
-    def forward_pass(self, X, training=True):
+    def forward_pass(self, X):
         self.prev_shape = X.shape
         return X.reshape((X.shape[0], -1))
 
