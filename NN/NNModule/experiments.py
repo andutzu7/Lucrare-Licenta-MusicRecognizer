@@ -1,16 +1,37 @@
-import numpy as np
-import cv2
+# from kapre.composed import get_melspectrogram_layer
+# import pydub 
+# import numpy as np
+# from scipy.io.wavfile import read
+
+# sr,data = read("anotherbrick.wav")
+# data = data.reshape(-1,1)
+            
+
+# input_shape = (int(16000*1.0), 1)
+# i = get_melspectrogram_layer(input_shape=input_shape,
+#                              pad_end=True,
+#                              sample_rate=16000,
+#                              return_decibel=True,
+#                              input_data_format='channels_last',
+#                              output_data_format='channels_last')
+                            
+
+# print(i(data))
+
+from Layers.Conv2DLayer import Conv2D
 from Layers.MaxPooling2DLayer import MaxPooling2D
-#from tensorflow.keras.layers import MaxPooling2D as mp2d
-# arr = cv2.imread("./pants.png")
-# arr = arr.reshape((1,28,28,3)).astype(np.float32)
-# c2dd = mp2d((3,3),strides=1,padding='same',input_shape = (28,28,3))
-# print(c2dd(arr).shape)
+from Layers.DropoutLayer import DropoutLayer
+import cv2
 
-arr = cv2.imread("./pants.png")
-arr = np.moveaxis(arr, -1, 0)
+c2d = Conv2D(3,(2,2))
 
+image = cv2.imread('pants.png')
+image = image.reshape((1,image.shape[0],image.shape[1],image.shape[2]))
+out = c2d.forward_pass(image)
+print(out)
+mp2d = MaxPooling2D(pool_shape=(2,2))
+out2 = mp2d.forward_pass(out)
 
-arr = arr.reshape((1,3,28,28)).astype(np.float32)
-c2d = MaxPooling2D((3,3),stride = 2,input_shape = (3,28,28))
-print(c2d.forward_pass(arr).shape)
+dl = DropoutLayer(0.2)
+dl.forward(out2,True)
+print(dl.output)

@@ -24,7 +24,7 @@ class Model:
         self.layers.append(layer)
     # Set loss, optimizer and accuracy
 
-    def set(self, *, loss=None, optimizer=None, accuracy=None):
+    def set(self, loss=None, optimizer=None, accuracy=None):
         if loss is not None:
             self.loss = loss
         if optimizer is not None:
@@ -116,7 +116,7 @@ class Model:
                     batch_X = X[step*batch_size:(step+1)*batch_size]
                     batch_y = y[step*batch_size:(step+1)*batch_size]
                 # Perform the forward pass
-                output = self.forward(batch_X, training=True)
+                output = self.forward(batch_X)
                 # Calculate loss
                 data_loss, regularization_loss = \
                     self.loss.calculate(output, batch_y,
@@ -161,7 +161,7 @@ class Model:
                               batch_size=batch_size)
     # Evaluates the model using passed-in dataset
 
-    def evaluate(self, X_val, y_val, *, batch_size=None):
+    def evaluate(self, X_val, y_val, batch_size=None):
         # Default value if batch size is not being set
         validation_steps = 1
         # Calculate number of steps
@@ -208,7 +208,7 @@ class Model:
               f'loss: {validation_loss:.3f}')
     # Predicts on the samples
 
-    def predict(self, X, *, batch_size=None):
+    def predict(self, X,  batch_size=None):
         # Default value if batch size is not being set
         prediction_steps = 1
         # Calculate number of steps
@@ -238,7 +238,7 @@ class Model:
         return np.vstack(output)
     # Performs forward pass
 
-    def forward(self, X, training):
+    def forward(self, X):
         # Call forward method on the input layer
         # this will set the output property that
         # the first layer in "prev" object is expecting

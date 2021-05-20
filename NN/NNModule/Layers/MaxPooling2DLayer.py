@@ -87,20 +87,22 @@ def image_to_column(images, filter_shape, stride, output_shape='same'):
     return cols
 
 
-class MaxPooling2D():
+class MaxPooling2D:
     """A parent class of MaxPooling2D and AveragePooling2D
     """
 
-    def __init__(self, pool_shape=(2, 2), input_shape=None, stride=1, padding=0):
+    def __init__(self, pool_shape=(2, 2), stride=1, padding=0):
         self.pool_shape = pool_shape
-        self.input_shape = input_shape
         self.stride = stride
         self.padding = padding
         self.trainable = True
+        self.derivated_inputs = None
+        self.outputs = None
 
-    def forward_pass(self, X):
+    def forward(self, X):
         self.layer_input = X
 
+        self.input_shape = X.shape[1:]
         batch_size, channels, height, width = X.shape
         _, out_height, out_width = self.output_shape()
         X = X.reshape(batch_size*channels, 1, height, width)
@@ -113,9 +115,9 @@ class MaxPooling2D():
         output = output.reshape(out_height, out_width, batch_size, channels)
         output = output.transpose(2, 3, 0, 1)
 
-        return output
+        self.outputs = output
 
-    def backward_pass(self, accum_grad):
+    def backward(self, accum_grad):
         batch_size, _, _, _ = accum_grad.shape
         channels, height, width = self.input_shape
         accum_grad = accum_grad.transpose(2, 3, 0, 1).ravel()
@@ -128,7 +130,7 @@ class MaxPooling2D():
             accum_grad_col, (batch_size * channels, 1, height, width), self.pool_shape, self.stride, 0)
         accum_grad = accum_grad.reshape((batch_size,) + self.input_shape)
 
-        return accum_grad
+        self.derivated_inputs = accum_grad
 
     def output_shape(self):
         channels, height, width = self.input_shape

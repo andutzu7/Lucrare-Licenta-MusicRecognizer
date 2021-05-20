@@ -8,7 +8,9 @@ class BatchNormalization:
         self.beta = None
         self.moving_mean = None
         self.moving_variation = None
-        pass
+        self.cache = None
+        self.outputs = None
+        self.derivated_outputs = None
 
     def forward(self, x, epsilon=0.001, momentum=0.999, training=True):
         cache = None
@@ -84,13 +86,13 @@ class BatchNormalization:
 
         self.moving_mean = moving_mean
         self.moving_variation = moving_variation
+        self.cache = cache
+        self.outputs = out
 
-        return out, cache
-
-    def backward(self, derivated_outputs, cache):
+    def backward(self, derivated_outputs):
         if len(derivated_outputs.shape) == 2:
             N = derivated_outputs.shape[0]
-            x_norm, x_centered, std, gamma = cache
+            x_norm, x_centered, std, gamma = self.cache
 
             derivated_gamma = (derivated_outputs * x_norm).sum(axis=0)
             derivated_beta = derivated_outputs.sum(axis=0)
@@ -102,7 +104,7 @@ class BatchNormalization:
         elif len(derivated_outputs.shape) == 4:
 
             N, C, H, W = derivated_outputs.shape
-            x_norm, x_centered, std, gamma = cache
+            x_norm, x_centered, std, gamma = self.cache
 
             derivated_gamma = (derivated_outputs * x_norm).sum(axis=(0,2,3))
             derivated_beta = derivated_outputs.sum(axis=(0,2,3))
@@ -112,4 +114,4 @@ class BatchNormalization:
                               dx_norm.sum(axis=(0,2,3)) -
                               x_norm * (dx_norm * x_norm).sum(axis=(0,2,3)))
 
-        return dx, derivated_gamma, derivated_beta
+        self.derivated_outputs = dx#, derivated_gamma, derivated_beta

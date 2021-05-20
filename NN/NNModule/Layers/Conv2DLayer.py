@@ -106,14 +106,14 @@ class Conv2D():
     stride: int
         The stride length of the filters during the convolution over the input.
     """
-    def __init__(self, n_filters, filter_shape, input_shape=None, padding='same', stride=1):
+    def __init__(self, n_filters, filter_shape, padding='same', stride=1):
         self.n_filters = n_filters
         self.filter_shape = filter_shape
         self.padding = padding
         self.stride = stride
-        self.input_shape = input_shape
         self.trainable = True
-        self.initialize()
+        self.outputs = None
+        self.derivated_inputs = None
 
     def initialize(self):
         # Initialize the weights
@@ -126,7 +126,9 @@ class Conv2D():
     def parameters(self):
         return np.prod(self.W.shape) + np.prod(self.w0.shape)
 
-    def forward_pass(self, X):
+    def forward(self, X):
+        self.input_shape = X.shape[1:]
+        self.initialize()
         batch_size, channels, height, width = X.shape
         self.layer_input = X
         # Turn image shape into column shape
@@ -139,9 +141,10 @@ class Conv2D():
         # Reshape into (n_filters, out_height, out_width, batch_size)
         output = output.reshape(self.output_shape() + (batch_size, ))
         # Redistribute axises so that batch size comes first
-        return output.transpose(3,0,1,2)
+        output = output.transpose(3,0,1,2)
+        self.outputs = output
 
-    def backward_pass(self, accum_grad):
+    def backward(self, accum_grad):
         # Reshape accumulated gradient into column shape
         accum_grad = accum_grad.transpose(1, 2, 3, 0).reshape(self.n_filters, -1)
 
@@ -165,7 +168,7 @@ class Conv2D():
                                 stride=self.stride,
                                 output_shape=self.padding)
 
-        return accum_grad
+        self.derivated_inputs = accum_grad
 
     def output_shape(self):
         channels, height, width = self.input_shape
