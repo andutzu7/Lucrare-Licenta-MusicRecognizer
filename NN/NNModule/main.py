@@ -1,89 +1,94 @@
-## pentru maaxpooling si conv2d metoda e ca primesc batchu la forma (N , C , W, H) si atributu input shape ia shape[1:], dar trebuie sa
+# o sa am nevoie si eu de rahatu ala cu training(argumentu nefolosit)
+# pentru maaxpooling si conv2d metoda e ca primesc batchu la forma (N , C , W, H) si atributu input shape ia shape[1:], dar trebuie sa
 # greseala e la input batch handling si faza cu channels first
-## si faza cu training loop, dupa ce se face forward si backprop trebuie reshapeuit arrayul(in model training loop)
-## am in vedere ca inputul primit dinainte in retea sa fie de forma asta sau sa i se faca reshape .
-import os
-import pickle
-import numpy as np
-import cv2
-
-from Layers.Conv2DLayer import Conv2D
-from Layers.MaxPooling2DLayer import MaxPooling2D
-from Layers.FlattenLayer import Flatten
-from Layers.BatchNormalizationLayer import BatchNormalization
-from Layers.DenseLayer import DenseLayer
-from Activations.ActivationSoftmax import ActivationSoftmax
-from Activations.ActivationReLu import ActivationReLu
-from Optimizers.OptimizerAdam import OptimizerAdam
-from Metrics.CategoricalCrossentropy import CategoricalCrossentropy
-from Metrics.CategoricalAccuracy import CategoricalAccuracy
+# si faza cu training loop, dupa ce se face forward si backprop trebuie reshapeuit arrayul(in model training loop)
+# am in vedere ca inputul primit dinainte in retea sa fie de forma asta sau sa i se faca reshape .
+from Layers.InputLayer import InputLayer
 from ModelClass.Model import Model
+from Metrics.CategoricalAccuracy import CategoricalAccuracy
+from Metrics.CategoricalCrossentropy import CategoricalCrossentropy
+from Optimizers.OptimizerAdam import OptimizerAdam
+from Activations.ActivationReLu import ActivationReLu
+from Activations.ActivationSoftmax import ActivationSoftmax
+from Layers.DropoutLayer import DropoutLayer
+from Layers.DenseLayer import DenseLayer
+from Layers.BatchNormalizationLayer import BatchNormalization
+from Layers.FlattenLayer import Flatten
+from Layers.MaxPooling2DLayer import MaxPooling2D
+from Layers.Conv2DLayer import Conv2D
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from ModelClass.DataGenerator import DataGenerator
+from glob import glob                
+from tensorflow.keras.utils import to_categorical
+import numpy as np
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-def load_mnist_dataset(dataset, path):
-    # Scan all the directories and create a list of labels
-    labels = os.listdir(os.path.join(path, dataset))
-    # Create lists for samples and labels
-    X = []
-    y = []
-    # For each label folder
-    for label in labels:
-        # And for each image in given folder
-        for file in os.listdir(os.path.join(path, dataset, label)):
-            # Read the image
-            image = cv2.imread(
-                os.path.join(path, dataset, label, file),
-                cv2.IMREAD_UNCHANGED)
-            # And append it and a label to the lists
-            X.append((image.reshape(28,28,1).astype(np.float32) - 127.5) / 127.5)
-            y.append(label)
-    # Convert the data to proper numpy arrays and return
-    return np.array(X), np.array(y).astype('uint8')
-# MNIST dataset (train + test)
+from scipy.io import wavfile
 
+def create_dataset(path):
 
-def create_data_mnist(path):
-    # Load both sets separately
-    X, y = load_mnist_dataset('train', path)
-    X_test, y_test = load_mnist_dataset('test', path)
-    # And return all the data
-    return X, y, X_test, y_test
+    wav_paths = glob('{}/**'.format(path), recursive=True)
+    wav_paths = [x.replace(os.sep, '/') for x in wav_paths if '.wav' in x]
+    classes = os.listdir(path)
+    le = LabelEncoder()
+    le.fit(classes)
+    labels = [os.path.split(x)[0].split('/')[-1] for x in wav_paths]
+    labels = le.transform(labels)
+    wav_train, wav_val, label_train, label_val = train_test_split(wav_paths,
+                                                                  labels,
+                                                                  test_size=0.1,
+                                                                  random_state=0)
+    return wav_train, wav_val, label_train, label_val
 
-
-# Label index to label name relation
-fashion_mnist_labels = {
-    0: 'T-shirt/top',
-    1: 'Trouser',
-    2: 'Pullover',
-    3: 'Dress',
-    4: 'Coat',
-    5: 'Sandal',
-    6: 'Shirt',
-    7: 'Sneaker',
-    8: 'Bag',
-    9: 'Ankle boot'
-}
 
 if __name__ == "__main__":
-    X, y, X_test, y_test = create_data_mnist('fashion_mnist_images')
-    # Shuffle the training dataset
-    keys = np.array(range(X.shape[0]))
-    np.random.shuffle(keys)
-    X = X[keys]
-    y = y[keys]
-    X_test = (X_test.reshape(X_test.shape[0], -1).astype(np.float32) -
-              127.5) / 127.5
-#    Instantiate the model
+
+    path = './clean/piano'
+    create_dataset(path)
+    sr = 16000
+    dt = 1.0
+    nr_classes = 2
+    batch_size = 32
+    wav_train, wav_val, label_train, label_val = create_dataset(path)
+
+    # Creating the data generators
+    tg = DataGenerator(wav_train, label_train, sr, dt,
+                       nr_classes, batch_size=batch_size)
+    vg = DataGenerator(wav_val, label_val, sr, dt,
+                       nr_classes, batch_size=batch_size)
+
+    # # il = InputLayer()
+    # # il.forward(tg.__getitem__(0)[0])
+    # # print(il.output.shape)
+
     model = Model()
     # Add layers
-    model.add(Conv2D(9,(3,3)))
+    model.add(BatchNormalization())
+    model.add(Conv2D(8, (7, 7)))
     model.add(ActivationReLu())
-    model.add(MaxPooling2D(pool_shape=(3,3)))
+    model.add(MaxPooling2D(pool_shape=(2, 2), padding='same'))
+    model.add(ActivationReLu())
+    model.add(Conv2D(16, (5, 5)))
+    model.add(ActivationReLu())
+    model.add(MaxPooling2D(pool_shape=(2, 2), padding='same'))
+    model.add(ActivationReLu())
+    model.add(Conv2D(16, (3, 3)))
+    model.add(ActivationReLu())
+    model.add(MaxPooling2D(pool_shape=(2, 2), padding='same'))
+    model.add(ActivationReLu())
+    model.add(Conv2D(32, (3, 3)))
+    model.add(ActivationReLu())
+    model.add(MaxPooling2D(pool_shape=(2, 2), padding='same'))
     model.add(ActivationReLu())
     model.add(Flatten())
-    model.add(DenseLayer(252, 128))
+    model.add(DropoutLayer(0.2))
+    model.add(DenseLayer(131072, 64))
     model.add(ActivationReLu())
-    model.add(DenseLayer(128, 64))
+    model.add(DenseLayer(64, 2))
     model.add(ActivationSoftmax())
+
     # Set loss, optimizer and accuracy objects
     model.set(
         loss=CategoricalCrossentropy(),
@@ -93,23 +98,26 @@ if __name__ == "__main__":
     # Finalize the model
     model.finalize()
     # Train the model
-    model.train(X, y, validation_data=(X_test, y_test),
-                epochs=10, batch_size=128, print_every=100)
-    # model.save('fashion_mnist.model')
-#     # # Read an image
-#     # image_data = cv2.imread('pants.png', cv2.IMREAD_GRAYSCALE)
-#     # # Resize to the same size as Fashion MNIST images
-# #    image_data = cv2.resize(image_data, (28, 28))
-#     # Invert image colors
-#     # image_data = 255 - image_data
-#     # # Reshape and scale pixel data
-#     # image_data = (image_data.reshape(1, -1).astype(np.float32) - 127.5) / 127.5
-#     # # Load the model
-#     # model = Model.load('fashion_mnist.model')
-#     # # Predict on the image
-#     # confidences = model.predict(image_data)
-#     # # Get prediction instead of confidence levels
-#     # predictions = model.output_layer_activation.predictions(confidences)
-#     # # Get label name from label index
-#     # prediction = fashion_mnist_labels[predictions[0]]
-#     # print(prediction)
+    model.train(train_generator=tg, validation_generator=vg,
+                epochs=5
+                , batch_size=batch_size, print_every=1)
+    model.save('audio_classification.h5')
+ #   Read an image
+    dataset_labels={0:'Other',
+                    1:'Piano'}
+    audio_file = wavfile.read('./output_0.wav')
+
+    X = np.empty((1, int(16000*1.0), 1),dtype=np.float32)
+
+    Y = np.empty((1, 2), dtype=np.float32)
+    X[0, ] = audio_file[1].reshape(-1, 1)
+    
+    model = Model.load('audio_classification.h5')
+    confidences = model.predict(X)
+    # Get prediction instead of confidence levels
+    predictions = model.output_layer_activation.predictions(confidences)
+    print(confidences)
+    # Get label name from label index
+    prediction = dataset_labels[predictions[0]]
+    print(prediction)
+

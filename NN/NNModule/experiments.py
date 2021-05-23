@@ -16,22 +16,55 @@
 #                              output_data_format='channels_last')
                             
 
-# print(i(data))
+print(i(data))# 
 
-from Layers.Conv2DLayer import Conv2D
-from Layers.MaxPooling2DLayer import MaxPooling2D
-from Layers.DropoutLayer import DropoutLayer
-import cv2
+    X, y, X_test, y_test = create_data_mnist('fashion_mnist_images')
+    # Shuffle the training dataset
+    keys = np.array(range(X.shape[0]))
+    np.random.shuffle(keys)
+    X = X[keys]
+    y = y[keys]
+    X_test = (X_test.astype(np.float32) - 127.5) / 127.5
+def load_mnist_dataset(dataset, path):
+    # Scan all the directories and create a list of labels
+    labels = os.listdir(os.path.join(path, dataset))
+    # Create lists for samples and labels
+    X = []
+    y = []
+    # For each label folder
+    for label in labels:
+        # And for each image in given folder
+        for file in os.listdir(os.path.join(path, dataset, label)):
+            # Read the image
+            image = cv2.imread(
+                os.path.join(path, dataset, label, file),
+                cv2.IMREAD_UNCHANGED)
+            # And append it and a label to the lists
+            X.append((image.reshape(1,28,28).astype(np.float32) - 127.5) / 127.5)
+            y.append(label)
+    # Convert the data to proper numpy arrays and return
+    return np.array(X), np.array(y).astype('uint8')
+# MNIST dataset (train + test)
 
-c2d = Conv2D(3,(2,2))
 
-image = cv2.imread('pants.png')
-image = image.reshape((1,image.shape[0],image.shape[1],image.shape[2]))
-out = c2d.forward_pass(image)
-print(out)
-mp2d = MaxPooling2D(pool_shape=(2,2))
-out2 = mp2d.forward_pass(out)
+def create_data_mnist(path):
+    # Load both sets separately
+    X, y = load_mnist_dataset('train', path)
+    X_test, y_test = load_mnist_dataset('test', path)
+    # And return all the data
+    return X, y, X_test, y_test
 
-dl = DropoutLayer(0.2)
-dl.forward(out2,True)
-print(dl.output)
+
+# Label index to label name relation
+fashion_mnist_labels = {
+    0: 'T-shirt/top',
+    1: 'Trouser',
+    2: 'Pullover',
+    3: 'Dress',
+    4: 'Coat',
+    5: 'Sandal',
+    6: 'Shirt',
+    7: 'Sneaker',
+    8: 'Bag',
+    9: 'Ankle boot'
+}

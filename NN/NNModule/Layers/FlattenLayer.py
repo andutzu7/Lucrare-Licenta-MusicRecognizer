@@ -1,8 +1,8 @@
 import numpy as np
 
-class Flatten():
+class Flatten:
     """ Turns a multidimensional matrix into two-dimensional """
-    def __init__(self, input_shape=None):
+    def __init__(self):
         self.prev_shape = None
         self.trainable = True
         self.derivated_inputs = None

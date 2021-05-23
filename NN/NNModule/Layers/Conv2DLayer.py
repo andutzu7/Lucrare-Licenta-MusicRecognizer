@@ -120,14 +120,13 @@ class Conv2D():
         filter_height, filter_width = self.filter_shape
         channels = self.input_shape[0]
         limit = 1 / math.sqrt(np.prod(self.filter_shape))
-        self.W  = np.random.uniform(-limit, limit, size=(self.n_filters, channels, filter_height, filter_width))
-        self.w0 = np.zeros((self.n_filters, 1))
+        self.weights  = np.random.uniform(-limit, limit, size=(self.n_filters, channels, filter_height, filter_width))
+        self.biases = np.zeros((self.n_filters, 1))
         
-    def parameters(self):
-        return np.prod(self.W.shape) + np.prod(self.w0.shape)
+    def get_parameters(self):
+        return np.prod(self.weights.shape) + np.prod(self.biases.shape)
 
     def forward(self, X):
-        print(X.shape)
         self.input_shape = X.shape[1:]
         self.initialize()
         batch_size, channels, height, width = X.shape
@@ -136,9 +135,9 @@ class Conv2D():
         # (enables dot product between input and weights)
         self.X_col = image_to_column(X, self.filter_shape, stride=self.stride, output_shape=self.padding)
         # Turn weights into column shape
-        self.W_col = self.W.reshape((self.n_filters, -1))
+        self.weights_col = self.weights.reshape((self.n_filters, -1))
         # Calculate output
-        output = self.W_col.dot(self.X_col) + self.w0
+        output = self.weights_col.dot(self.X_col) + self.biases
         # Reshape into (n_filters, out_height, out_width, batch_size)
         output = output.reshape(self.output_shape() + (batch_size, ))
         # Redistribute axises so that batch size comes first
@@ -150,7 +149,7 @@ class Conv2D():
         accum_grad = accum_grad.transpose(1, 2, 3, 0).reshape(self.n_filters, -1)
 
         # Recalculate the gradient which will be propogated back to prev. layer
-        accum_grad = self.W_col.T.dot(accum_grad)
+        accum_grad = self.weights_col.T.dot(accum_grad)
         # Reshape from column shape to image shape
         accum_grad = column_to_image(accum_grad,
                                 self.layer_input.shape,

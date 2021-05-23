@@ -7,6 +7,7 @@ import copy
 import pickle
 # Import clasess
 from Layers.InputLayer import InputLayer
+from .DataGenerator import DataGenerator
 from Metrics.CategoricalCrossentropy import CategoricalCrossentropy
 from Activations.ActivationSoftmax import ActivationSoftmax
 from Metrics.ActivationSoftmaxCategoricalCrossentropy import Activation_Softmax_Loss_CategoricalCrossentropy
@@ -84,20 +85,24 @@ class Model:
                 Activation_Softmax_Loss_CategoricalCrossentropy()
     # Train the model
 
-    def train(self, X, y, epochs=1, batch_size=None,
+    def train(self, X=None, y=None, train_generator=None, validation_generator=None, epochs=1, batch_size=None,
               print_every=1, validation_data=None):
         # Initialize accuracy object
-        self.accuracy.init(y)
+        if y is not None:
+            self.accuracy.init(y)
         # Default value if batch size is not being set
         train_steps = 1
         # Calculate number of steps
-        if batch_size is not None:
-            train_steps = len(X) // batch_size
-            # Dividing rounds down. If there are some remaining
-            # data but not a full batch, this won't include it
-            # Add `1` to include this not full batch
-            if train_steps * batch_size < len(X):
-                train_steps += 1
+        if X is not None:
+            if batch_size is not None:
+                train_steps = len(X) // batch_size
+                # Dividing rounds down. If there are some remaining
+                # data but not a full batch, this won't include it
+                # Add `1` to include this not full batch
+                if train_steps * batch_size < len(X):
+                    train_steps += 1
+        elif train_generator is not None:
+            train_steps = train_generator.__len__()
         # Main training loop
         for epoch in range(1, epochs+1):
             # Print epoch number
@@ -109,15 +114,18 @@ class Model:
             for step in range(train_steps):
                 # If batch size is not set -
                 # train using one step and full dataset
-                if batch_size is None:
-                    batch_X = X
-                    batch_y = y
+                if X is not None:
+                    if batch_size is None:
+                        batch_X = X
+                        batch_y = y
                 # Otherwise slice a batch
-                else:
-                    batch_X = X[step*batch_size:(step+1)*batch_size]
-                    batch_y = y[step*batch_size:(step+1)*batch_size]
+                    else:
+                        batch_X = X[step*batch_size:(step+1)*batch_size]
+                        batch_y = y[step*batch_size:(step+1)*batch_size]
+                elif train_generator is not None:
+                    batch_X, batch_y = train_generator.__getitem__(step)
+                    self.accuracy.init(batch_y)
                 # Perform the forward pass
-                print(batch_X.shape)
                 output = self.forward(batch_X)
                 # Calculate loss
                 data_loss, regularization_loss = \
@@ -138,42 +146,45 @@ class Model:
                 self.optimizer.post_update_params()
                 # Print a summary
                 if not step % print_every or step == train_steps - 1:
-                    print(f'step: {step}, ' +
-                          f'acc: {accuracy:.3f}, ' +
-                          f'loss: {loss:.3f} (' +
-                          f'data_loss: {data_loss:.3f}, ' +
-                          f'reg_loss: {regularization_loss:.3f}), ' +
-                          f'lr: {self.optimizer.current_learning_rate}')
+                    message = f'step: {step},  acc: {accuracy:.3f},  loss: {loss:.3f} ( + data_loss: {data_loss:.3f},reg_loss: {regularization_loss:.3f}),lr: {self.optimizer.current_learning_rate} \n'
+                    with open('logs','a+') as f:
+                        f.write(message)
+                    print(message)
             # Get and print epoch loss and accuracy
             epoch_data_loss, epoch_regularization_loss = \
                 self.loss.calculate_accumulated(
                     include_regularization=True)
             epoch_loss = epoch_data_loss + epoch_regularization_loss
             epoch_accuracy = self.accuracy.calculate_accumulated()
-            print(f'training, ' +
-                  f'acc: {epoch_accuracy:.3f}, ' +
-                  f'loss: {epoch_loss:.3f} (' +
-                  f'data_loss: {epoch_data_loss:.3f}, ' +
-                  f'reg_loss: {epoch_regularization_loss:.3f}), ' +
-                  f'lr: {self.optimizer.current_learning_rate}')
+            message = f'training,  acc: {epoch_accuracy:.3f},loss: {epoch_loss:.3f} data_loss: {epoch_data_loss:.3f}, reg_loss: {epoch_regularization_loss:.3f}),lr: {self.optimizer.current_learning_rate})\n'
+            print(message)
+            with open('./logs2','a+') as f:
+                f.write(message)
             # If there is the validation data
             if validation_data is not None:
                 # Evaluate the model:
                 self.evaluate(*validation_data,
                               batch_size=batch_size)
+            elif validation_generator is not None:
+                self.evaluate(validation_generator=validation_generator,
+                              batch_size=batch_size)
     # Evaluates the model using passed-in dataset
 
-    def evaluate(self, X_val, y_val, batch_size=None):
+    def evaluate(self, X_val=None, y_val=None, validation_generator=None, batch_size=None):
         # Default value if batch size is not being set
         validation_steps = 1
         # Calculate number of steps
-        if batch_size is not None:
-            validation_steps = len(X_val) // batch_size
-            # Dividing rounds down. If there are some remaining
-            # data but not a full batch, this won't include it
-            # Add `1` to include this not full batch
-            if validation_steps * batch_size < len(X_val):
-                validation_steps += 1
+        if X_val is not None:
+            if batch_size is not None:
+                validation_steps = len(X_val) // batch_size
+                # Dividing rounds down. If there are some remaining
+                # data but not a full batch, this won't include it
+                # Add `1` to include this not full batch
+                if validation_steps * batch_size < len(X_val):
+                    validation_steps += 1
+        else:
+            if validation_generator is not None:
+                validation_steps = validation_generator.__len__()
         # Reset accumulated values in loss
         # and accuracy objects
         self.loss.new_pass()
@@ -182,18 +193,21 @@ class Model:
         for step in range(validation_steps):
             # If batch size is not set -
             # train using one step and full dataset
-            if batch_size is None:
-                batch_X = X_val
-                batch_y = y_val
-            # Otherwise slice a batch
-            else:
-                batch_X = X_val[
-                    step*batch_size:(step+1)*batch_size
-                ]
-                batch_y = y_val[
-                    step*batch_size:(step+1)*batch_size
-                ]
-            # Perform the forward pass
+            if X_val is not None:
+                if batch_size is None:
+                    batch_X = X_val
+                    batch_y = y_val
+                # Otherwise slice a batch
+                else:
+                    batch_X = X_val[
+                        step*batch_size:(step+1)*batch_size
+                    ]
+                    batch_y = y_val[
+                        step*batch_size:(step+1)*batch_size
+                    ]
+            elif validation_generator is not None:
+                batch_X, batch_y = validation_generator.__getitem__(step)
+                # Perform the forward pass
             output = self.forward(batch_X)
             # Calculate the loss
             self.loss.calculate(output, batch_y)
@@ -210,29 +224,35 @@ class Model:
               f'loss: {validation_loss:.3f}')
     # Predicts on the samples
 
-    def predict(self, X,  batch_size=None):
+    def predict(self, X=None, test_generator=None,  batch_size=None):
         # Default value if batch size is not being set
         prediction_steps = 1
         # Calculate number of steps
-        if batch_size is not None:
-            prediction_steps = len(X) // batch_size
-            # Dividing rounds down. If there are some remaining
-            # data but not a full batch, this won't include it
-            # Add `1` to include this not full batch
-            if prediction_steps * batch_size < len(X):
-                prediction_steps += 1
+        if X is not None:
+            if batch_size is not None:
+                prediction_steps = len(X) // batch_size
+                # Dividing rounds down. If there are some remaining
+                # data but not a full batch, this won't include it
+                # Add `1` to include this not full batch
+                if prediction_steps * batch_size < len(X):
+                    prediction_steps += 1
+        elif test_generator is not None:
+            prediction_steps = test_generator.__len__()
         # Model outputs
         output = []
         # Iterate over steps
         for step in range(prediction_steps):
             # If batch size is not set -
             # train using one step and full dataset
-            if batch_size is None:
-                batch_X = X
-            # Otherwise slice a batch
-            else:
-                batch_X = X[step*batch_size:(step+1)*batch_size]
-            # Perform the forward pass
+            if X is not None:
+                if batch_size is None:
+                    batch_X = X
+                # Otherwise slice a batch
+                else:
+                    batch_X = X[step*batch_size:(step+1)*batch_size]
+            elif test_generator is not None:
+                batch_X = test_generator.__getitem__(step)
+                # Perform the forward pass
             batch_output = self.forward(batch_X)
             # Append batch prediction to the list of predictions
             output.append(batch_output)

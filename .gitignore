@@ -18,6 +18,10 @@ NN/.idea
 NN/.ipynb_checkpoints/
 NN/Input Data/
 NN/NNModule/fashion_mnist_images/
+NN/NNModule/Input\ Data/
+NN/NNModule/clean/
+NN/NNModule/audio_classification.h5
+NN/NNModule/fashion_mnist.model
 NN/clean
 NN/VNNL/VNNL/Debug
 NN/VNNL/VNNL/Release
@@ -29,3 +33,4 @@ NN/VNNL/VNNL/VNNL/Release
 NN/VNNL/VNNL/VNNL/*.vcxproj
 NN/VNNL/VNNL/VNNL/*.vcxproj.filters
 NN/VNNL/VNNL/VNNL/*.vcxproj.user
+NN/NNModule/fashion_mnist.model
