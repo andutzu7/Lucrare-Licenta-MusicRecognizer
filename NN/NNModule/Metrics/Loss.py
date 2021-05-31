@@ -37,8 +37,8 @@ class Loss:
         self.trainable_layers = trainable_layers
         # Calculates the data and regularization losses
     # given model output and ground truth values
-
-    def calculate(self, output, y, include_regularization=False):
+## de rezolvat pt conv2d
+    def calculate(self, output, y, include_regularization=True):
         # Calculate sample losses
         sample_losses = self.forward(output, y)
         # Calculate mean loss

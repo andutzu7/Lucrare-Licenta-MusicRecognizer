@@ -5,6 +5,9 @@ import numpy as np
 
 class InputLayer:
     # Forward pass
+    def __init__(self):
+        self.output = None
+
     def forward(self, inputs):
         input_shape = (int(16000*1.0), 1)
         i = get_melspectrogram_layer(input_shape=input_shape,
@@ -14,4 +17,5 @@ class InputLayer:
                                      input_data_format='channels_last',
                                      output_data_format='channels_first')
         self.output = np.array(i(inputs)).astype(np.float32)
+
 

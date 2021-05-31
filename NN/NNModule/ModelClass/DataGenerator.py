@@ -22,23 +22,22 @@ class DataGenerator(tf.keras.utils.Sequence):
     def __len__(self):
         return int(np.floor(len(self.wav_paths) / self.batch_size))
 
-
     def __getitem__(self, index):
         indexes = self.indexes[index *
-                               self.batch_size:(index+1)*self.batch_size]
+                               self.batch_size:(index + 1) * self.batch_size]
 
         wav_paths = [self.wav_paths[k] for k in indexes]
         labels = [self.labels[k] for k in indexes]
 
         # generate a batch of time data
-        X = np.empty((self.batch_size, int(self.sr*self.dt), 1),
+        X = np.empty((self.batch_size, int(self.sr * self.dt), 1),
                      dtype=np.float32)
         Y = np.empty((self.batch_size, self.n_classes), dtype=np.float32)
 
         for i, (path, label) in enumerate(zip(wav_paths, labels)):
             rate, wav = wavfile.read(path)
-            X[i, ] = wav.reshape(-1, 1)
-            Y[i, ] = to_categorical(label, num_classes=self.n_classes)
+            X[i,] = wav.reshape(-1, 1)
+            Y[i,] = to_categorical(label, num_classes=self.n_classes)
 
         return X, Y
 

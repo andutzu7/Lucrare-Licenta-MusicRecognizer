@@ -59,10 +59,9 @@ if __name__ == "__main__":
     vg = DataGenerator(wav_val, label_val, sr, dt,
                        nr_classes, batch_size=batch_size)
 
-    # # il = InputLayer()
-    # # il.forward(tg.__getitem__(0)[0])
-    # # print(il.output.shape)
-
+    # il = InputLayer()
+    # il.forward(tg.__getitem__(0)[0])
+    # print(il.output.shape)
     model = Model()
     # Add layers
     model.add(BatchNormalization())

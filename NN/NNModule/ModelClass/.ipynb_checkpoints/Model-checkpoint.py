@@ -1,5 +1,4 @@
 # Import modules
-from Layers.Conv2DLayer import Conv2D
 import copy
 import cv2
 import os
@@ -131,7 +130,7 @@ class Model:
                 # Calculate loss
                 data_loss, regularization_loss = \
                     self.loss.calculate(output, batch_y,
-                                        include_regularization=False)
+                                        include_regularization=True)
                 loss = data_loss + regularization_loss
                 # Get predictions and calculate an accuracy
                 predictions = self.output_layer_activation.predictions(
