@@ -1,86 +1,174 @@
-step: 0,  acc: 0.594,  loss: 0.726 ( + data_loss: 0.726,reg_loss: 0.000),lr: 0.001 
-step: 25,  acc: 0.531,  loss: 0.692 ( + data_loss: 0.692,reg_loss: 0.000),lr: 0.0009987515605493133 
-step: 50,  acc: 0.250,  loss: 0.704 ( + data_loss: 0.704,reg_loss: 0.000),lr: 0.0009975062344139652 
-step: 75,  acc: 0.500,  loss: 0.673 ( + data_loss: 0.673,reg_loss: 0.000),lr: 0.0009962640099626403 
-step: 100,  acc: 0.500,  loss: 0.693 ( + data_loss: 0.693,reg_loss: 0.000),lr: 0.0009950248756218907 
-step: 125,  acc: 0.531,  loss: 0.692 ( + data_loss: 0.692,reg_loss: 0.000),lr: 0.0009937888198757762 
-step: 150,  acc: 0.781,  loss: 0.615 ( + data_loss: 0.615,reg_loss: 0.000),lr: 0.0009925558312655087 
-step: 175,  acc: 0.781,  loss: 0.633 ( + data_loss: 0.633,reg_loss: 0.000),lr: 0.0009913258983890955 
-step: 200,  acc: 0.719,  loss: 0.673 ( + data_loss: 0.673,reg_loss: 0.000),lr: 0.0009900990099009901 
-step: 225,  acc: 0.906,  loss: 0.491 ( + data_loss: 0.491,reg_loss: 0.000),lr: 0.000988875154511743 
-step: 250,  acc: 0.750,  loss: 0.485 ( + data_loss: 0.485,reg_loss: 0.000),lr: 0.0009876543209876543 
-step: 275,  acc: 0.875,  loss: 0.657 ( + data_loss: 0.657,reg_loss: 0.000),lr: 0.0009864364981504318 
-step: 300,  acc: 0.656,  loss: 0.532 ( + data_loss: 0.532,reg_loss: 0.000),lr: 0.0009852216748768474 
-step: 325,  acc: 0.875,  loss: 0.475 ( + data_loss: 0.475,reg_loss: 0.000),lr: 0.0009840098400984009 
-step: 350,  acc: 0.688,  loss: 0.655 ( + data_loss: 0.655,reg_loss: 0.000),lr: 0.0009828009828009828 
-step: 375,  acc: 0.406,  loss: 0.711 ( + data_loss: 0.711,reg_loss: 0.000),lr: 0.00098159509202454 
-step: 400,  acc: 0.719,  loss: 0.746 ( + data_loss: 0.746,reg_loss: 0.000),lr: 0.000980392156862745 
-step: 425,  acc: 0.938,  loss: 0.541 ( + data_loss: 0.541,reg_loss: 0.000),lr: 0.0009791921664626683 
-step: 450,  acc: 0.875,  loss: 0.527 ( + data_loss: 0.527,reg_loss: 0.000),lr: 0.00097799511002445 
-step: 475,  acc: 0.531,  loss: 0.690 ( + data_loss: 0.690,reg_loss: 0.000),lr: 0.0009768009768009768 
-step: 500,  acc: 0.625,  loss: 1.144 ( + data_loss: 1.144,reg_loss: 0.000),lr: 0.0009756097560975611 
-step: 525,  acc: 0.875,  loss: 0.525 ( + data_loss: 0.525,reg_loss: 0.000),lr: 0.0009744214372716199 
-step: 550,  acc: 0.844,  loss: 0.385 ( + data_loss: 0.385,reg_loss: 0.000),lr: 0.00097323600973236 
-step: 575,  acc: 0.719,  loss: 0.557 ( + data_loss: 0.557,reg_loss: 0.000),lr: 0.0009720534629404617 
-step: 600,  acc: 0.469,  loss: 0.717 ( + data_loss: 0.717,reg_loss: 0.000),lr: 0.0009708737864077671 
-step: 625,  acc: 0.531,  loss: 0.691 ( + data_loss: 0.691,reg_loss: 0.000),lr: 0.0009696969696969698 
-step: 650,  acc: 0.812,  loss: 0.540 ( + data_loss: 0.540,reg_loss: 0.000),lr: 0.0009685230024213075 
-step: 675,  acc: 0.594,  loss: 0.676 ( + data_loss: 0.676,reg_loss: 0.000),lr: 0.0009673518742442564 
-step: 700,  acc: 0.906,  loss: 0.546 ( + data_loss: 0.546,reg_loss: 0.000),lr: 0.0009661835748792271 
-step: 725,  acc: 0.812,  loss: 0.514 ( + data_loss: 0.514,reg_loss: 0.000),lr: 0.0009650180940892644 
-step: 750,  acc: 0.969,  loss: 0.253 ( + data_loss: 0.253,reg_loss: 0.000),lr: 0.0009638554216867469 
-step: 775,  acc: 0.844,  loss: 0.463 ( + data_loss: 0.463,reg_loss: 0.000),lr: 0.0009626955475330926 
-step: 800,  acc: 0.688,  loss: 0.628 ( + data_loss: 0.628,reg_loss: 0.000),lr: 0.0009615384615384615 
-step: 825,  acc: 0.812,  loss: 0.477 ( + data_loss: 0.477,reg_loss: 0.000),lr: 0.0009603841536614646 
-step: 850,  acc: 0.469,  loss: 0.861 ( + data_loss: 0.861,reg_loss: 0.000),lr: 0.0009592326139088729 
-step: 875,  acc: 0.438,  loss: 0.738 ( + data_loss: 0.738,reg_loss: 0.000),lr: 0.0009580838323353293 
-step: 900,  acc: 0.750,  loss: 2.116 ( + data_loss: 2.116,reg_loss: 0.000),lr: 0.0009569377990430623 
-step: 925,  acc: 0.438,  loss: 0.755 ( + data_loss: 0.755,reg_loss: 0.000),lr: 0.000955794504181601 
-step: 943,  acc: 0.625,  loss: 0.650 ( + data_loss: 0.650,reg_loss: 0.000),lr: 0.0009549730220121281 
-step: 0,  acc: 0.281,  loss: 0.775 ( + data_loss: 0.775,reg_loss: 0.000),lr: 0.001 
-step: 25,  acc: 0.594,  loss: 2.404 ( + data_loss: 2.404,reg_loss: 0.000),lr: 0.0009987515605493133 
-step: 50,  acc: 0.844,  loss: 0.618 ( + data_loss: 0.618,reg_loss: 0.000),lr: 0.0009975062344139652 
-step: 75,  acc: 0.500,  loss: 0.603 ( + data_loss: 0.603,reg_loss: 0.000),lr: 0.0009962640099626403 
-step: 100,  acc: 0.469,  loss: 0.790 ( + data_loss: 0.790,reg_loss: 0.000),lr: 0.0009950248756218907 
-step: 125,  acc: 0.875,  loss: 0.400 ( + data_loss: 0.400,reg_loss: 0.000),lr: 0.0009937888198757762 
-step: 150,  acc: 0.438,  loss: 0.679 ( + data_loss: 0.679,reg_loss: 0.000),lr: 0.0009925558312655087 
-step: 175,  acc: 0.312,  loss: 0.746 ( + data_loss: 0.746,reg_loss: 0.000),lr: 0.0009913258983890955 
-step: 200,  acc: 0.531,  loss: 0.701 ( + data_loss: 0.701,reg_loss: 0.000),lr: 0.0009900990099009901 
-step: 225,  acc: 0.719,  loss: 0.577 ( + data_loss: 0.577,reg_loss: 0.000),lr: 0.000988875154511743 
-step: 250,  acc: 0.438,  loss: 0.679 ( + data_loss: 0.679,reg_loss: 0.000),lr: 0.0009876543209876543 
-step: 275,  acc: 0.906,  loss: 0.454 ( + data_loss: 0.454,reg_loss: 0.000),lr: 0.0009864364981504318 
-step: 300,  acc: 0.781,  loss: 0.644 ( + data_loss: 0.644,reg_loss: 0.000),lr: 0.0009852216748768474 
-step: 325,  acc: 0.406,  loss: 0.786 ( + data_loss: 0.786,reg_loss: 0.000),lr: 0.0009840098400984009 
-step: 350,  acc: 0.781,  loss: 0.515 ( + data_loss: 0.515,reg_loss: 0.000),lr: 0.0009828009828009828 
-step: 375,  acc: 0.500,  loss: 0.726 ( + data_loss: 0.726,reg_loss: 0.000),lr: 0.00098159509202454 
-step: 400,  acc: 0.500,  loss: 0.667 ( + data_loss: 0.667,reg_loss: 0.000),lr: 0.000980392156862745 
-step: 425,  acc: 0.531,  loss: 0.677 ( + data_loss: 0.677,reg_loss: 0.000),lr: 0.0009791921664626683 
-step: 450,  acc: 0.469,  loss: 0.868 ( + data_loss: 0.868,reg_loss: 0.000),lr: 0.00097799511002445 
-step: 475,  acc: 0.562,  loss: 1.416 ( + data_loss: 1.416,reg_loss: 0.000),lr: 0.0009768009768009768 
-step: 500,  acc: 0.562,  loss: 0.674 ( + data_loss: 0.674,reg_loss: 0.000),lr: 0.0009756097560975611 
-step: 525,  acc: 0.781,  loss: 0.657 ( + data_loss: 0.657,reg_loss: 0.000),lr: 0.0009744214372716199 
-step: 550,  acc: 0.469,  loss: 0.691 ( + data_loss: 0.691,reg_loss: 0.000),lr: 0.00097323600973236 
-step: 575,  acc: 0.875,  loss: 0.501 ( + data_loss: 0.501,reg_loss: 0.000),lr: 0.0009720534629404617 
-step: 600,  acc: 0.906,  loss: 0.455 ( + data_loss: 0.455,reg_loss: 0.000),lr: 0.0009708737864077671 
-step: 625,  acc: 0.719,  loss: 0.530 ( + data_loss: 0.530,reg_loss: 0.000),lr: 0.0009696969696969698 
-step: 650,  acc: 0.688,  loss: 0.684 ( + data_loss: 0.684,reg_loss: 0.000),lr: 0.0009685230024213075 
-step: 675,  acc: 0.656,  loss: 0.663 ( + data_loss: 0.663,reg_loss: 0.000),lr: 0.0009673518742442564 
-step: 700,  acc: 0.469,  loss: 0.698 ( + data_loss: 0.698,reg_loss: 0.000),lr: 0.0009661835748792271 
-step: 725,  acc: 0.500,  loss: 0.712 ( + data_loss: 0.712,reg_loss: 0.000),lr: 0.0009650180940892644 
-step: 750,  acc: 0.844,  loss: 0.458 ( + data_loss: 0.458,reg_loss: 0.000),lr: 0.0009638554216867469 
-step: 775,  acc: 0.844,  loss: 0.536 ( + data_loss: 0.536,reg_loss: 0.000),lr: 0.0009626955475330926 
-step: 800,  acc: 0.719,  loss: 0.467 ( + data_loss: 0.467,reg_loss: 0.000),lr: 0.0009615384615384615 
-step: 0,  acc: 0.719,  loss: 0.665 ( + data_loss: 0.665,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.531,  loss: 0.694 ( + data_loss: 0.694,reg_loss: 0.000),lr: 0.001 
-step: 1,  acc: 0.469,  loss: 1.655 ( + data_loss: 1.655,reg_loss: 0.000),lr: 0.000999950002499875 
-step: 2,  acc: 0.469,  loss: 7.784 ( + data_loss: 7.784,reg_loss: 0.000),lr: 0.000999900009999 
-step: 3,  acc: 0.594,  loss: 3.638 ( + data_loss: 3.638,reg_loss: 0.000),lr: 0.0009998500224966255 
-step: 0,  acc: 0.344,  loss: 0.747 ( + data_loss: 0.747,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.469,  loss: 0.742 ( + data_loss: 0.742,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.469,  loss: 0.723 ( + data_loss: 0.723,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.531,  loss: 0.703 ( + data_loss: 0.703,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.500,  loss: 0.701 ( + data_loss: 0.701,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.438,  loss: 0.906 ( + data_loss: 0.906,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.562,  loss: 0.698 ( + data_loss: 0.698,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.594,  loss: 0.692 ( + data_loss: 0.692,reg_loss: 0.000),lr: 0.001 
-step: 0,  acc: 0.688,  loss: 0.675 ( + data_loss: 0.675,reg_loss: 0.000),lr: 0.001 
+step: 0,  acc: 0.469,  loss: 0.693 ( + data_loss: 0.693),lr: 0.001 
+step: 1,  acc: 0.844,  loss: 1.665 ( + data_loss: 1.665),lr: 0.000999950002499875 
+step: 2,  acc: 0.562,  loss: 5.703 ( + data_loss: 5.703),lr: 0.000999900009999 
+step: 3,  acc: 0.844,  loss: 1.189 ( + data_loss: 1.189),lr: 0.0009998500224966255 
+step: 4,  acc: 0.688,  loss: 3.228 ( + data_loss: 3.228),lr: 0.0009998000399920016 
+step: 5,  acc: 0.656,  loss: 1.795 ( + data_loss: 1.795),lr: 0.0009997500624843788 
+step: 6,  acc: 0.750,  loss: 1.165 ( + data_loss: 1.165),lr: 0.000999700089973008 
+step: 7,  acc: 0.719,  loss: 0.735 ( + data_loss: 0.735),lr: 0.0009996501224571398 
+step: 8,  acc: 0.594,  loss: 1.548 ( + data_loss: 1.548),lr: 0.0009996001599360256 
+step: 9,  acc: 0.625,  loss: 1.197 ( + data_loss: 1.197),lr: 0.0009995502024089159 
+step: 10,  acc: 0.844,  loss: 0.452 ( + data_loss: 0.452),lr: 0.0009995002498750624 
+step: 11,  acc: 0.844,  loss: 0.308 ( + data_loss: 0.308),lr: 0.0009994503023337165 
+step: 12,  acc: 0.812,  loss: 0.356 ( + data_loss: 0.356),lr: 0.0009994003597841295 
+step: 13,  acc: 0.906,  loss: 0.294 ( + data_loss: 0.294),lr: 0.0009993504222255533 
+step: 14,  acc: 0.719,  loss: 0.763 ( + data_loss: 0.763),lr: 0.0009993004896572402 
+step: 15,  acc: 0.906,  loss: 0.296 ( + data_loss: 0.296),lr: 0.0009992505620784412 
+step: 16,  acc: 0.844,  loss: 0.316 ( + data_loss: 0.316),lr: 0.0009992006394884093 
+step: 17,  acc: 0.844,  loss: 0.339 ( + data_loss: 0.339),lr: 0.0009991507218863964 
+step: 18,  acc: 0.938,  loss: 0.219 ( + data_loss: 0.219),lr: 0.0009991008092716555 
+step: 19,  acc: 0.844,  loss: 0.315 ( + data_loss: 0.315),lr: 0.0009990509016434388 
+step: 20,  acc: 0.812,  loss: 0.310 ( + data_loss: 0.310),lr: 0.0009990009990009992 
+step: 21,  acc: 0.844,  loss: 0.316 ( + data_loss: 0.316),lr: 0.0009989511013435892 
+step: 22,  acc: 0.906,  loss: 0.316 ( + data_loss: 0.316),lr: 0.0009989012086704624 
+step: 23,  acc: 0.906,  loss: 0.287 ( + data_loss: 0.287),lr: 0.0009988513209808721 
+step: 24,  acc: 0.969,  loss: 0.158 ( + data_loss: 0.158),lr: 0.000998801438274071 
+step: 25,  acc: 0.844,  loss: 0.402 ( + data_loss: 0.402),lr: 0.0009987515605493133 
+step: 26,  acc: 0.875,  loss: 0.287 ( + data_loss: 0.287),lr: 0.0009987016878058523 
+step: 27,  acc: 0.969,  loss: 0.190 ( + data_loss: 0.190),lr: 0.0009986518200429421 
+step: 28,  acc: 0.812,  loss: 0.393 ( + data_loss: 0.393),lr: 0.000998601957259836 
+step: 0,  acc: 0.469,  loss: 0.949 ( + data_loss: 0.949),lr: 0.001 
+step: 1,  acc: 0.594,  loss: 6.426 ( + data_loss: 6.426),lr: 0.000999950002499875 
+step: 2,  acc: 0.531,  loss: 6.632 ( + data_loss: 6.632),lr: 0.000999900009999 
+step: 3,  acc: 0.750,  loss: 0.537 ( + data_loss: 0.537),lr: 0.0009998500224966255 
+step: 4,  acc: 0.594,  loss: 0.899 ( + data_loss: 0.899),lr: 0.0009998000399920016 
+step: 5,  acc: 0.438,  loss: 1.047 ( + data_loss: 1.047),lr: 0.0009997500624843788 
+step: 6,  acc: 0.562,  loss: 0.742 ( + data_loss: 0.742),lr: 0.000999700089973008 
+step: 7,  acc: 0.562,  loss: 0.666 ( + data_loss: 0.666),lr: 0.0009996501224571398 
+step: 8,  acc: 0.656,  loss: 0.601 ( + data_loss: 0.601),lr: 0.0009996001599360256 
+step: 9,  acc: 0.469,  loss: 0.702 ( + data_loss: 0.702),lr: 0.0009995502024089159 
+step: 10,  acc: 0.500,  loss: 0.659 ( + data_loss: 0.659),lr: 0.0009995002498750624 
+step: 11,  acc: 0.562,  loss: 0.634 ( + data_loss: 0.634),lr: 0.0009994503023337165 
+step: 12,  acc: 0.562,  loss: 0.622 ( + data_loss: 0.622),lr: 0.0009994003597841295 
+step: 13,  acc: 0.625,  loss: 0.550 ( + data_loss: 0.550),lr: 0.0009993504222255533 
+step: 14,  acc: 0.844,  loss: 0.508 ( + data_loss: 0.508),lr: 0.0009993004896572402 
+step: 15,  acc: 0.656,  loss: 0.603 ( + data_loss: 0.603),lr: 0.0009992505620784412 
+step: 16,  acc: 0.781,  loss: 0.512 ( + data_loss: 0.512),lr: 0.0009992006394884093 
+step: 17,  acc: 0.906,  loss: 0.452 ( + data_loss: 0.452),lr: 0.0009991507218863964 
+step: 18,  acc: 0.781,  loss: 0.500 ( + data_loss: 0.500),lr: 0.0009991008092716555 
+step: 19,  acc: 0.812,  loss: 0.477 ( + data_loss: 0.477),lr: 0.0009990509016434388 
+step: 20,  acc: 0.781,  loss: 0.474 ( + data_loss: 0.474),lr: 0.0009990009990009992 
+step: 21,  acc: 0.750,  loss: 0.489 ( + data_loss: 0.489),lr: 0.0009989511013435892 
+step: 22,  acc: 0.750,  loss: 0.477 ( + data_loss: 0.477),lr: 0.0009989012086704624 
+step: 23,  acc: 0.875,  loss: 0.370 ( + data_loss: 0.370),lr: 0.0009988513209808721 
+step: 24,  acc: 0.969,  loss: 0.261 ( + data_loss: 0.261),lr: 0.000998801438274071 
+step: 25,  acc: 0.875,  loss: 0.294 ( + data_loss: 0.294),lr: 0.0009987515605493133 
+step: 26,  acc: 0.750,  loss: 0.484 ( + data_loss: 0.484),lr: 0.0009987016878058523 
+step: 27,  acc: 0.906,  loss: 0.301 ( + data_loss: 0.301),lr: 0.0009986518200429421 
+step: 28,  acc: 0.875,  loss: 0.304 ( + data_loss: 0.304),lr: 0.000998601957259836 
+step: 0,  acc: 0.844,  loss: 0.320 ( + data_loss: 0.320),lr: 0.000998552099455789 
+step: 1,  acc: 0.875,  loss: 0.322 ( + data_loss: 0.322),lr: 0.0009985022466300548 
+step: 2,  acc: 0.906,  loss: 0.258 ( + data_loss: 0.258),lr: 0.0009984523987818883 
+step: 3,  acc: 0.750,  loss: 0.437 ( + data_loss: 0.437),lr: 0.000998402555910543 
+step: 4,  acc: 0.938,  loss: 0.243 ( + data_loss: 0.243),lr: 0.000998352718015275 
+step: 5,  acc: 0.938,  loss: 0.187 ( + data_loss: 0.187),lr: 0.000998302885095338 
+step: 6,  acc: 0.781,  loss: 0.413 ( + data_loss: 0.413),lr: 0.0009982530571499876 
+step: 7,  acc: 0.781,  loss: 0.327 ( + data_loss: 0.327),lr: 0.0009982032341784787 
+step: 8,  acc: 0.938,  loss: 0.202 ( + data_loss: 0.202),lr: 0.0009981534161800669 
+step: 9,  acc: 0.875,  loss: 0.324 ( + data_loss: 0.324),lr: 0.0009981036031540074 
+step: 10,  acc: 0.938,  loss: 0.150 ( + data_loss: 0.150),lr: 0.000998053795099556 
+step: 11,  acc: 0.844,  loss: 0.299 ( + data_loss: 0.299),lr: 0.000998003992015968 
+step: 12,  acc: 0.781,  loss: 0.345 ( + data_loss: 0.345),lr: 0.0009979541939024999 
+step: 13,  acc: 0.875,  loss: 0.186 ( + data_loss: 0.186),lr: 0.0009979044007584073 
+step: 14,  acc: 0.969,  loss: 0.205 ( + data_loss: 0.205),lr: 0.0009978546125829467 
+step: 15,  acc: 0.656,  loss: 0.586 ( + data_loss: 0.586),lr: 0.0009978048293753743 
+step: 16,  acc: 0.844,  loss: 0.262 ( + data_loss: 0.262),lr: 0.0009977550511349464 
+step: 17,  acc: 0.969,  loss: 0.228 ( + data_loss: 0.228),lr: 0.0009977052778609198 
+step: 18,  acc: 0.938,  loss: 0.292 ( + data_loss: 0.292),lr: 0.0009976555095525515 
+step: 19,  acc: 0.906,  loss: 0.231 ( + data_loss: 0.231),lr: 0.0009976057462090984 
+step: 20,  acc: 0.938,  loss: 0.205 ( + data_loss: 0.205),lr: 0.0009975559878298169 
+step: 21,  acc: 0.969,  loss: 0.199 ( + data_loss: 0.199),lr: 0.0009975062344139652 
+step: 22,  acc: 0.969,  loss: 0.203 ( + data_loss: 0.203),lr: 0.0009974564859608 
+step: 23,  acc: 1.000,  loss: 0.097 ( + data_loss: 0.097),lr: 0.0009974067424695793 
+step: 24,  acc: 0.969,  loss: 0.102 ( + data_loss: 0.102),lr: 0.0009973570039395602 
+step: 25,  acc: 1.000,  loss: 0.065 ( + data_loss: 0.065),lr: 0.0009973072703700011 
+step: 26,  acc: 0.812,  loss: 0.370 ( + data_loss: 0.370),lr: 0.0009972575417601596 
+step: 27,  acc: 0.938,  loss: 0.129 ( + data_loss: 0.129),lr: 0.000997207818109294 
+step: 28,  acc: 0.906,  loss: 0.182 ( + data_loss: 0.182),lr: 0.0009971580994166626 
+step: 0,  acc: 0.969,  loss: 0.098 ( + data_loss: 0.098),lr: 0.0009971083856815236 
+step: 1,  acc: 0.969,  loss: 0.110 ( + data_loss: 0.110),lr: 0.0009970586769031359 
+step: 2,  acc: 0.969,  loss: 0.111 ( + data_loss: 0.111),lr: 0.0009970089730807579 
+step: 3,  acc: 0.938,  loss: 0.171 ( + data_loss: 0.171),lr: 0.0009969592742136485 
+step: 4,  acc: 1.000,  loss: 0.038 ( + data_loss: 0.038),lr: 0.0009969095803010666 
+step: 5,  acc: 0.969,  loss: 0.059 ( + data_loss: 0.059),lr: 0.0009968598913422718 
+step: 6,  acc: 0.969,  loss: 0.118 ( + data_loss: 0.118),lr: 0.000996810207336523 
+step: 7,  acc: 0.938,  loss: 0.233 ( + data_loss: 0.233),lr: 0.00099676052828308 
+step: 8,  acc: 0.938,  loss: 0.108 ( + data_loss: 0.108),lr: 0.000996710854181202 
+step: 9,  acc: 0.938,  loss: 0.170 ( + data_loss: 0.170),lr: 0.000996661185030149 
+step: 10,  acc: 0.969,  loss: 0.168 ( + data_loss: 0.168),lr: 0.0009966115208291807 
+step: 11,  acc: 0.969,  loss: 0.130 ( + data_loss: 0.130),lr: 0.0009965618615775575 
+step: 12,  acc: 0.938,  loss: 0.204 ( + data_loss: 0.204),lr: 0.000996512207274539 
+step: 13,  acc: 0.938,  loss: 0.102 ( + data_loss: 0.102),lr: 0.0009964625579193863 
+step: 14,  acc: 0.969,  loss: 0.163 ( + data_loss: 0.163),lr: 0.0009964129135113591 
+step: 15,  acc: 0.812,  loss: 0.458 ( + data_loss: 0.458),lr: 0.0009963632740497186 
+step: 16,  acc: 0.938,  loss: 0.146 ( + data_loss: 0.146),lr: 0.0009963136395337252 
+step: 17,  acc: 0.969,  loss: 0.224 ( + data_loss: 0.224),lr: 0.0009962640099626403 
+step: 18,  acc: 0.969,  loss: 0.231 ( + data_loss: 0.231),lr: 0.0009962143853357243 
+step: 19,  acc: 1.000,  loss: 0.114 ( + data_loss: 0.114),lr: 0.000996164765652239 
+step: 20,  acc: 0.938,  loss: 0.150 ( + data_loss: 0.150),lr: 0.0009961151509114453 
+step: 21,  acc: 0.969,  loss: 0.127 ( + data_loss: 0.127),lr: 0.0009960655411126052 
+step: 22,  acc: 0.969,  loss: 0.095 ( + data_loss: 0.095),lr: 0.00099601593625498 
+step: 23,  acc: 1.000,  loss: 0.029 ( + data_loss: 0.029),lr: 0.0009959663363378318 
+step: 24,  acc: 0.969,  loss: 0.072 ( + data_loss: 0.072),lr: 0.0009959167413604224 
+step: 25,  acc: 1.000,  loss: 0.022 ( + data_loss: 0.022),lr: 0.0009958671513220136 
+step: 26,  acc: 0.844,  loss: 0.388 ( + data_loss: 0.388),lr: 0.0009958175662218682 
+step: 27,  acc: 0.969,  loss: 0.071 ( + data_loss: 0.071),lr: 0.0009957679860592482 
+step: 28,  acc: 0.906,  loss: 0.136 ( + data_loss: 0.136),lr: 0.0009957184108334164 
+step: 0,  acc: 1.000,  loss: 0.046 ( + data_loss: 0.046),lr: 0.0009956688405436352 
+step: 1,  acc: 1.000,  loss: 0.064 ( + data_loss: 0.064),lr: 0.0009956192751891678 
+step: 2,  acc: 0.969,  loss: 0.084 ( + data_loss: 0.084),lr: 0.0009955697147692767 
+step: 3,  acc: 0.938,  loss: 0.095 ( + data_loss: 0.095),lr: 0.0009955201592832257 
+step: 4,  acc: 1.000,  loss: 0.015 ( + data_loss: 0.015),lr: 0.0009954706087302772 
+step: 5,  acc: 1.000,  loss: 0.031 ( + data_loss: 0.031),lr: 0.0009954210631096954 
+step: 6,  acc: 0.969,  loss: 0.070 ( + data_loss: 0.070),lr: 0.0009953715224207435 
+step: 7,  acc: 0.969,  loss: 0.207 ( + data_loss: 0.207),lr: 0.0009953219866626855 
+step: 8,  acc: 0.969,  loss: 0.061 ( + data_loss: 0.061),lr: 0.0009952724558347848 
+step: 9,  acc: 0.969,  loss: 0.099 ( + data_loss: 0.099),lr: 0.0009952229299363057 
+step: 10,  acc: 0.969,  loss: 0.105 ( + data_loss: 0.105),lr: 0.0009951734089665124 
+step: 11,  acc: 0.969,  loss: 0.068 ( + data_loss: 0.068),lr: 0.0009951238929246692 
+step: 12,  acc: 0.938,  loss: 0.113 ( + data_loss: 0.113),lr: 0.0009950743818100403 
+step: 13,  acc: 0.969,  loss: 0.072 ( + data_loss: 0.072),lr: 0.0009950248756218907 
+step: 14,  acc: 0.969,  loss: 0.106 ( + data_loss: 0.106),lr: 0.0009949753743594845 
+step: 15,  acc: 0.875,  loss: 0.251 ( + data_loss: 0.251),lr: 0.0009949258780220871 
+step: 16,  acc: 0.969,  loss: 0.089 ( + data_loss: 0.089),lr: 0.0009948763866089638 
+step: 17,  acc: 0.969,  loss: 0.181 ( + data_loss: 0.181),lr: 0.000994826900119379 
+step: 18,  acc: 0.969,  loss: 0.144 ( + data_loss: 0.144),lr: 0.000994777418552599 
+step: 19,  acc: 0.969,  loss: 0.081 ( + data_loss: 0.081),lr: 0.0009947279419078882 
+step: 20,  acc: 0.969,  loss: 0.082 ( + data_loss: 0.082),lr: 0.000994678470184513 
+step: 21,  acc: 0.969,  loss: 0.121 ( + data_loss: 0.121),lr: 0.0009946290033817386 
+step: 22,  acc: 0.969,  loss: 0.068 ( + data_loss: 0.068),lr: 0.0009945795414988314 
+step: 23,  acc: 1.000,  loss: 0.020 ( + data_loss: 0.020),lr: 0.000994530084535057 
+step: 24,  acc: 0.969,  loss: 0.081 ( + data_loss: 0.081),lr: 0.0009944806324896824 
+step: 25,  acc: 1.000,  loss: 0.012 ( + data_loss: 0.012),lr: 0.000994431185361973 
+step: 26,  acc: 0.938,  loss: 0.206 ( + data_loss: 0.206),lr: 0.0009943817431511959 
+step: 27,  acc: 0.969,  loss: 0.051 ( + data_loss: 0.051),lr: 0.0009943323058566173 
+step: 28,  acc: 0.969,  loss: 0.086 ( + data_loss: 0.086),lr: 0.0009942828734775045 
+step: 0,  acc: 1.000,  loss: 0.021 ( + data_loss: 0.021),lr: 0.0009942334460131238 
+step: 1,  acc: 1.000,  loss: 0.037 ( + data_loss: 0.037),lr: 0.000994184023462743 
+step: 2,  acc: 0.969,  loss: 0.076 ( + data_loss: 0.076),lr: 0.0009941346058256288 
+step: 3,  acc: 1.000,  loss: 0.042 ( + data_loss: 0.042),lr: 0.0009940851931010488 
+step: 4,  acc: 1.000,  loss: 0.009 ( + data_loss: 0.009),lr: 0.0009940357852882705 
+step: 5,  acc: 1.000,  loss: 0.021 ( + data_loss: 0.021),lr: 0.0009939863823865613 
+step: 6,  acc: 0.969,  loss: 0.038 ( + data_loss: 0.038),lr: 0.0009939369843951894 
+step: 7,  acc: 0.969,  loss: 0.125 ( + data_loss: 0.125),lr: 0.0009938875913134224 
+step: 8,  acc: 1.000,  loss: 0.022 ( + data_loss: 0.022),lr: 0.0009938382031405288 
+step: 9,  acc: 1.000,  loss: 0.055 ( + data_loss: 0.055),lr: 0.0009937888198757762 
+step: 10,  acc: 0.969,  loss: 0.061 ( + data_loss: 0.061),lr: 0.0009937394415184338 
+step: 11,  acc: 1.000,  loss: 0.038 ( + data_loss: 0.038),lr: 0.0009936900680677697 
+step: 12,  acc: 0.969,  loss: 0.054 ( + data_loss: 0.054),lr: 0.0009936406995230524 
+step: 13,  acc: 1.000,  loss: 0.033 ( + data_loss: 0.033),lr: 0.000993591335883551 
+step: 14,  acc: 0.969,  loss: 0.074 ( + data_loss: 0.074),lr: 0.0009935419771485345 
+step: 15,  acc: 0.906,  loss: 0.138 ( + data_loss: 0.138),lr: 0.0009934926233172718 
+step: 16,  acc: 1.000,  loss: 0.045 ( + data_loss: 0.045),lr: 0.0009934432743890324 
+step: 17,  acc: 0.969,  loss: 0.156 ( + data_loss: 0.156),lr: 0.0009933939303630854 
+step: 18,  acc: 0.969,  loss: 0.111 ( + data_loss: 0.111),lr: 0.0009933445912387007 
+step: 19,  acc: 0.969,  loss: 0.066 ( + data_loss: 0.066),lr: 0.0009932952570151478 
+step: 20,  acc: 1.000,  loss: 0.036 ( + data_loss: 0.036),lr: 0.0009932459276916965 
+step: 21,  acc: 0.969,  loss: 0.114 ( + data_loss: 0.114),lr: 0.0009931966032676169 
+step: 22,  acc: 1.000,  loss: 0.052 ( + data_loss: 0.052),lr: 0.000993147283742179 
+step: 23,  acc: 1.000,  loss: 0.018 ( + data_loss: 0.018),lr: 0.0009930979691146532 
+step: 24,  acc: 0.969,  loss: 0.072 ( + data_loss: 0.072),lr: 0.00099304865938431 
+step: 25,  acc: 1.000,  loss: 0.010 ( + data_loss: 0.010),lr: 0.0009929993545504195 
+step: 26,  acc: 0.969,  loss: 0.107 ( + data_loss: 0.107),lr: 0.000992950054612253 
+step: 27,  acc: 1.000,  loss: 0.024 ( + data_loss: 0.024),lr: 0.0009929007595690811 
+step: 28,  acc: 0.969,  loss: 0.068 ( + data_loss: 0.068),lr: 0.0009928514694201747 

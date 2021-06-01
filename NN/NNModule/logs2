@@ -1,1 +1,6 @@
 training,  acc: 0.674,loss: 0.667 data_loss: 0.667, reg_loss: 0.000),lr: 0.0009549730220121281)
+training,  acc: 0.696,loss: 0.971 data_loss: 0.971,lr: 0.000998601957259836)
+training,  acc: 0.891,loss: 0.254 data_loss: 0.254,lr: 0.0009971580994166626)
+training,  acc: 0.953,loss: 0.146 data_loss: 0.146,lr: 0.0009957184108334164)
+training,  acc: 0.969,loss: 0.093 data_loss: 0.093,lr: 0.0009942828734775045)
+training,  acc: 0.983,loss: 0.059 data_loss: 0.059,lr: 0.0009928514694201747)

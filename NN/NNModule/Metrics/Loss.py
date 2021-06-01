@@ -38,7 +38,7 @@ class Loss:
         # Calculates the data and regularization losses
     # given model output and ground truth values
 ## de rezolvat pt conv2d
-    def calculate(self, output, y, include_regularization=True):
+    def calculate(self, output, y, include_regularization=False):
         # Calculate sample losses
         sample_losses = self.forward(output, y)
         # Calculate mean loss

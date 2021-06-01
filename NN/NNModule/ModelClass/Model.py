@@ -103,7 +103,7 @@ class Model:
                 if train_steps * batch_size < len(X):
                     train_steps += 1
         elif train_generator is not None:
-            train_steps = train_generator.__len__()
+            train_steps = int(train_generator.__len__())
         # Main training loop
         for epoch in range(1, epochs+1):
             # Print epoch number
@@ -129,10 +129,11 @@ class Model:
                 # Perform the forward pass
                 output = self.forward(batch_X)
                 # Calculate loss
-                data_loss, regularization_loss = \
+                # de pus aici regularisation loss
+                data_loss = \
                     self.loss.calculate(output, batch_y,
                                         include_regularization=False)
-                loss = data_loss + regularization_loss
+                loss = data_loss
                 # Get predictions and calculate an accuracy
                 predictions = self.output_layer_activation.predictions(
                     output)
@@ -147,17 +148,17 @@ class Model:
                 self.optimizer.post_update_params()
                 # Print a summary
                 if not step % print_every or step == train_steps - 1:
-                    message = f'step: {step},  acc: {accuracy:.3f},  loss: {loss:.3f} ( + data_loss: {data_loss:.3f},reg_loss: {regularization_loss:.3f}),lr: {self.optimizer.current_learning_rate} \n'
+                    message = f'step: {step},  acc: {accuracy:.3f},  loss: {loss:.3f} ( + data_loss: {data_loss:.3f}),lr: {self.optimizer.current_learning_rate} \n'
                     with open('logs','a+') as f:
                         f.write(message)
                     print(message)
             # Get and print epoch loss and accuracy
-            epoch_data_loss, epoch_regularization_loss = \
+            epoch_data_loss = \
                 self.loss.calculate_accumulated(
-                    include_regularization=True)
-            epoch_loss = epoch_data_loss + epoch_regularization_loss
+                    include_regularization=False)
+            epoch_loss = epoch_data_loss 
             epoch_accuracy = self.accuracy.calculate_accumulated()
-            message = f'training,  acc: {epoch_accuracy:.3f},loss: {epoch_loss:.3f} data_loss: {epoch_data_loss:.3f}, reg_loss: {epoch_regularization_loss:.3f}),lr: {self.optimizer.current_learning_rate})\n'
+            message = f'training,  acc: {epoch_accuracy:.3f},loss: {epoch_loss:.3f} data_loss: {epoch_data_loss:.3f},lr: {self.optimizer.current_learning_rate})\n'
             print(message)
             with open('./logs2','a+') as f:
                 f.write(message)

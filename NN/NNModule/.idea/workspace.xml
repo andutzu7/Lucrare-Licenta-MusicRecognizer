@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1993a5f0-3fc8-42e6-bccd-b54ae2f3ce15" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/train-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/train-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/BatchNormalizationLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Layers/BatchNormalizationLayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Layers/Conv2DLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Layers/Conv2DLayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/InputLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Layers/InputLayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/MaxPooling2DLayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Layers/MaxPooling2DLayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelClass/DataGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelClass/DataGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs2" beforeDir="false" afterPath="$PROJECT_DIR$/logs2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/train.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModelClass/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelClass/Model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Optimizers/OptimizerAdam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Optimizers/OptimizerAdam.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +67,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Layers/Conv2DLayer.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/Optimizers/OptimizerAdam.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

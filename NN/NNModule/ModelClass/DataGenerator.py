@@ -20,7 +20,7 @@ class DataGenerator(tf.keras.utils.Sequence):
         self.on_epoch_end()
 
     def __len__(self):
-        return int(np.floor(len(self.wav_paths) / self.batch_size))
+        return int(np.floor(len(self.wav_paths) / self.batch_size)/self.batch_size) #solutie de moment
 
     def __getitem__(self, index):
         indexes = self.indexes[index *

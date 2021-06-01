@@ -30,6 +30,7 @@ class Conv2D():
         self.trainable = True
         self.output = None
         self.derivated_inputs = None
+        self.derivated_weights = None
         self.biases = np.zeros((self.n_filters, 1))
         self.weights = None
 
@@ -40,7 +41,7 @@ class Conv2D():
         '''
         Initializing the weights if its the first pass
         '''
-        if self.weights == None:
+        if not isinstance(self.weights,np.ndarray):
             self.channel_inputs = X.shape[1]
             limit = 1 / math.sqrt(np.prod(self.filter_shape))
             w_size = (self.n_filters,self.channel_inputs, self.filter_shape[0], self.filter_shape[1])
@@ -60,21 +61,25 @@ class Conv2D():
         # Redistribute axises so that batch size comes first
         output = output.transpose(3,0,1,2)
         self.output = output
-
+#de gandit asta pt flowul meu
     def backward(self, accum_grad):
         # Reshape accumulated gradient into column shape
         accum_grad = accum_grad.transpose(1, 2, 3, 0).reshape(self.n_filters, -1)
 
         # Recalculate the gradient which will be propogated back to prev. layer
+        self.derivated_weights = accum_grad.dot(self.X_col.T).reshape(self.weights.shape)
+
+        self.derivated_biases = np.sum(accum_grad, axis=1, keepdims=True)
+
+
         accum_grad = self.weights_col.T.dot(accum_grad)
-        # Reshape from column shape to image shape
-        accum_grad = column_to_image(accum_grad,
+        
+        self.derivated_inputs = column_to_image(accum_grad,
                                 self.layer_input.shape,
                                 self.filter_shape,
                                 stride=self.stride,
                                 output_shape=self.padding)
 
-        self.derivated_inputs = accum_grad
 
     def output_shape(self):
         channels, height, width = self.input_shape

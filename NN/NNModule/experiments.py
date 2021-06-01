@@ -1,22 +1,24 @@
 
-    from kapre.composed import get_melspectrogram_layer
-    import numpy as np
-    from scipy.io.wavfile import read
+#     from kapre.composed import get_melspectrogram_layer
+#     import numpy as np
+#     from scipy.io.wavfile import read
 
-    sr,data = read("anotherbrick.wav")
-    data = data.reshape(-1,1)
-input_shape = (int(16000*1.0), 1)
-i = get_melspectrogram_layer(input_shape=input_shape,
-                             pad_end=True,
-                             sample_rate=16000,
-                             return_decibel=True,
-                             input_data_format='channels_last',
-                             output_data_format='channels_last')
+#     sr,data = read("anotherbrick.wav")
+#     data = data.reshape(-1,1)
+# input_shape = (int(16000*1.0), 1)
+# i = get_melspectrogram_layer(input_shape=input_shape,
+#                              pad_end=True,
+#                              sample_rate=16000,
+#                              return_decibel=True,
+#                              input_data_format='channels_last',
+#                              output_data_format='channels_last')
                             
 
-print(i(data))
+# print(i(data))
+import numpy as np
 
-
+x = np.array([None])
+print(type(x))
 
 # 
 
