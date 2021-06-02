@@ -10,7 +10,8 @@ class DropoutLayer:
         self.rate = 1 - rate
     # Forward pass
 
-    def forward(self, inputs, training=True):
+    # de schimbat cu true
+    def forward(self, inputs, training=False):
         # Save input values
         self.inputs = inputs
         # If not in the training mode - return values

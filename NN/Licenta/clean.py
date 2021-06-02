@@ -10,12 +10,34 @@ from tqdm import tqdm
 import wavio
 
 
-def envelope(y, rate, threshold):
+def split_by_sound_envelope(y, rate, threshold):
+    """
+    The split_by_sound_envelope function takes a wav file (represented as a numpy array), converts 
+    it to a pandas series (applying the absolute value function over its elements) and extracts the 
+    audio mask(the values above a given threshold) by computing the rolling window mean over the 
+    array by a window of the sample rate divided by 20 (arbitrary rate) and comparing it to the 
+    threshold. The mask represents the values of the sound that don't contain noise/unnecessary 
+    sound values such as audience clapping, silence, crowd noises etc.
+
+    Split by soud envelope arguments :
+        :param y(np.array) : np.array containing the wav file audio data
+        :param rate(float) : the wav's sample rate
+        :param threshold(np.array) : np.array containing the audio comparation threshold 
+
+    Returns:
+    :mask(np.array): Clean audio file mask
+    :y_mean(np.array): Rolling window mean of the audio
+
+"""
+    # Initializing the mask array
     mask = []
+    # Converting the audio to a pandas series
     y = pd.Series(y).apply(np.abs)
+    # Computing the rolling window mean
     y_mean = y.rolling(window=int(rate/20),
                        min_periods=1,
                        center=True).max()
+    # Comparing each value of the mean to the threshold
     for mean in y_mean:
         if mean > threshold:
             mask.append(True)
@@ -25,34 +47,73 @@ def envelope(y, rate, threshold):
 
 
 def downsample_mono(path, sr):
-    obj = wavio.read(path)
-    wav = obj.data.astype(np.float32, order='F')
-    rate = obj.rate
-    try:
-        channel = wav.shape[1]
-        if channel == 2:
-            wav = to_mono(wav.T)
-        elif channel == 1:
-            wav = to_mono(wav.reshape(-1))
-    except IndexError:
+    """
+    The downsample_mono function reads a file at a given path as a numpy array, mono-sampling the 
+    its values and resampling it to the given sample rate.
+
+    Downsample mono arguments :
+        :param path(string) : the path of the file
+        :param sr(int) : the wav's sample rate
+
+
+    Returns:
+    :param sr(int) : the wav's sample rate
+    :param wav(np.array) : the mono-sampled converted wav file data
+"""
+    # Read the file
+    file = wavio.read(path)
+    # Convert the data to float
+    wav = file.data.astype(np.float32)
+    # Cheking if the file is mono channel or stereo and handling the audio accordingly
+    channels = wav.shape[1]
+    if channels == 2:
+        wav = to_mono(wav.T)
+    elif channels == 1:
         wav = to_mono(wav.reshape(-1))
-        pass
-    except Exception as exc:
-        raise exc
-    wav = resample(wav, rate, sr)
+    wav = to_mono(wav.reshape(-1))
+    # Resampling the audio rate
+    wav = resample(wav, file.rate, sr)
+    # Converting the wav file values back to int
     wav = wav.astype(np.int16)
     return sr, wav
 
 
-def save_sample(sample, rate, target_dir, fn, ix):
-    fn = fn.split('.wav')[0]
-    dst_path = os.path.join(target_dir.split('.')[0], fn+'_{}.wav'.format(str(ix)))
-    if os.path.exists(dst_path):
+def save_sample(sample, rate, target_dir, file_name, index):
+    """
+    The save_sample function writes a given sample to the disk.
+
+    Downsample mono arguments :
+        :param sample(np.array) : wav audio file sample.
+        :param sr(int) : the wav's sample rate
+        :target_dir(string) : output directory
+        :file_name(string) : output file name
+        :index(int) : file index
+
+
+    Returns:
+"""
+    # Get the file name
+    file_name = file_name.split('.wav')[0]
+    # Format the destination path
+    destination_path = os.path.join(
+        target_dir.split('.')[0], f'{file_name}_{index}')
+    # Check if the file doesen't exist already
+    if os.path.exists(destination_path):
         return
-    wavfile.write(dst_path, rate, sample)
+    # Write the file at the destination path
+    wavfile.write(destination_path, rate, sample)
 
 
 def check_dir(path):
+    """
+    The check_dir function checks if a folder at a given path exists and if not creates one.
+
+    Downsample mono arguments :
+        :param path(string) : the path of the folder
+
+
+    Returns:
+"""
     if os.path.exists(path) is False:
         os.mkdir(path)
 
@@ -74,7 +135,8 @@ def split_wavs(args):
         for fn in tqdm(os.listdir(src_dir)):
             src_fn = os.path.join(src_dir, fn)
             rate, wav = downsample_mono(src_fn, args.sr)
-            mask, y_mean = envelope(wav, rate, threshold=args.threshold)
+            mask, y_mean = split_by_sound_envelope(
+                wav, rate, threshold=args.threshold)
             wav = wav[mask]
             delta_sample = int(dt*rate)
 
@@ -103,12 +165,13 @@ def test_threshold(args):
         print('audio file not found for sub-string: {}'.format(args.fn))
         return
     rate, wav = downsample_mono(wav_path[0], args.sr)
-    mask, env = envelope(wav, rate, threshold=args.threshold)
+    mask, env = split_by_sound_envelope(wav, rate, threshold=args.threshold)
     plt.style.use('ggplot')
-    plt.title('Signal Envelope, Threshold = {}'.format(str(args.threshold)))
+    plt.title('Signal split_by_sound_envelope, Threshold = {}'.format(
+        str(args.threshold)))
     plt.plot(wav[np.logical_not(mask)], color='r', label='remove')
     plt.plot(wav[mask], color='c', label='keep')
-    plt.plot(env, color='m', label='envelope')
+    plt.plot(env, color='m', label='split_by_sound_envelope')
     plt.grid(False)
     plt.legend(loc='best')
     plt.show()
@@ -130,5 +193,5 @@ if __name__ == '__main__':
                         help='threshold magnitude for np.int16 dtype')
     args, _ = parser.parse_known_args()
 
-    #test_threshold(args)
+    # test_threshold(args)
     split_wavs(args)

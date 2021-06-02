@@ -103,7 +103,7 @@ class Model:
                 if train_steps * batch_size < len(X):
                     train_steps += 1
         elif train_generator is not None:
-            train_steps = int(train_generator.__len__())
+            train_steps = 50#int(train_generator.__len__()/batch_size)
         # Main training loop
         for epoch in range(1, epochs+1):
             # Print epoch number
@@ -186,7 +186,7 @@ class Model:
                     validation_steps += 1
         else:
             if validation_generator is not None:
-                validation_steps = validation_generator.__len__()
+                validation_steps = 50#int(validation_generator.__len__()/batch_size)
         # Reset accumulated values in loss
         # and accuracy objects
         self.loss.new_pass()

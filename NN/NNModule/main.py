@@ -100,11 +100,10 @@ if __name__ == "__main__":
     # model.train(train_generator=tg, validation_generator=vg,
     #             epochs=5
     #             , batch_size=batch_size, print_every=1)
-    # model.save('working_audio_classification.h5')
- #   Read an image
+    # model.save('working_audio_classification2.h5')
     dataset_labels={0:'Other',
                     1:'Piano'}
-    audio_file = wavfile.read('./lehrer_0.wav')
+    audio_file = wavfile.read('./hexagon16_0.wav')
 
     X = np.empty((1, int(16000*1.0), 1),dtype=np.float32)
 
