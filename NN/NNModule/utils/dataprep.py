@@ -1,3 +1,4 @@
+from re import split
 from scipy.io import wavfile
 import os
 import numpy as np
@@ -115,7 +116,7 @@ def check_or_create_folder(path):
         os.mkdir(path)
 
 
-def split_audio_files(audio_folder_root,destination_folder_root,dt,sr,threshold):
+def split_audio_files(audio_folder_root, destination_folder_root, dt=1.0, sr=16000, threshold=20):
     """
     The split_audio_files function performs the audio file splitting operation recursively throuought the
     given audio_folder_root. 
@@ -149,34 +150,51 @@ def split_audio_files(audio_folder_root,destination_folder_root,dt,sr,threshold)
         for file in os.listdir(source_directory):
             # Generate the file name
             file_name = os.path.join(source_directory, file)
-            # Downsample the file to mono channels
-            rate, wav = downsample_mono(file_name,sr )
-            # Compute the sound envelope mask
-            mask, y_mean = split_by_sound_envelope(
-                wav, rate, threshold)
-            # Filter the wav file by only keeping the relevant audio values
-            wav = wav[mask]
-            # Compute the desired output shape
-            delta_sample = int(dt*rate)
-            # Compute the number of the splits of the file
-            sample_difference = wav.shape[0] % delta_sample
-            # Compute the range end by extracting the sample rate difference
-            range_end = wav.shape[0]-sample_difference
-            # Iterate through the wav file and extract all of the subsamples in regards to the delta_sample
-            for count, step in enumerate(np.arange(start=0, stop=range_end, step=delta_sample)):
-                # The start value is the current value from the range
-                start = int(step)
-                # The stop is proportional with the delta sample's shape
-                stop = int(step + delta_sample)
-                # Clustering the file
-                sample = wav[start:stop]
-                # Saving the new sample
-                save_sample(sample, rate, destination_folder, file, count)
+            split_audio_file(file_name, dt, sr, threshold,
+                             destination_folder, file)
+
+
+def split_audio_file(file_name, dt, sr, threshold, destination_folder, file):
+    """
+    Auxiliary function for split audio files.
+
+    Split audio files arguments :
+        :param file_name(string) : path to the file
+        :param sr(int) : the wav's sample rate
+        :param destination_folder(string) : output directory
+        :param file(string) : isolated file name
+    Returns:
+
+"""
+    # Downsample the file to mono channels
+    rate, wav = downsample_mono(file_name, sr)
+    # Compute the sound envelope mask
+    mask, y_mean = split_by_sound_envelope(
+        wav, rate, threshold)
+    # Filter the wav file by only keeping the relevant audio values
+    wav = wav[mask]
+    # Compute the desired output shape
+    delta_sample = int(dt*rate)
+    # Compute the number of the splits of the file
+    sample_difference = wav.shape[0] % delta_sample
+    # Compute the range end by extracting the sample rate difference
+    range_end = wav.shape[0]-sample_difference
+    # Iterate through the wav file and extract all of the subsamples in regards to the delta_sample
+    for count, step in enumerate(np.arange(start=0, stop=range_end, step=delta_sample)):
+        # The start value is the current value from the range
+        start = int(step)
+        # The stop is proportional with the delta sample's shape
+        stop = int(step + delta_sample)
+        # Clustering the file
+        sample = wav[start:stop]
+        # Saving the new sample
+        save_sample(sample, rate, destination_folder, file, count)
+
 
 if __name__ == '__main__':
     src_root = './some test data'
     dst_root = './newe'
     dt = 1.0
-    sr=16000
-    threshold=20
-    split_audio_files(src_root,dst_root,dt,sr,threshold)
+    sr = 16000
+    threshold = 20
+    split_audio_files(src_root, dst_root, dt, sr, threshold)

@@ -8,7 +8,7 @@ import copy
 import pickle
 # Import clasess
 from Layers.InputLayer import InputLayer
-from .DataGenerator import DataGenerator
+from utils.DataGenerator import DataGenerator
 from Metrics.CategoricalCrossentropy import CategoricalCrossentropy
 from Activations.ActivationSoftmax import ActivationSoftmax
 from Metrics.ActivationSoftmaxCategoricalCrossentropy import Activation_Softmax_Loss_CategoricalCrossentropy
@@ -160,7 +160,7 @@ class Model:
             epoch_accuracy = self.accuracy.calculate_accumulated()
             message = f'training,  acc: {epoch_accuracy:.3f},loss: {epoch_loss:.3f} data_loss: {epoch_data_loss:.3f},lr: {self.optimizer.current_learning_rate})\n'
             print(message)
-            with open('./logs2','a+') as f:
+            with open('./logs','a+') as f:
                 f.write(message)
             # If there is the validation data
             if validation_data is not None:

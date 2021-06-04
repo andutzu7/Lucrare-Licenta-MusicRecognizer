@@ -21,6 +21,7 @@ NN/Input Data/
 NN/NNModule/fashion_mnist_images/
 NN/NNModule/Input\ Data/
 NN/NNModule/clean/
+NN/NNModule/Models/
 NN/NNModule/working_audio_classification.h5
 NN/NNModule/fashion_mnist.model
 NN/clean
