@@ -1,28 +1,25 @@
-import matplotlib.pyplot as plt
 from scipy.io import wavfile
-import argparse
 import os
-from glob import glob
 import numpy as np
 import pandas as pd
 from librosa.core import resample, to_mono
-from tqdm import tqdm
 import wavio
 
 
-def split_by_sound_envelope(y, rate, threshold):
+def split_by_sound_envelope(y, sr, threshold):
     """
     The split_by_sound_envelope function takes a wav file (represented as a numpy array), converts 
     it to a pandas series (applying the absolute value function over its elements) and extracts the 
     audio mask(the values above a given threshold) by computing the rolling window mean over the 
     array by a window of the sample rate divided by 20 (arbitrary rate) and comparing it to the 
-    threshold. The mask represents the values of the sound that don't contain noise/unnecessary 
-    sound values such as audience clapping, silence, crowd noises etc.
+    threshold. The mask represents the result of the comparasing between the value and the threshold (boolen)
+    and marks the positions of the values of the sound file that don't contain noise/unnecessary 
+    values such as audience clapping, silence, crowd noises etc.
 
     Split by soud envelope arguments :
         :param y(np.array) : np.array containing the wav file audio data
-        :param rate(float) : the wav's sample rate
-        :param threshold(np.array) : np.array containing the audio comparation threshold 
+        :param sr(int) : the wav's sample rate
+        :param threshold(int) : threshold magnitude value
 
     Returns:
     :mask(np.array): Clean audio file mask
@@ -34,7 +31,7 @@ def split_by_sound_envelope(y, rate, threshold):
     # Converting the audio to a pandas series
     y = pd.Series(y).apply(np.abs)
     # Computing the rolling window mean
-    y_mean = y.rolling(window=int(rate/20),
+    y_mean = y.rolling(window=int(sr/20),
                        min_periods=1,
                        center=True).max()
     # Comparing each value of the mean to the threshold
@@ -78,7 +75,7 @@ def downsample_mono(path, sr):
     return sr, wav
 
 
-def save_sample(sample, rate, target_dir, file_name, index):
+def save_sample(sample, sr, target_dir, file_name, index):
     """
     The save_sample function writes a given sample to the disk.
 
@@ -96,19 +93,19 @@ def save_sample(sample, rate, target_dir, file_name, index):
     file_name = file_name.split('.wav')[0]
     # Format the destination path
     destination_path = os.path.join(
-        target_dir.split('.')[0], f'{file_name}_{index}')
+        target_dir, f'{file_name}_{index}.wav')
     # Check if the file doesen't exist already
     if os.path.exists(destination_path):
         return
     # Write the file at the destination path
-    wavfile.write(destination_path, rate, sample)
+    wavfile.write(destination_path, sr, sample)
 
 
-def check_dir(path):
+def check_or_create_folder(path):
     """
-    The check_dir function checks if a folder at a given path exists and if not creates one.
+    The check_or_create_folder function checks if a folder at a given path exists and if not creates one.
 
-    Downsample mono arguments :
+    check_or_create_folder arguments :
         :param path(string) : the path of the folder
 
 
@@ -118,80 +115,68 @@ def check_dir(path):
         os.mkdir(path)
 
 
-def split_wavs(args):
-    src_root = args.src_root
-    dst_root = args.dst_root
-    dt = args.delta_time
+def split_audio_files(audio_folder_root,destination_folder_root,dt,sr,threshold):
+    """
+    The split_audio_files function performs the audio file splitting operation recursively throuought the
+    given audio_folder_root. 
+    The function gets the file names from the given folder (by class), then for each file found it performs
+    the downsampling and splitting by envelope, cleaning the wav file with the mask.
+    It then saves the cleaned audio samples in chunks of lenght dt.
 
-    wav_paths = glob('{}/**'.format(src_root), recursive=True)
-    wav_paths = [x for x in wav_paths if '.wav' in x]
-    dirs = os.listdir(src_root)
-    check_dir(dst_root)
-    classes = os.listdir(src_root)
-    for _cls in classes:
-        target_dir = os.path.join(dst_root, _cls)
-        check_dir(target_dir)
-        src_dir = os.path.join(src_root, _cls)
-        for fn in tqdm(os.listdir(src_dir)):
-            src_fn = os.path.join(src_dir, fn)
-            rate, wav = downsample_mono(src_fn, args.sr)
+    Split audio files arguments :
+        :param audio_folder_root(string) : path to the folder data (The data have to be separated into classes).
+        :param destination_folder_root(string) : path to the destination folder.
+        :param dt(float) : delta time, the output file lenght.
+        :param sr(int) : the wav's sample rate
+        :param threshold(int) : threshold magnitude value
+
+    Returns:
+
+"""
+    # Check if the destination folder exists and create it if it doesen't
+    check_or_create_folder(destination_folder_root)
+    # Get the classes names
+    classes = os.listdir(audio_folder_root)
+    # For each given class
+    for category in classes:
+        # Create the destination folder path
+        destination_folder = os.path.join(destination_folder_root, category)
+        # Check if the destination folder exists and create it if it doesen't
+        check_or_create_folder(destination_folder)
+        # Get the source directory path
+        source_directory = os.path.join(audio_folder_root, category)
+        # Iterate through all the files and for each file found apply the transformation
+        for file in os.listdir(source_directory):
+            # Generate the file name
+            file_name = os.path.join(source_directory, file)
+            # Downsample the file to mono channels
+            rate, wav = downsample_mono(file_name,sr )
+            # Compute the sound envelope mask
             mask, y_mean = split_by_sound_envelope(
-                wav, rate, threshold=args.threshold)
+                wav, rate, threshold)
+            # Filter the wav file by only keeping the relevant audio values
             wav = wav[mask]
+            # Compute the desired output shape
             delta_sample = int(dt*rate)
-
-            # cleaned audio is less than a single sample
-            # pad with zeros to delta_sample size
-            if wav.shape[0] < delta_sample:
-                sample = np.zeros(shape=(delta_sample,), dtype=np.int16)
-                sample[:wav.shape[0]] = wav
-                save_sample(sample, rate, target_dir, fn, 0)
-            # step through audio and save every delta_sample
-            # discard the ending audio if it is too short
-            else:
-                trunc = wav.shape[0] % delta_sample
-                for cnt, i in enumerate(np.arange(0, wav.shape[0]-trunc, delta_sample)):
-                    start = int(i)
-                    stop = int(i + delta_sample)
-                    sample = wav[start:stop]
-                    save_sample(sample, rate, target_dir, fn, cnt)
-
-
-def test_threshold(args):
-    src_root = args.src_root
-    wav_paths = glob('{}/**'.format(src_root), recursive=True)
-    wav_path = [x for x in wav_paths if args.fn in x]
-    if len(wav_path) != 1:
-        print('audio file not found for sub-string: {}'.format(args.fn))
-        return
-    rate, wav = downsample_mono(wav_path[0], args.sr)
-    mask, env = split_by_sound_envelope(wav, rate, threshold=args.threshold)
-    plt.style.use('ggplot')
-    plt.title('Signal split_by_sound_envelope, Threshold = {}'.format(
-        str(args.threshold)))
-    plt.plot(wav[np.logical_not(mask)], color='r', label='remove')
-    plt.plot(wav[mask], color='c', label='keep')
-    plt.plot(env, color='m', label='split_by_sound_envelope')
-    plt.grid(False)
-    plt.legend(loc='best')
-    plt.show()
-
+            # Compute the number of the splits of the file
+            sample_difference = wav.shape[0] % delta_sample
+            # Compute the range end by extracting the sample rate difference
+            range_end = wav.shape[0]-sample_difference
+            # Iterate through the wav file and extract all of the subsamples in regards to the delta_sample
+            for count, step in enumerate(np.arange(start=0, stop=range_end, step=delta_sample)):
+                # The start value is the current value from the range
+                start = int(step)
+                # The stop is proportional with the delta sample's shape
+                stop = int(step + delta_sample)
+                # Clustering the file
+                sample = wav[start:stop]
+                # Saving the new sample
+                save_sample(sample, rate, destination_folder, file, count)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Cleaning audio data')
-    parser.add_argument('--src_root', type=str, default='./some test data',
-                        help='directory of audio files in total duration')
-    parser.add_argument('--dst_root', type=str, default='./newe',
-                        help='directory to put audio files split by delta_time')
-    parser.add_argument('--delta_time', '-dt', type=float, default=1.0,
-                        help='time in seconds to sample audio')
-    parser.add_argument('--sr', type=int, default=16000,
-                        help='rate to downsample audio')
-    parser.add_argument('--fn', type=str, default='3a3d0279',
-                        help='file to plot over time to check magnitude')
-    parser.add_argument('--threshold', type=str, default=20,
-                        help='threshold magnitude for np.int16 dtype')
-    args, _ = parser.parse_known_args()
-
-    # test_threshold(args)
-    split_wavs(args)
+    src_root = './some test data'
+    dst_root = './newe'
+    dt = 1.0
+    sr=16000
+    threshold=20
+    split_audio_files(src_root,dst_root,dt,sr,threshold)

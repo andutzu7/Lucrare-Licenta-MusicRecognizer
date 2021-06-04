@@ -103,7 +103,7 @@ if __name__ == "__main__":
     # model.save('working_audio_classification2.h5')
     dataset_labels={0:'Other',
                     1:'Piano'}
-    audio_file = wavfile.read('./hexagon16_0.wav')
+    audio_file = wavfile.read('./jeune.wav')
 
     X = np.empty((1, int(16000*1.0), 1),dtype=np.float32)
 
