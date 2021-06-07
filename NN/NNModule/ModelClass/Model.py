@@ -1,7 +1,6 @@
 # Import modules
 from Layers.Conv2DLayer import Conv2D
 import copy
-import cv2
 import os
 import numpy as np
 import copy
