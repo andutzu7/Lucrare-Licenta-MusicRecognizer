@@ -4,6 +4,7 @@
 !/NN
 !/NN/Licenta
 !/NN/Licenta/VNNL
+!/Music\ Recognizer
 !/NN/Licenta/NNModule
 !/OneNotes
 !/Research
@@ -36,3 +37,7 @@ NN/VNNL/VNNL/VNNL/*.vcxproj
 NN/VNNL/VNNL/VNNL/*.vcxproj.filters
 NN/VNNL/VNNL/VNNL/*.vcxproj.user
 NN/NNModule/fashion_mnist.model
+Music\ Recognizer/clean/
+Music\ Recognizer/Input\ Data/
+Music\ Recognizer/Test\ data/
+Music\ Recognizer/Models/

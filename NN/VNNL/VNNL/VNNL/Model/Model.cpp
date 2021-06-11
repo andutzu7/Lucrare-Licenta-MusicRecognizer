@@ -1,10 +1,13 @@
 #include "Model.h"
+
+
 void Model::Add(Layer *layer)
 {
     this->layers.push_back(layer);
 }
 void Model::Set(Loss *loss, Optimizer *optimizer, Accuracy *accuracy)
 {
+
     if (loss != nullptr)
     {
         this->loss = loss;
@@ -24,7 +27,6 @@ void Model::Finalize()
     size_t layer_count = this->layers.size();
     for (size_t i = 0; i < layer_count; i++)
     {
-        
     }
 }
 void Model::Train(xt::xarray<double> X_data, std::vector<std::string> y_labels, xt::xarray<double> validation_data, size_t epochs = 1, size_t batch_size = 0, size_t print_every = 1)
@@ -38,6 +40,7 @@ xt::xarray<double> Predict(xt::xarray<double> X_val, size_t batch_size = 0)
 }
 Layer *Forward(xt::xarray<double> X_data)
 {
+
 }
 void Backward(xt::xarray<double> output, std::vector<std::string> y_labels)
 {
