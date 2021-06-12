@@ -16,6 +16,7 @@ def download_song_from_youtube(link):
     options = {
         'format': 'bestaudio/best',
         'outtmpl': './tempdownload/%(title)s.%(ext)s',
+        'noplaylist':True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'wav',
