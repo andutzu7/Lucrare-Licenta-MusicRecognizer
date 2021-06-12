@@ -1,4 +1,26 @@
+import tkinter as tk, threading
+import imageio
+from PIL import Image, ImageTk
 
+video_name = "nicovala.wmv" #This is your video file path
+videox = imageio.get_reader(video_name)
+
+def stream(label,video):
+
+    for image in video.iter_data():
+        frame_image = ImageTk.PhotoImage(Image.fromarray(image))
+        label.config(image=frame_image)
+        label.image = frame_image
+
+if __name__ == "__main__":
+
+    root = tk.Tk()
+    my_label = tk.Label(root)
+    my_label.pack()
+    thread = threading.Thread(target=stream, args=(my_label,videox))
+    thread.daemon = 1
+    thread.start()
+    root.mainloop()
 #     from kapre.composed import get_melspectrogram_layer
 #     import numpy as np
 #     from scipy.io.wavfile import read
@@ -15,10 +37,10 @@
                             
 
 # print(i(data))
-import numpy as np
+# import numpy as np
 
-x = np.array([None])
-print(type(x))
+# x = np.array([None])
+# print(type(x))
 
 # 
 
