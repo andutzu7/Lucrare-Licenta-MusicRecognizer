@@ -4,7 +4,7 @@ import numpy as np
 The Sigmoid function handles the inputs using the by activating them using the formula 1/1+e^(-x), reducing the range
 of the input value(x) to the interval [0,1]. The Sigmoid function is used especially in binary classification problems.
 
-The ActivationReLu class contains:
+The ActivationSigmoid class contains:
     :param inputs(np.array) : A numpy array containing the output of the layer the function is attached to
     :param output(np.array) : The 'clipped' array, after the activation function has been applied.
     :param derivated_inputs(np.array) : The outputs of the class after the backward pass
