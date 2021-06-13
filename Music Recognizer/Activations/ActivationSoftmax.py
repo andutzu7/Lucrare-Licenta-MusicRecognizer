@@ -26,7 +26,7 @@ class ActivationSoftmax:
         # Saving the input values
         self.inputs = inputs
         # Performing the exponentiation of the input values
-        # The exponentiation is performed row wise (axis=1) so the function can be applied to the batches of data
+        # The exponentiation is performed column wise (axis=1) so the function can be applied to the batches of data
         # For avoiding dead neurons and very large numbers that can cause explosions(integer overflow), we substract
         # the max value out of each input batch
         exp_values = np.exp(inputs - np.max(inputs, axis=1,
