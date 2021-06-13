@@ -13,7 +13,7 @@ Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg
          * https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
 """
 class Activation_Sigmoid:
-    def forward(self, inputs,training=True):
+    def forward(self, inputs):
         """
         Performs the forward pass by mapping the inputs to the [0,1] interval.
 

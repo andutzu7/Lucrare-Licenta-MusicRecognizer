@@ -37,21 +37,21 @@ class Conv2D():
     def get_parameters(self):
         return np.prod(self.weights.shape) + np.prod(self.biases.shape)
 
-    def forward(self, X,training):
+    def forward(self, inputs):
         '''
         Initializing the weights if its the first pass
         '''
         if not isinstance(self.weights,np.ndarray):
-            self.channel_inputs = X.shape[1]
+            self.channel_inputs = inputs.shape[1]
             limit = 1 / math.sqrt(np.prod(self.filter_shape))
             w_size = (self.n_filters,self.channel_inputs, self.filter_shape[0], self.filter_shape[1])
             self.weights = np.random.uniform(-limit, limit, size=w_size)
-        self.input_shape = X.shape[1:]
-        batch_size, channels, height, width = X.shape
-        self.layer_input = X
+        self.input_shape = inputs.shape[1:]
+        batch_size, channels, height, width = inputs.shape
+        self.layer_input = inputs
         # Turn image shape into column shape
         # (enables dot product between input and weights)
-        self.X_col = image_to_column(X, self.filter_shape, stride=self.stride, output_shape=self.padding)
+        self.X_col = image_to_column(inputs, self.filter_shape, stride=self.stride, output_shape=self.padding)
         # Turn weights into column shape
         self.weights_col = self.weights.reshape((self.n_filters, -1))
         # Calculate output

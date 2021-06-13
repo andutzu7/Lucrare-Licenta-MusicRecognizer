@@ -14,7 +14,7 @@ class MaxPooling2D:
         self.derivated_inputs = None
         self.output = None
 
-    def forward(self, inputs,training=True):
+    def forward(self, inputs):
         self.layer_input = inputs
 
         self.input_shape = inputs.shape[1:]

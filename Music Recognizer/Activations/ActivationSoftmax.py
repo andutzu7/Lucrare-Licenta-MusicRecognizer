@@ -15,7 +15,7 @@ The Softmax class contains:
 Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.98-99]
 """
 class ActivationSoftmax:
-    def forward(self, inputs,training=True):
+    def forward(self, inputs):
         """
         Performs the forward pass by applying the formula.
         Args:

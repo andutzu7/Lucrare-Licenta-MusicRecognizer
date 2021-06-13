@@ -8,7 +8,7 @@ class Flatten:
         self.derivated_inputs = None
         self.output = None
 
-    def forward(self, inputs,training=True):
+    def forward(self, inputs):
         self.input_shape = inputs.shape[1:]
         self.prev_shape = inputs.shape
         self.output = inputs.reshape((inputs.shape[0], -1))

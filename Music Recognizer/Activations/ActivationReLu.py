@@ -15,7 +15,7 @@ Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg
          * https://medium.com/analytics-vidhya/how-relu-works-f317a947bdc6
 """
 class ActivationReLu:
-    def forward(self, inputs,training=True):
+    def forward(self, inputs):
         """
         Performs the forward pass by 'clipping' the array of the values below 0. 
 
