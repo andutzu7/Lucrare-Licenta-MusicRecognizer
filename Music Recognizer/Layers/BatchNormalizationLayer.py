@@ -15,11 +15,9 @@ The BatchNormalization class contains:
     :param moving_variation(np.array) :  The minibatch's mean (\tau)
     :param cache(tuple) : A tuple containing the necessary parameters for the backpropagation.
     :param output(np.array) : The outputs of the layer after the forward pass
-    :param derivated_inputs(np.array) : The outputs of the layer after the forward pass
+    :param derivated_inputs(np.array) : The outputs of the layer after the backward pass
    
 """
-
-
 class BatchNormalization:
 
     def __init__(self):
@@ -135,7 +133,6 @@ class BatchNormalization:
 
     def backward(self, derivated_values):
         """
-        
         Performs the backward pass using the gradient chaining method.
 
         Args:
