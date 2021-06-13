@@ -32,7 +32,7 @@ class BatchNormalization:
         self.output = None
         self.derivated_inputs = None
 
-    def forward(self, inputs, epsilon, momentum=0.999, training=True):
+    def forward(self, inputs, epsilon=0.001, momentum=0.999, training=True):
         """
         Performs the forward pass. 
         First it checks the number of dimensions of the inputs, handling either cases(2d dense layers and 4d convolutional layers)

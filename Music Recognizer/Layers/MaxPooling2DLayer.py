@@ -14,15 +14,15 @@ class MaxPooling2D:
         self.derivated_inputs = None
         self.output = None
 
-    def forward(self, X):
-        self.layer_input = X
+    def forward(self, inputs,training=True):
+        self.layer_input = inputs
 
-        self.input_shape = X.shape[1:]
-        batch_size, channels, height, width = X.shape
+        self.input_shape = inputs.shape[1:]
+        batch_size, channels, height, width = inputs.shape
         _, out_height, out_width = self.output_shape()
-        X = X.reshape(batch_size*channels, 1, height, width)
+        inputs = inputs.reshape(batch_size*channels, 1, height, width)
         X_col = image_to_column(
-            X, self.pool_shape, self.stride, output_shape="same")
+            inputs, self.pool_shape, self.stride, output_shape="same")
         arg_max = np.argmax(X_col, axis=0).flatten()
         output = X_col[arg_max, range(arg_max.size)]
         self.cache = arg_max

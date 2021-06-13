@@ -11,7 +11,7 @@ class DropoutLayer:
     # Forward pass
 
     # de schimbat cu true
-    def forward(self, inputs, training=False):
+    def forward(self, inputs, training=True):
         # Save input values
         self.inputs = inputs
         # If not in the training mode - return values

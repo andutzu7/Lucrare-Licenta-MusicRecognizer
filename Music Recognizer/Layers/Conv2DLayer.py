@@ -37,7 +37,7 @@ class Conv2D():
     def get_parameters(self):
         return np.prod(self.weights.shape) + np.prod(self.biases.shape)
 
-    def forward(self, X):
+    def forward(self, X,training):
         '''
         Initializing the weights if its the first pass
         '''
