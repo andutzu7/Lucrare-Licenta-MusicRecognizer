@@ -1,7 +1,7 @@
 import numpy as np
 # Softmax classifier - combined Softmax activation
 # and cross-entropy loss for faster backward step
-class Activation_Softmax_Loss_CategoricalCrossentropy():
+class Activation_Softmax_Loss_CategoricalCrossentropy:
     # Backward pass
     def backward(self, derivated_values, y_true):
         # Number of samples

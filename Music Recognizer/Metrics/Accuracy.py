@@ -1,26 +1,59 @@
 import numpy as np
 
-# Common accuracy class
 class Accuracy:
-    # Calculates an accuracy
-    # given predictions and ground truth values
+    """
+        The Accuracy is a metric which describes how often the largest condifence
+        is the correct class.
+        This is the abstract/generic class which will be inherited by the categorical
+        and regression accuracy.
+        Each object that inherits this class must implement the 'compare' method.
+
+    The Accuracy class contains:
+        :param accumulated_sum(float) : accumulated sum 
+        :param accumulated_count(float) : accumulated count
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.129-139]
+
+    """
     def calculate(self, predictions, y):
-        # Get comparison results
+        """
+        Calculates an accuracy given predictions and ground truth values
+
+        Args:
+            predictions (np.array): model predictions.
+            y (np.array): actual values .
+        
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.129-139]
+        """
+        # Compare predictions to the truth values.
         comparisons = self.compare(predictions, y)
-        # Calculate an accuracy
+        # Calculate the accuracy
         accuracy = np.mean(comparisons)
         # Add accumulated sum of matching values and sample count
         self.accumulated_sum += np.sum(comparisons)
         self.accumulated_count += len(comparisons)
-        # Return accuracy
+
         return accuracy
-    # Calculates accumulated accuracy
+
     def calculate_accumulated(self):
-        # Calculate an accuracy
+        """
+        Compute the accumlated accuracy
+
+        Args:
+        
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.129-139]
+        """
         accuracy = self.accumulated_sum / self.accumulated_count
-        # Return the data and regularization losses
+
         return accuracy
-    # Reset variables for accumulated accuracy
+
     def new_pass(self):
+        """
+        Reset variables for accumulated accuracy
+
+        Args:
+        
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.129-139]
+        """
         self.accumulated_sum = 0
         self.accumulated_count = 0
