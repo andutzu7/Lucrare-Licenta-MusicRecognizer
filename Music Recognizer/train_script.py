@@ -1,8 +1,3 @@
-# o sa am nevoie si eu de rahatu ala cu training(argumentu nefolosit)
-# pentru maaxpooling si conv2d metoda e ca primesc batchu la forma (N , C , W, H) si atributu input shape ia shape[1:], dar trebuie sa
-# greseala e la input batch handling si faza cu channels first
-# si faza cu training loop, dupa ce se face forward si backprop trebuie reshapeuit arrayul(in model training loop)
-# am in vedere ca inputul primit dinainte in retea sa fie de forma asta sau sa i se faca reshape .
 from Layers.InputLayer import InputLayer
 from ModelClass.Model import Model
 from Metrics.CategoricalAccuracy import CategoricalAccuracy

@@ -11,38 +11,77 @@ from utils.DataGenerator import DataGenerator
 from Metrics.CategoricalCrossentropy import CategoricalCrossentropy
 from Activations.ActivationSoftmax import ActivationSoftmax
 from Metrics.ActivationSoftmaxCategoricalCrossentropy import Activation_Softmax_Loss_CategoricalCrossentropy
-# Model class
 
 
 class Model:
+    """
+    The Model class. The class encapsulates the neural network.
+
+    Methods: *add(layer): Inserts a new layer into the model
+             *set(loss,optimizer,accuracy): Sets the specified loss, optimizer and accuracy metrics.
+             *finalize(): Attaches each specified layer to one another 
+             *train(X,y,train_generator,validation_generator,epochs,batch_size,print_every,validation_data): Performs the model training.
+             *evaluate(self, X_val=None, y_val=None, validation_generator=None, batch_size=None): Performs the validation verification.
+             *predict(self, X=None, test_generator=None,  batch_size=None):Performs the inference.
+             *forward(self, X): Performs the forward pass.
+             *backward(self, output, y): Performs the backward pass.
+             *get_parameters(self): Returns the model parameters.
+             *set_parameters(self, parameters): Sets the model parameters.
+             *save_parameters(self, path): Save the model parameters
+             *load_parameters(self, path):Load the model parameters.
+             *save(self, path):Save the model file.
+             *load(path):Load a model file.
+    
+    Args: *layers(list): The list of the model layers.
+
+    Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+
+    """
     def __init__(self):
-        # Create a list of network objects
         self.layers = []
-        # Softmax classifier's output object
         self.softmax_classifier_output = None
-    # Add objects to the model
 
     def add(self, layer):
+        """
+        Add another layer to the model.
+
+        Args: *layer(layer): A layer object.
+    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         self.layers.append(layer)
-    # Set loss, optimizer and accuracy
 
     def set(self, loss=None, optimizer=None, accuracy=None):
+        """
+        Set loss, optimizer and accuracy
+
+        Args: *loss(loss): loss object
+              *optimizer(optimizer): optimizer object
+              *accuracy(accuracy): accuracy object
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         if loss is not None:
             self.loss = loss
         if optimizer is not None:
             self.optimizer = optimizer
         if accuracy is not None:
             self.accuracy = accuracy
-    # Finalize the model
 
     def finalize(self):
-        # Create and set the input layer
+        """
+        Finalize the model
+
+        Args: 
+
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
+        # Creating and setting the input layer
         self.input_layer = InputLayer()
-        # Count all the objects
+        # Counting all the objects
         layer_count = len(self.layers)
-        # Initialize a list containing trainable layers:
+        # Initializing a list containing trainable layers:
         self.trainable_layers = []
-        # Iterate the objects
+        # Iterating through the objects
         for i in range(layer_count):
             # If it's the first layer,
             # the previous layer object is the input layer
@@ -54,7 +93,7 @@ class Model:
                 self.layers[i].prev = self.layers[i-1]
                 self.layers[i].next = self.layers[i+1]
             # The last layer - the next object is the loss
-            # Also let's save aside the reference to the last object
+            # Also saving aside the reference to the last object
             # whose output is the model's output
             else:
                 self.layers[i].prev = self.layers[i-1]
@@ -62,17 +101,15 @@ class Model:
                 self.output_layer_activation = self.layers[i]
             # If layer contains an attribute called "weights",
             # it's a trainable layer -
-            # add it to the list of trainable layers
-            # We don't need to check for biases -
-            # checking for weights is enough
+            # adding it to the list of trainable layers
             if hasattr(self.layers[i], 'weights'):
                 self.trainable_layers.append(self.layers[i])
-        # Update loss object with trainable layers
+        # Updating the loss object with the trainable layers
         if self.loss is not None:
             self.loss.remember_trainable_layers(
                 self.trainable_layers
             )
-        # If output activation is Softmax and
+        # If the output activation is Softmax and
         # loss function is Categorical Cross-Entropy
         # create an object of combined activation
         # and loss function containing
@@ -83,10 +120,25 @@ class Model:
             # and loss functions
             self.softmax_classifier_output = \
                 Activation_Softmax_Loss_CategoricalCrossentropy()
-    # Train the model
 
     def train(self, X=None, y=None, train_generator=None, validation_generator=None, epochs=1, batch_size=None,
               print_every=1, validation_data=None):
+        """
+        Train the model. The model takes either np.array for the input data or generators. If one of them is not None
+        the other has to be None.
+
+        Args: X(np.array): Array containing input values
+              y(np.array): Array containing the labels
+              validation_data(np.array): Validation data array
+              train_generator(DataGenerator): Train data generator
+              validation_generator(DataGenerator): Validation data generator
+              epochs(int): number of epochs
+              batch_size(int): size of the batch
+              print_every(int): Log printing number of steps
+                    
+
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Initialize accuracy object
         if y is not None:
             self.accuracy.init(y)
@@ -96,13 +148,10 @@ class Model:
         if X is not None:
             if batch_size is not None:
                 train_steps = len(X) // batch_size
-                # Dividing rounds down. If there are some remaining
-                # data but not a full batch, this won't include it
-                # Add `1` to include this not full batch
                 if train_steps * batch_size < len(X):
                     train_steps += 1
         elif train_generator is not None:
-            train_steps = 50#int(train_generator.__len__()/batch_size)
+            train_steps = int(train_generator.__len__()/batch_size)
         # Main training loop
         for epoch in range(1, epochs+1):
             # Print epoch number
@@ -128,7 +177,6 @@ class Model:
                 # Perform the forward pass
                 output = self.forward(batch_X)
                 # Calculate loss
-                # de pus aici regularisation loss
                 data_loss = \
                     self.loss.calculate(output, batch_y,
                                         include_regularization=False)
@@ -169,23 +217,29 @@ class Model:
             elif validation_generator is not None:
                 self.evaluate(validation_generator=validation_generator,
                               batch_size=batch_size)
-    # Evaluates the model using passed-in dataset
 
     def evaluate(self, X_val=None, y_val=None, validation_generator=None, batch_size=None):
+        """
+        Evaluates the model using passed-in dataset
+
+        Args: X_val(np.array): Array containing the validation values
+              y_val(np.array): Array containing the validation labels
+              validation_data(np.array): Validation data array
+              batch_size(int): size of the batch
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Default value if batch size is not being set
         validation_steps = 1
         # Calculate number of steps
         if X_val is not None:
             if batch_size is not None:
                 validation_steps = len(X_val) // batch_size
-                # Dividing rounds down. If there are some remaining
-                # data but not a full batch, this won't include it
-                # Add `1` to include this not full batch
                 if validation_steps * batch_size < len(X_val):
                     validation_steps += 1
         else:
             if validation_generator is not None:
-                validation_steps = 50#int(validation_generator.__len__()/batch_size)
+                validation_steps = int(validation_generator.__len__()/batch_size)
         # Reset accumulated values in loss
         # and accuracy objects
         self.loss.new_pass()
@@ -226,15 +280,21 @@ class Model:
     # Predicts on the samples
 
     def predict(self, X=None, test_generator=None,  batch_size=None):
+        """
+        Evaluates the model using passed-in dataset
+
+        Args: X(np.array): Array containing generated values
+              test_generator(np.array): Test data generator
+              batch_size(int): size of the batch
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Default value if batch size is not being set
         prediction_steps = 1
         # Calculate number of steps
         if X is not None:
             if batch_size is not None:
                 prediction_steps = len(X) // batch_size
-                # Dividing rounds down. If there are some remaining
-                # data but not a full batch, this won't include it
-                # Add `1` to include this not full batch
                 if prediction_steps * batch_size < len(X):
                     prediction_steps += 1
         elif test_generator is not None:
@@ -257,11 +317,17 @@ class Model:
             batch_output = self.forward(batch_X)
             # Append batch prediction to the list of predictions
             output.append(batch_output)
-        # Stack and return results
+        # Stack and return results(return a column array)
         return np.vstack(output)
-    # Performs forward pass
 
     def forward(self, X):
+        """
+        Performs forward pass
+
+        Args: X(np.array): Array containing the validation values
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Call forward method on the input layer
         # this will set the output property that
         # the first layer in "prev" object is expecting
@@ -273,9 +339,16 @@ class Model:
         # "layer" is now the last object from the list,
         # return its output
         return layer.output
-    # Performs backward pass
 
     def backward(self, output, y):
+        """
+        Performs backward pass
+
+        Args: output(np.array): Array containing the previous layer input values
+              y(np.array): Array containing the previous layer labels.
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # If softmax classifier
         if self.softmax_classifier_output is not None:
             # First call backward method
@@ -302,9 +375,15 @@ class Model:
         # in reversed order passing derivated_inputs as a parameter
         for layer in reversed(self.layers):
             layer.backward(layer.next.derivated_inputs)
-    # Retrieves and returns parameters of trainable layers
 
     def get_parameters(self):
+        """
+        Retrieves and returns parameters of trainable layers
+
+        Args: 
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Create a list for parameters
         parameters = []
         # Iterable trainable layers and get their parameters
@@ -312,31 +391,55 @@ class Model:
             parameters.append(layer.get_parameters())
         # Return a list
         return parameters
-    # Updates the model with new parameters
 
     def set_parameters(self, parameters):
+        """
+        Updates the model with new parameters
+
+        Args: parameters(np.array): np.array containing an instance of model parameters
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Iterate over the parameters and layers
         # and update each layers with each set of the parameters
         for parameter_set, layer in zip(parameters,
                                         self.trainable_layers):
             layer.set_parameters(*parameter_set)
-    # Saves the parameters to a file
 
     def save_parameters(self, path):
+        """
+        Saves the parameters to a file
+
+        Args: path(string): Output file path
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Open a file in the binary-write mode
         # and save parameters into it
         with open(path, 'wb') as f:
             pickle.dump(self.get_parameters(), f)
-    # Loads the weights and updates a model instance with them
 
     def load_parameters(self, path):
+        """
+        Loads the weights and updates a model instance with them
+
+        Args: path(string): Parameters file path
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Open file in the binary-read mode,
         # load weights and update trainable layers
         with open(path, 'rb') as f:
             self.set_parameters(pickle.load(f))
-    # Saves the model
 
     def save(self, path):
+        """
+        Saves the model
+        
+        Args: path(string): Path where to save the file.
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Make a deep copy of current model instance
         model = copy.deepcopy(self)
         # Reset accumulated values in loss and accuracy objects
@@ -354,10 +457,16 @@ class Model:
         # Open a file in the binary-write mode and save the model
         with open(path, 'wb') as f:
             pickle.dump(model, f)
-    # Loads and returns a model
 
     @staticmethod
     def load(path):
+        """
+        Loads and returns a model
+        
+        Args: path(string): Path of the model.
+                    
+        Sources: * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.475-531]
+        """
         # Open file in the binary-read mode, load a model
         with open(path, 'rb') as f:
             model = pickle.load(f)

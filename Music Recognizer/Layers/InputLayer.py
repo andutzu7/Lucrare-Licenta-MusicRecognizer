@@ -20,13 +20,16 @@ class InputLayer:
     def forward(self, inputs):
         """
         Performs the forward pass by feeding the inputs to the composed kapre layer which consists of a
-        keras.Sequential model consists of STFT, Magnitude, ApplyFilterbank(_mel_filterbank) operation
+        keras.Sequential model consists of STFT(Short time Fourier Transsform), Magnitude, ApplyFilterbank(_mel_filterbank) operation
         thus resulting in a 2D Numpy array which contains the MelSpectogram of the audio input file.
         Args:
             inputs (np.array): given inputs.
 
         Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.66-71]
-        """
+                    *https://www.youtube.com/user/seth8141/featured
+                    *https://github.com/seth814/Audio-Classification
+                    *https://kapre.readthedocs.io/en/latest/composed.html
+  """
 
         # Predefined sample output shape
         input_shape = (int(16000*1.0), 1)

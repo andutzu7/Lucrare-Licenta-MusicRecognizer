@@ -26,6 +26,10 @@ def split_by_sound_envelope(y, sr, threshold):
     :mask(np.array): Clean audio file mask
     :y_mean(np.array): Rolling window mean of the audio
 
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
+        *https://kapre.readthedocs.io/en/latest/composed.html
 """
     # Initializing the mask array
     mask = []
