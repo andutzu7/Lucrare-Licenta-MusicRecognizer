@@ -1,2 +1,4 @@
 step: 0,  acc: 0.562,  loss: 0.784 ( + data_loss: 0.784),lr: 0.001 
 step: 0,  acc: 0.438,  loss: 0.747 ( + data_loss: 0.747),lr: 0.001 
+step: 0,  acc: 0.281,  loss: 0.836 ( + data_loss: 0.836),lr: 0.001 
+step: 0,  acc: 0.406,  loss: 0.783 ( + data_loss: 0.783),lr: 0.001 
