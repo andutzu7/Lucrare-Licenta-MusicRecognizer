@@ -1,24 +1,40 @@
 import numpy as np
 from .Loss import Loss
 
-# Mean Absolute Error loss
+class MeanAbsoluteError(Loss):  
+    """
+        The MAE class computes the loss by calculating the average of the absolute value of the errors
+        (the average squared difference between the estimated and actual values)
 
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.430-436]
 
-class MeanAbsoluteError(Loss):  # L1 loss
+    """
     def forward(self, y_pred, y_true):
-        # Calculate loss
+        """
+        Performs the forward pass. 
+
+        Args :  y_pred(np.array): Model predictions       
+                y_true(np.array): Actual values
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.430-436]
+        """
+        # Perform the MAE error.
         sample_losses = np.mean(np.abs(y_true - y_pred), axis=-1)
-        # Return losses
         return sample_losses
-    # Backward pass
 
     def backward(self, derivated_values, y_true):
-        # Number of samples
+        """
+        Perform the backward pass.
+
+        Args : derivated_values(np.array): Input values.
+               y_true(np.array): Actual values
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.430-436]
+        """
+        # Taking the number of outputs in every sample we'll use 
         samples = len(derivated_values)
-        # Number of outputs in every sample
-        # We'll use the first sample to count them
         outputs = len(derivated_values[0])
-        # Calculate gradient
+        # Calculate the gradient
         self.derivated_inputs = np.sign(y_true - derivated_values) / outputs
-        # Normalize gradient
+        # Normalize the gradient and applying it to the values
         self.derivated_inputs = self.derivated_inputs / samples

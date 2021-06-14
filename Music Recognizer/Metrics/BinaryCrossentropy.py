@@ -1,32 +1,47 @@
 import numpy as np
 from .Loss import Loss
 
-# Binary cross-entropy loss
 class BinaryCrossentropy(Loss):
-    # Forward pass
+    """
+        The class computes the binary crossentropy by applying the formula.
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.407-412]
+
+    """
     def forward(self, y_pred, y_true):
-        # Clip data to prevent division by 0
-        # Clip both sides to not drag mean towards any value
+        """
+        Performs the forward pass. 
+
+        Args :  y_pred(np.array): Model predictions       
+                y_true(np.array): Actual values
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.112-116]
+        """
+        # Clip data to prevent division by 0 and to avoid draging the mean towards any value
         y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
-        # Calculate sample-wise loss
+        # Calculate the loss by sample
         sample_losses = -(y_true * np.log(y_pred_clipped) +
                           (1 - y_true) * np.log(1 - y_pred_clipped))
+        # Compute the mean
         sample_losses = np.mean(sample_losses, axis=-1)
-        # Return losses
         return sample_losses
-    # Backward pass
 
     def backward(self, derivated_values, y_true):
-        # Number of samples
+        """
+        Perform the backward pass.
+
+        Args : derivated_values(np.array): Input values.
+               y_true(np.array): Actual values
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.430-436]
+        """
+        # Number of samples and outputs
         samples = len(derivated_values)
-        # Number of outputs in every sample
-        # We'll use the first sample to count them
         outputs = len(derivated_values[0])
-        # Clip data to prevent division by 0
-        # Clip both sides to not drag mean towards any value
+        # Clip data to prevent division by 0 and to avoid draging the mean towards any value
         clipped_derivated_values = np.clip(derivated_values, 1e-7, 1 - 1e-7)
         # Calculate gradient
         self.derivated_inputs = -(y_true / clipped_derivated_values -
                          (1 - y_true) / (1 - clipped_derivated_values)) / outputs
-        # Normalize gradient
+        # Normalize the gradient and applying it to the values
         self.derivated_inputs = self.derivated_inputs / samples
