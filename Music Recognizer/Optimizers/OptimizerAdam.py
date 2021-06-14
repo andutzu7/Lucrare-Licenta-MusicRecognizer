@@ -1,10 +1,19 @@
 from Layers.Conv2DLayer import Conv2D
 import numpy as np
-# Adam optimizer
-
 
 class OptimizerAdam:
-    # Initialize optimizer - set settings
+    """
+    Adam(Adaptive Momentum) is built on top of RMSProp applying a momentum concept like SGD.
+    Instead of applying the current gradients to the parameters, it adds the momentum like in th SGD optimizer,
+    applying a per-weight adaptive learning.
+
+    :param learning_rate(float): the optimizer learning rate after the forward pass.
+    :param current learning rate(float): the previous iteration learning rate.
+    :param decay(float): decay rate.
+    :param iterations(int): current iteration.
+    :param epsilon(float): a constant rate offset.
+    Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.304-309]
+    """
     def __init__(self, learning_rate=0.001, decay=0., epsilon=1e-7,
                  beta_1=0.9, beta_2=0.999):
         self.learning_rate = learning_rate
@@ -14,23 +23,35 @@ class OptimizerAdam:
         self.epsilon = epsilon
         self.beta_1 = beta_1
         self.beta_2 = beta_2
-    # Call once before any parameter updates
 
     def pre_update_params(self):
+        """                         
+        The function calculates the current learning rate if the decay is set, in regards to the
+        current iteration.
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.304-309]
+        """
         if self.decay:
             self.current_learning_rate = self.learning_rate * \
                 (1. / (1. + self.decay * self.iterations))
-    # Update parameters
 
     def update_params(self, layer):
-        # If layer does not contain cache arrays,
-        # create them filled with zeros
+        """
+        Updates the parameters.
+
+        
+        Args:
+        :param layer(layer type): layer parameter.
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.304-309]
+        """
+        # If layer does not contain momentum arrays, create them filled with zeros
         if not hasattr(layer, 'weight_cache'):
             layer.weight_momentums = np.zeros_like(layer.weights)
             layer.weight_cache = np.zeros_like(layer.weights)
             layer.bias_momentums = np.zeros_like(layer.biases)
             layer.bias_cache = np.zeros_like(layer.biases)
-        # Update momentum  with current gradients
+        # Update momentum with current gradients
         layer.weight_momentums = self.beta_1 * \
             layer.weight_momentums + \
             (1 - self.beta_1) * layer.derivated_weights
@@ -38,8 +59,6 @@ class OptimizerAdam:
             layer.bias_momentums + \
             (1 - self.beta_1) * layer.derivated_biases
         # Get corrected momentum
-        # self.iteration is 0 at first pass
-        # and we need to start with 1 here
         weight_momentums_corrected = layer.weight_momentums / \
             (1 - self.beta_1 ** (self.iterations + 1))
         bias_momentums_corrected = layer.bias_momentums / \
@@ -54,8 +73,8 @@ class OptimizerAdam:
             (1 - self.beta_2 ** (self.iterations + 1))
         bias_cache_corrected = layer.bias_cache / \
             (1 - self.beta_2 ** (self.iterations + 1))
-        # Vanilla SGD parameter update + normalization
-        # with square rooted cache
+        
+        # Update weights and biases
         layer.weights += -self.current_learning_rate * \
             weight_momentums_corrected / \
             (np.sqrt(weight_cache_corrected) +
@@ -64,7 +83,12 @@ class OptimizerAdam:
             bias_momentums_corrected / \
             (np.sqrt(bias_cache_corrected) +
              self.epsilon)
-    # Call once after any parameter updates
 
     def post_update_params(self):
+        """                         
+        The function calculates the current learning rate if the decay is set, in regards to the
+        current iteration.
+
+        Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.304-309]
+        """
         self.iterations += 1
