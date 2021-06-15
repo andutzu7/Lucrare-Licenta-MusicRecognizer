@@ -29,7 +29,6 @@ def split_by_sound_envelope(y, sr, threshold):
     Source:
         *https://www.youtube.com/user/seth8141/featured
         *https://github.com/seth814/Audio-Classification
-        *https://kapre.readthedocs.io/en/latest/composed.html
 """
     # Initializing the mask array
     mask = []
@@ -61,6 +60,10 @@ def downsample_mono(path, sr):
     Returns:
     :param sr(int) : the wav's sample rate
     :param wav(np.array) : the mono-sampled converted wav file data
+
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
 """
     # Read the file
     file = wavio.read(path)
@@ -93,6 +96,10 @@ def save_sample(sample, sr, target_dir, file_name, index):
 
 
     Returns:
+
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
 """
     # Get the file name
     file_name = file_name.split('.wav')[0]
@@ -115,6 +122,10 @@ def check_or_create_folder(path):
 
 
     Returns:
+
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
 """
     if os.path.exists(path) is False:
         os.mkdir(path)
@@ -137,6 +148,9 @@ def split_audio_files(audio_folder_root, destination_folder_root, dt=1.0, sr=160
 
     Returns:
 
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
 """
     # Check if the destination folder exists and create it if it doesen't
     check_or_create_folder(destination_folder_root)
@@ -169,6 +183,9 @@ def split_audio_file(file_name, dt, sr, threshold, destination_folder, file):
         :param file(string) : isolated file name
     Returns:
 
+    Source:
+        *https://www.youtube.com/user/seth8141/featured
+        *https://github.com/seth814/Audio-Classification
 """
     # Downsample the file to mono channels
     rate, wav = downsample_mono(file_name, sr)

@@ -18,7 +18,7 @@ class DropoutLayer:
     def __init__(self, rate):
         self.rate = 1 - rate
 
-    def forward(self, inputs, training=True):
+    def forward(self, inputs, training=False):
         """
         Performs the forward pass by multipyling the weights with the inputs then adding the biases.
         Args:

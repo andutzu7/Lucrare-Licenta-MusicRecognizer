@@ -12,3 +12,4 @@ step: 0,  acc: 0.500,  loss: 0.706 ( + data_loss: 0.706),lr: 0.001
 step: 0,  acc: 0.438,  loss: 0.682 ( + data_loss: 0.682),lr: 0.001 
 step: 0,  acc: 0.719,  loss: 0.576 ( + data_loss: 0.576),lr: 0.001 
 step: 0,  acc: 0.625,  loss: 0.708 ( + data_loss: 0.708),lr: 0.001 
+step: 0,  acc: 0.656,  loss: 0.639 ( + data_loss: 0.639),lr: 0.001 
