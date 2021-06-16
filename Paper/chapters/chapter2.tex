@@ -8,7 +8,10 @@ SciPy is a Python-based ecosystem of open-source software for mathematics, scien
 The aforemetioned library's submodule \textit{Input and output} provides a variety of ways of reading and writing data in numerous file formats. For the data processing part of the application, we had choosen the \textit{scipy.io.wavfile.read} function because it facilitates the data manipulation process by being compatible with the numpy module, mentioned below (the output of the \textit{scipy.io.wavfile.read} function is a tuple consisting of the sample rate(int) and the audio data(as a \textit{ndarray}).
 \section{NumPy}
 Numpy is a Python library (part of the SciPy ecosystem) that provides the needed tools in order to perform the mathematical operations behind
-the Neural Network Framework. The core of the module is the \textit{ndarray} object, which encapsulates an optimized n-dimensional array. Thus, we use \textit{ndarray} objects for computing and storing the various operations performed throuought the application (e.g. the dot product, the data reshaping).
+the Neural Network Framework. The core of the module is the \textit{ndarray} object, which encapsulates an
+optimized n-dimensional array. Thus, we use \textit{ndarray} objects for computing and storing the various
+operations performed throughout the application (e.g. the dot product, the data reshaping). The \textit{ndarray}
+array is represented as a matrix, whose dimensions are referred as \textit{shape}.
 Some of the advantages brought by the numpy module are:
 \begin{itemize}
 	\item Forward and backward operation compatibility for the various objects contained withing the application
@@ -17,12 +20,36 @@ Some of the advantages brought by the numpy module are:
 \end{itemize}
 
 \section{TensorFlow}
+TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML powered applications.\cite{tf}
+From the vast amount of methods and submodules contained within TensorFlow, we used Keras, an utilitary library
+built on top of the TensorFlow API. In order for the Neural Network Framework to be able to handle large amounts
+of data, we inherited in our custom \textit{DataGenerator class} the \textit{tensorflow.keras.utils.Sequence}
+class. The \textit{Keras DataGenerator class} along with the custom Neural Network Framework \textit{DataGenerator}
+provide among other functionalities the \textit{ getitem} method, which yields a batch of data at a given index, thus overcoming the big data handling problem.
 
 \section{Kapre}
-composed for the input layer
-
+Kapre (Keras Audio Preprocessors) is an audio data preprocessing library built on top of \textit{Keras},
+specialized on audio signal handling.\cite{choi2017kapre}
+Kapre facilitates sound transformation by efficiently performing various operations (e.g. \textit{Short
+Time Fourier Transformation}, \textit{Magnitude} ) in a GPU optimized consistent manner . For the input data modeling we had chosen the
+\textit{get mel spectogram layer} function from the module \textit{kapre.composed}. It applies sequentially
+\textit{STFT, Magnitude and mel filterbank} transformations over the given input data, returning a mel spectogram
+with an user specified sample rate and output shape.
 \section{Librosa}
+Librosa is a python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems. \cite{mcfee2015librosa}
+Out of the Librosa API we have choosen the following tools :
+\begin{itemize}
+	\item \textit{resample}: A function that resamples an audio file from its original rate to an user
+		given sample rate.
 
-\section{Youtube_dl}
+	\item \textit{to mono}: A function which converts a multi channel signal to mono signaling by averaging
+		the sample values.
+\end{itemize}
+\section{youtube-dl}
+Youtube-dl is an open source tool for downloading videos and songs from the YouTube platform. In the
+context of the final application, the youtube-dl module provides the end user with the possibilty of classifying
+a song just by inserting a link to a YouTube video.
 
 \section{Tkinkter}
+Tkinkter is the standard Python GUI Toolkit, a simple yet versatile module was used for the minimalistic Graphic
+User Interface of the final application.
