@@ -1,11 +1,10 @@
 # Fdb version 3
-["biber main"] 1623856342 "main.bcf" "main.bbl" "main" 1623856343
+["biber main"] 1623860116 "main.bcf" "main.bbl" "main" 1623862138
   "chapters/bib.bib" 1623855095 1418 ccc77660121c880f474a3bd9194d69ae ""
-  "main.bcf" 1623856342 107332 b6100b14eb2dc343182649d1152a3a7c ""
+  "main.bcf" 1623862138 107332 b6100b14eb2dc343182649d1152a3a7c ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1623856340 "main.tex" "main.pdf" "main" 1623856343
+["pdflatex"] 1623862136 "main.tex" "main.pdf" "main" 1623862138
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1616952564 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1616952564 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1616952564 1616 371d1ee60c04b008c8fd760060cd34f1 ""
@@ -107,7 +106,7 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1616952564 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1618936018 5013534 fd35bdaa60a6f086a27ce99b94bb8742 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1618935953 2635856 456ef099bbcdede6e2225bbdd9079486 ""
-  "chapters/chapter1.tex" 1623856308 1838 b4e61ba604319734338e30f2055b05c4 ""
+  "chapters/chapter1.tex" 1623862134 2429 3989daa166c3c06557e1e9179b194f21 ""
   "chapters/chapter2.tex" 1623752642 3884 3aa36a7c00d86adc69e0c51d73844ec3 ""
   "chapters/chapter3.tex" 1623752642 2830 085277920bad3a591e1a14c0e1fce409 ""
   "chapters/conclusions.tex" 1623752642 938 61376d3deb38ce5eadf8df8d7963f2ee ""
@@ -119,18 +118,20 @@
   "front/macros.tex" 1623764626 1335 e35dc36f559eae8347e59796408c03ff ""
   "front/titlepage.tex" 1623752642 718 9b999d56f8c42a073332b1e814d4075e ""
   "images//logoFii.png" 1623752642 8760 126aa7d8abf4647ba1766206622bb2ba ""
+  "images/magenta.png" 1623862088 73945 1bf3ae2af6085d4590b91a1948934687 ""
+  "images/musenet.png" 1623859180 378903 18df08141dc313262a5bf9fb82083ecf ""
   "images/spektrum.png" 1623855203 109313 8338c68445a96cda6e312e7d63773365 ""
-  "main.aux" 1623856342 5790 cf516662321ceafc54e70d4e23860d7a ""
-  "main.bbl" 1623856343 6189 a47caabbe307397729ea1202ce446113 "biber main"
-  "main.out" 1623856342 2691 346b115aff43d5c76c228e950f86d78f ""
-  "main.run.xml" 1623856342 2345 2203bfc136c9ddff37afff74322c715f ""
+  "main.aux" 1623862138 6507 b6d4ce9af6fd239ae4fed1ef68e5a6b3 ""
+  "main.bbl" 1623860117 6189 a47caabbe307397729ea1202ce446113 "biber main"
+  "main.out" 1623862138 2717 7d7e4be7a38a4173a0a8a63fcb9267e0 ""
+  "main.run.xml" 1623862138 2345 a26121910b6941c75c1e1b844fb5d6b6 ""
   "main.tex" 1623856280 1594 6f2227518da55e8e40a6db43ff9952d0 ""
-  "main.toc" 1623856342 2185 d9b67f0af50df5ed55df05f6fb114995 ""
+  "main.toc" 1623862138 2277 36336d9504ded76a896ab08c72c33726 ""
   (generated)
-  "main.out"
   "main.toc"
-  "main.bcf"
   "main.run.xml"
+  "main.out"
+  "main.bcf"
   "main.pdf"
-  "main.aux"
   "main.log"
+  "main.aux"
