@@ -1,0 +1,40 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Motivation}{2}{chapter*.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Introduction}{3}{chapter*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0.1}Context}{3}{section.0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0.2}Purpose and modus operandi}{4}{section.0.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0.3}Personal contributions}{4}{section.0.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0.4}Structure}{5}{section.0.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0.5}Acknowledgements}{5}{section.0.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Similar applications}{6}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Spektrum}{6}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Titlul secțiunii 2}{7}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Titlul celui de-al doilea capitol}{8}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Titlul secțiunii 1}{8}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Titlul secțiunii 2}{9}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Titlul secțiunii 3}{9}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Titlul celui de-al treilea capitol}{10}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Titlul secțiunii 1}{10}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Titlul secțiunii 2}{11}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Concluzii}{12}{chapter*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{12}{chapter*.4}%

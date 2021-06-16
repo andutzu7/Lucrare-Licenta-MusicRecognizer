@@ -2,6 +2,7 @@ from ModelClass.Model import Model
 from utils.pipeline import *
 
 from tkinter import *
+import time
 import threading
 import imageio
 from PIL import Image, ImageTk
@@ -127,6 +128,8 @@ def stream(label,video):
         frame_image = ImageTk.PhotoImage(Image.fromarray(image))
         label.config(image=frame_image)
         label.image = frame_image
+        # Slow down the video rate
+        time.sleep(0.05)
 
 if __name__ == "__main__":
 

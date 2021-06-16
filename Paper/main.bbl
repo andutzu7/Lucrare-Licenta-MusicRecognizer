@@ -1,0 +1,166 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{mitnn}{article}{}
+      \name{author}{1}{}{%
+        {{hash=cd0f580e10643979edd2c0bf6d2cafaa}{%
+           family={Hardesty},
+           familyi={H\bibinitperiod},
+           given={Larry},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \strng{fullhash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \strng{bibnamehash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \strng{authorbibnamehash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \strng{authornamehash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \strng{authorfullhash}{cd0f580e10643979edd2c0bf6d2cafaa}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Explained: Neural networks}
+      \field{year}{2017}
+    \endentry
+    \entry{nnfs}{book}{}
+      \name{author}{2}{}{%
+        {{hash=b899dd84e284163139a7782ff51b7bac}{%
+           family={Kinsley},
+           familyi={K\bibinitperiod},
+           given={Harrison},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3e1f1f3cc24aa1875a2e43b171787b7b}{%
+           family={Kukieła},
+           familyi={K\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \strng{fullhash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \strng{bibnamehash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \strng{authorbibnamehash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \strng{authornamehash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \strng{authorfullhash}{e0e9f3878f43bb6b45eccb59fdba0372}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Neural Networks from Scratch in Python}
+      \field{year}{2020}
+    \endentry
+    \entry{BACDNN}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e82740fcb7f59382872d724abc49de65}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Narayan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e82740fcb7f59382872d724abc49de65}
+      \strng{fullhash}{e82740fcb7f59382872d724abc49de65}
+      \strng{bibnamehash}{e82740fcb7f59382872d724abc49de65}
+      \strng{authorbibnamehash}{e82740fcb7f59382872d724abc49de65}
+      \strng{authornamehash}{e82740fcb7f59382872d724abc49de65}
+      \strng{authorfullhash}{e82740fcb7f59382872d724abc49de65}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Building an Audio Classifier using Deep Neural Networks}
+      \field{year}{2017}
+    \endentry
+    \entry{spektrum}{article}{}
+      \name{author}{5}{}{%
+        {{hash=4276ce625a137518dd7d4306e6960dcf}{%
+           family={Vinje},
+           familyi={V\bibinitperiod},
+           given={Marte},
+           giveni={M\bibinitperiod}}}%
+        {{hash=99e43804556b2487e21420f29ab8809a}{%
+           family={Klimmek},
+           familyi={K\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fc09eb2d3b10eb6a7f5f6245f9b7c6a9}{%
+           family={Salzer},
+           familyi={S\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4e03c515868b10ed0fecb10aa9780c2b}{%
+           family={Hümmecke},
+           familyi={H\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=056576accd3056e4525f3df37ecc4bc7}{%
+           family={Vorwerk},
+           familyi={V\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OpenPower@TUM}%
+      }
+      \strng{namehash}{225e456f0e94798441ce89a13c716f4d}
+      \strng{fullhash}{cebfdf8867903c5c2d097c1e65ff51f6}
+      \strng{bibnamehash}{225e456f0e94798441ce89a13c716f4d}
+      \strng{authorbibnamehash}{225e456f0e94798441ce89a13c716f4d}
+      \strng{authornamehash}{225e456f0e94798441ce89a13c716f4d}
+      \strng{authorfullhash}{cebfdf8867903c5c2d097c1e65ff51f6}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Music Genre Detection – A Complete System}
+      \field{year}{2020}
+    \endentry
+    \entry{DLFMIR}{article}{}
+      \name{author}{2}{}{%
+        {{hash=42de89fc22733056046684caa81e158e}{%
+           family={Yun},
+           familyi={Y\bibinitperiod},
+           given={Mingqing},
+           giveni={M\bibinitperiod}}}%
+        {{hash=50cc5c01544a1fa95324e7a12c638685}{%
+           family={Bi},
+           familyi={B\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Rochester}%
+      }
+      \strng{namehash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \strng{fullhash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \strng{bibnamehash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \strng{authorbibnamehash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \strng{authornamehash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \strng{authorfullhash}{0b0af8b3dbecf6a4fa82793797d0b196}
+      \field{sortinit}{Y}
+      \field{sortinithash}{6ae2ff5458ff901249c2745238c951b7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DEEP LEARNING FOR MUSICAL INSTRUMENT RECOGNITION}
+      \field{year}{2017}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
