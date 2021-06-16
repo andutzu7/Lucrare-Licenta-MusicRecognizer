@@ -1,14 +1,28 @@
-\chapter{Titlul celui de-al doilea capitol}
-Facilisi nullam vehicula ipsum a arcu. Purus semper eget duis at tellus at. Adipiscing tristique risus nec feugiat. Eu volutpat odio facilisis mauris sit. Porta nibh venenatis cras sed. Penatibus et magnis dis parturient. Sollicitudin aliquam ultrices sagittis orci a. Senectus et netus et malesuada fames ac turpis egestas integer. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Nulla aliquet enim tortor at auctor urna nunc id cursus. Elit duis tristique sollicitudin nibh. Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Convallis posuere morbi leo urna molestie at. Quisque egestas diam in arcu cursus euismod.
+\chapter{Technologies used}
+Python provides many modules for numeric calculus, data processing and manipulation as  well as tools for user interaction.
+In the following chapter we will go through the modules and libraries used for achieving the goal
+of the application, instrument classification.
 
-\section{Titlul secțiunii 1}
+\section{Scipy}
+SciPy is a Python-based ecosystem of open-source software for mathematics, science, and engineering. The SciPy library contains a collection of numerical algorithms and domain-specific toolboxes, including signal processing, optimization, statistics, and much more.\cite{scpd}
+The aforemetioned library's submodule \textit{Input and output} provides a variety of ways of reading and writing data in numerous file formats. For the data processing part of the application, we had choosen the \textit{scipy.io.wavfile.read} function because it facilitates the data manipulation process by being compatible with the numpy module, mentioned below (the output of the \textit{scipy.io.wavfile.read} function is a tuple consisting of the sample rate(int) and the audio data(as a \textit{ndarray}).
+\section{NumPy}
+Numpy is a Python library (part of the SciPy ecosystem) that provides the needed tools in order to perform the mathematical operations behind
+the Neural Network Framework. The core of the module is the \textit{ndarray} object, which encapsulates an optimized n-dimensional array. Thus, we use \textit{ndarray} objects for computing and storing the various operations performed throuought the application (e.g. the dot product, the data reshaping).
+Some of the advantages brought by the numpy module are:
+\begin{itemize}
+	\item Forward and backward operation compatibility for the various objects contained withing the application
+	\item Fast execution time caused by the optimization of the library \cite{npd} (by using pre-compiled C code)
+	\item Support for large number/big data processing.
+\end{itemize}
 
-A diam sollicitudin tempor id eu nisl. Hac habitasse platea dictumst vestibulum. Integer enim neque volutpat ac tincidunt. Facilisi nullam vehicula ipsum a arcu cursus vitae congue. Vel turpis nunc eget lorem. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Nunc sed blandit libero volutpat. Sit amet luctus venenatis lectus magna fringilla urna porttitor. Hac habitasse platea dictumst quisque sagittis purus. Sed faucibus turpis in eu mi bibendum neque egestas. Vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Erat nam at lectus urna duis convallis convallis tellus id. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula. Etiam dignissim diam quis enim lobortis scelerisque. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas. Lacus viverra vitae congue eu consequat ac felis donec. Mauris sit amet massa vitae tortor condimentum. Mauris augue neque gravida in. Lorem ipsum dolor sit amet. Arcu dui vivamus arcu felis bibendum ut tristique et.
+\section{TensorFlow}
 
-\section{Titlul secțiunii 2}
+\section{Kapre}
+composed for the input layer
 
-Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Mauris a diam maecenas sed enim ut. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Leo duis ut diam quam nulla. Neque ornare aenean euismod elementum. Vitae sapien pellentesque habitant morbi tristique senectus. Lectus magna fringilla urna porttitor rhoncus dolor purus non enim. Egestas sed sed risus pretium quam vulputate dignissim suspendisse in. At quis risus sed vulputate odio ut enim. Hac habitasse platea dictumst quisque sagittis. Lectus vestibulum mattis ullamcorper velit sed. Massa vitae tortor condimentum lacinia quis vel eros donec ac. Vulputate dignissim suspendisse in est ante. Sed faucibus turpis in eu mi bibendum neque. Enim eu turpis egestas pretium aenean pharetra magna. Tellus mauris a diam maecenas.
+\section{Librosa}
 
-\section{Titlul secțiunii 3}
+\section{Youtube_dl}
 
-Faucibus ornare suspendisse sed nisi lacus sed. Mi in nulla posuere sollicitudin aliquam ultrices. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Odio tempor orci dapibus ultrices in iaculis nunc sed augue. Congue eu consequat ac felis donec et odio. Enim ut sem viverra aliquet eget sit amet. Sit amet consectetur adipiscing elit duis tristique sollicitudin. Quis blandit turpis cursus in. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Non curabitur gravida arcu ac tortor dignissim convallis aenean. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Lacus viverra vitae congue eu consequat ac felis. Vulputate dignissim suspendisse in est ante in nibh mauris. Amet mauris commodo quis imperdiet massa. Varius sit amet mattis vulputate enim nulla aliquet. Pellentesque diam volutpat commodo sed egestas egestas. Amet est placerat in egestas erat imperdiet sed euismod. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Ut sem viverra aliquet eget sit amet tellus cras. Sem integer vitae justo eget magna fermentum iaculis eu.
+\section{Tkinkter}
