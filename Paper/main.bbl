@@ -54,6 +54,24 @@
       \field{title}{Kapre: On-GPU Audio Preprocessing Layers for a Quick Implementation of Deep Neural Network Models with Keras}
       \field{year}{2017}
     \endentry
+    \entry{sev}{article}{}
+      \name{author}{1}{}{%
+        {{hash=90f020f8ae59046919ef24a892eab417}{%
+           family={cochlea.eu},
+           familyi={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{90f020f8ae59046919ef24a892eab417}
+      \strng{fullhash}{90f020f8ae59046919ef24a892eab417}
+      \strng{bibnamehash}{90f020f8ae59046919ef24a892eab417}
+      \strng{authorbibnamehash}{90f020f8ae59046919ef24a892eab417}
+      \strng{authornamehash}{90f020f8ae59046919ef24a892eab417}
+      \strng{authorfullhash}{90f020f8ae59046919ef24a892eab417}
+      \field{sortinit}{c}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sound Representation Models}
+    \endentry
     \entry{npd}{article}{}
       \name{author}{1}{}{%
         {{hash=a4264a3c2be66c54538e87eab3c0d4ec}{%
@@ -140,6 +158,26 @@
       \field{title}{Explained: Neural networks}
       \field{year}{2017}
     \endentry
+    \entry{ft}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6bdd160dd8450192d8e67acee9b06bd6}{%
+           family={International},
+           familyi={I\bibinitperiod},
+           given={AAVOS},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \strng{fullhash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \strng{bibnamehash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \strng{authorbibnamehash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \strng{authornamehash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \strng{authorfullhash}{6bdd160dd8450192d8e67acee9b06bd6}
+      \field{sortinit}{I}
+      \field{sortinithash}{9417e9a1288a9371e2691d999083ed39}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sound Representation Models}
+    \endentry
     \entry{nnfs}{book}{}
       \name{author}{2}{}{%
         {{hash=b899dd84e284163139a7782ff51b7bac}{%
@@ -219,26 +257,27 @@
       \field{volume}{8}
       \field{year}{2015}
     \endentry
-    \entry{ft}{article}{}
+    \entry{fwbw}{article}{}
       \name{author}{1}{}{%
-        {{hash=1cf503d6c56dd68ea85267cccc0ccc2b}{%
-           family={Scheidler},
-           familyi={S\bibinitperiod},
-           given={Pete},
-           giveni={P\bibinitperiod}}}%
+        {{hash=b42db4fc96a24b0ac0fb2366a8e1a2dc}{%
+           family={Neural\bibnamedelimb Network\bibnamedelima architecture},
+           familyi={N\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim a\bibinitperiod},
+           given={Quick},
+           giveni={Q\bibinitperiod},
+           prefix={overview\bibnamedelima of},
+           prefixi={o\bibinitperiod\bibinitdelim o\bibinitperiod}}}%
       }
-      \strng{namehash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \strng{fullhash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \strng{bibnamehash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \strng{authorbibnamehash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \strng{authornamehash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \strng{authorfullhash}{1cf503d6c56dd68ea85267cccc0ccc2b}
-      \field{sortinit}{S}
-      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \strng{namehash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \strng{fullhash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \strng{bibnamehash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \strng{authorbibnamehash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \strng{authornamehash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \strng{authorfullhash}{b42db4fc96a24b0ac0fb2366a8e1a2dc}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Understanding the basic of Fourier Transformation}
-      \field{year}{2019}
+      \field{title}{NeptuneAI team}
     \endentry
     \entry{BACDNN}{article}{}
       \name{author}{1}{}{%

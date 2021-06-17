@@ -19,8 +19,8 @@ input falls into the category Piano or Other), thus we choosen the following arc
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{images/spektrum.png}
-	\caption{De pus un model.summary architecture}
+	\includegraphics[width = 1.3in]{images/summary.png}
+	\caption{A summary of the model architecture}
 \label{model_arch}
 \end{figure}
 
@@ -32,13 +32,13 @@ inputs values (one second wav audio snippets), presented to the model in the for
 by the custom \textit{Data generator}, with each batch containing 32 samples.
 
 Initially we approached the problem without using Convolutional Operations, but after testing numerous configurations
-the results were below satisfying, as ilustrated in the figure below.
+the results were below satisfying (with the loss stagnating at a value of about 0.5 ), as ilustrated in the figure below.
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{images/spektrum.png}
-	\caption{Initial mmetrics}
+	\includegraphics[width = 5.5in]{images/badmetricspng.png}
+	\caption{Model loss before adding Convolutional Operations to the Model}
 \label{bad_metrics}
 \end{figure}
 
@@ -49,8 +49,8 @@ as the loss improved at a visible rate, as shown below.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{images/spektrum.png}
-	\caption{after conv metrics}
+	\includegraphics[width = 5.5in]{images/metrics.png}
+	\caption{The model loss after incorporating Convolutional Layers}
 \label{good_metrics}
 \end{figure}
 
@@ -74,8 +74,8 @@ The following diagram ilustrates the forward-backward propagation of the Neural 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{images/spektrum.png}
-	\caption{Data flow}
+	\includegraphics[width = 5.5in]{images/fwbw.png}
+	\caption{Data flow throughout the model (image source \cite{fwbw})}
 \label{data_flow}
 \end{figure}
 
@@ -94,8 +94,8 @@ The modus operandi of the input handling and processing pipeline is presented in
 
 \begin{figure}[H]
 	\centering
-	\includegraphics{images/spektrum.png}
-	\caption{User input handling}
+	\includegraphics[width = 6.5in]{images/datapipe.png}
+	\caption{User input handling pipeline}
 \label{mo}
 \end{figure}
 
@@ -116,8 +116,8 @@ The steps performed in order process the user input are as follows:
 			\item Cleaning the wav file by sound envelope.
 			\begin{figure}[H]
 				\centering
-				\includegraphics{images/spektrum.png}
-				\caption{Sound envelope}
+				\includegraphics{images/soundenvelope.png}
+				\caption{Sound envelope example (Source \cite{sev})}
 			\label{se}
 			\end{figure}
 
@@ -148,8 +148,8 @@ The steps performed in order process the user input are as follows:
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics{images/spektrum.png}
-				\caption{Fourier spectrum}
+				\includegraphics[width = 4.5in]{images/ft.png}
+				\caption{Fourier transformation (Source \cite{ft})}
 			\label{ft}
 			\end{figure}
 
@@ -165,7 +165,7 @@ The steps performed in order process the user input are as follows:
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics{images/spektrum.png}
+				\includegraphics[width = 5.5in]{images/mel.png}
 				\caption{MEL Spectogram example}
 			\label{ms}
 			\end{figure}
@@ -188,11 +188,26 @@ The steps performed in order process the user input are as follows:
 \section{The Application-User Interaction}
 	The application provides a minimalistic Graphic User Interface which offers the end user the means for
 	classifying an YouTube song, as well as visualise the specific 3D Animation depending on the model prediction.
+	The following figure illustrate some of the application states.
 
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics{images/spektrum.png}
-				\caption{The Graphic User Interface of the application}
-			\label{gui}
+				\includegraphics[width = 4.5in]{images/basic_interface.png}
+				\caption{The Graphic User Interface at the start of the application}
+			\label{guis}
+			\end{figure}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width = 4.5in]{images/piano.png}
+				\caption{The Graphic User Interface after predicting a song as a piano song.}
+			\label{guip}
+			\end{figure}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width = 4.5in]{images/other.png}
+				\caption{The Graphic User Interface after classifying a song as other.}
+			\label{guio}
 			\end{figure}

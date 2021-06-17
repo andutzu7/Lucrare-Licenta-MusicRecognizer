@@ -1,7 +1,31 @@
 \chapter{Use cases}
 
-Amet venenatis urna cursus eget. Quam vulputate dignissim suspendisse in est ante. Proin nibh nisl condimentum id. Egestas maecenas pharetra convallis posuere morbi. Risus viverra adipiscing at in. Vulputate eu scelerisque felis imperdiet. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. In aliquam sem fringilla ut morbi tincidunt augue. Montes nascetur ridiculus mus mauris. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. In nibh mauris cursus mattis molestie a iaculis. Interdum consectetur libero id faucibus nisl tincidunt eget. Gravida in fermentum et sollicitudin ac orci. Suscipit adipiscing bibendum est ultricies. Etiam non quam lacus suspendisse. Leo urna molestie at elementum eu facilisis sed odio morbi. Egestas congue quisque egestas diam in arcu cursus. Amet consectetur adipiscing elit ut aliquam purus.
+We propose the following three use cases for the application:
 
-\section{Titlul secțiunii 1}
+\section{First use case}
 
-Eros donec ac odio tempor. Facilisi morbi tempus iaculis urna id volutpat. Faucibus in ornare quam viverra orci sagittis eu. Amet tellus cras adipiscing enim eu turpis egestas. Integer feugiat scelerisque varius morbi. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Bibendum arcu vitae elementum curabitur. Eu nisl nunc mi ipsum faucibus. Id aliquet lectus proin nibh nisl condimentum id venenatis a. Cras adipiscing enim eu turpis egestas pretium. Quisque non tellus orci ac auctor augue mauris augue. Malesuada pellentesque elit eget gravida cum. Ut lectus arcu bibendum at. Massa id neque aliquam vestibulum morbi blandit. Posuere ac ut consequat semper viverra nam. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Eu feugiat pretium nibh ipsum consequat nisl vel. Nisl purus in mollis nunc sed.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 4.5in]{images/usecase1.png}
+	\caption{Illustration of the application behaviour when the user inputs a correct link.}
+	\label{uc1}
+	\end{figure}
+The application has the expected behaviour.
+\section{Second use case}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 4.5in]{images/usecase3.png}
+	\caption{Illustration of the application behaviour when the uses inputs an invalid link. }
+	\label{uc3}
+	\end{figure}
+The link introduced by the user is invalid. The youtube-dl library will throw an exception and the execution will be ceased, given that the input cannot be fetched.
+
+\section{Third use case}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 4.5in]{images/usecase2.png}
+	\caption{Illustration of the application behaviour when the user inputs a confusing song to the application.}
+	\label{uc2}
+	\end{figure}
+ The input is confusing (e.g. a symphonic concert containing multiple other instruments beside a piano). Given that the model has been trained on piano-only samples, the prediction for such an input will be 'Other'.

@@ -37,7 +37,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.6}youtube-dl}{11}{section.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.7}Tkinkter}{11}{section.2.7}%
+\contentsline {section}{\numberline {2.7}Tkinter}{11}{section.2.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Architecture and implementation}{12}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -49,8 +49,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Use cases}{22}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Titlul secțiunii 1}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.1}First use case}{22}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Concluzii}{24}{chapter*.4}%
+\contentsline {section}{\numberline {4.2}Second use case}{23}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{24}{chapter*.4}%
+\contentsline {section}{\numberline {4.3}Third use case}{23}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Final conclusions}{25}{chapter*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{25}{chapter*.4}%
