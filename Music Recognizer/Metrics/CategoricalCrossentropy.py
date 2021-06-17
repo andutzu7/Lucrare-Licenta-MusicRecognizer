@@ -20,7 +20,7 @@ class CategoricalCrossentropy(Loss):
         Sources:    * Neural Networks from Scratch - Harrison Kinsley & Daniel Kukieła [pg.112-116]
         """
         samples = len(y_pred)
-        # Clip data to prevent division by 0 and to avoid draging the mean towards any value
+        # Clip data to prevent division by 0 and to avoid dragging the mean towards any value
         y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
         # Probabilities for target values 
         # If the shape of the input is of the categorical form
