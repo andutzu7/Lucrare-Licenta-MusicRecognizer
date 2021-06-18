@@ -2361,10 +2361,12 @@
     <bcf:citekey order="9">tf</bcf:citekey>
     <bcf:citekey order="10">choi2017kapre</bcf:citekey>
     <bcf:citekey order="11">mcfee2015librosa</bcf:citekey>
-    <bcf:citekey order="12">fwbw</bcf:citekey>
-    <bcf:citekey order="13">sev</bcf:citekey>
-    <bcf:citekey order="14">ft</bcf:citekey>
-    <bcf:citekey order="15">ft</bcf:citekey>
+    <bcf:citekey order="12">rmsprop</bcf:citekey>
+    <bcf:citekey order="13">fwbw</bcf:citekey>
+    <bcf:citekey order="14">cnna</bcf:citekey>
+    <bcf:citekey order="15">sev</bcf:citekey>
+    <bcf:citekey order="16">ft</bcf:citekey>
+    <bcf:citekey order="17">ft</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

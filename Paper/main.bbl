@@ -137,6 +137,60 @@
       \field{labeltitlesource}{title}
       \field{title}{Tensorflow Official Documentation}
     \endentry
+    \entry{rmsprop}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ffb2e1f6d47fa06b63ab645a65d4144a}{%
+           family={DeepAI},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \strng{fullhash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \strng{bibnamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \strng{authorbibnamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \strng{authornamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \strng{authorfullhash}{ffb2e1f6d47fa06b63ab645a65d4144a}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is RMSProp}
+    \endentry
+    \entry{cnna}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b3432ea07b220a623d8c84caab3808fc}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Kangning},
+           giveni={K\bibinitperiod}}}%
+        {{hash=34c84c1bdddda5ae24aa118bcce6a3b7}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Yunkai},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5d3aa804c30a3f672ca1d34584c76da9}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Robert\bibnamedelimb Wangand\bibnamedelima Tuan},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=f7b82bb0e43430adcc2f78b727392107}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ning},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{b861e40ac4da6d581234e6cc8ee391e7}
+      \strng{fullhash}{e0a58fd5838d320af62c654497437fff}
+      \strng{bibnamehash}{b861e40ac4da6d581234e6cc8ee391e7}
+      \strng{authorbibnamehash}{b861e40ac4da6d581234e6cc8ee391e7}
+      \strng{authornamehash}{b861e40ac4da6d581234e6cc8ee391e7}
+      \strng{authorfullhash}{e0a58fd5838d320af62c654497437fff}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SAR ATR based on displacement- and rotation-insensitive CNN}
+      \field{year}{2016}
+    \endentry
     \entry{mitnn}{article}{}
       \name{author}{1}{}{%
         {{hash=cd0f580e10643979edd2c0bf6d2cafaa}{%
@@ -176,7 +230,7 @@
       \field{sortinithash}{9417e9a1288a9371e2691d999083ed39}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Sound Representation Models}
+      \field{title}{Fourier Transform}
     \endentry
     \entry{nnfs}{book}{}
       \name{author}{2}{}{%

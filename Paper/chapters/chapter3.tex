@@ -19,10 +19,31 @@ input falls into the category Piano or Other), thus we choosen the following arc
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 1.3in]{images/summary.png}
+	\includegraphics[width = 1.5in]{images/summary.png}
 	\caption{A summary of the model architecture}
 \label{model_arch}
 \end{figure}
+
+The model is composed of layers, which fall into two categories: trainable (Conv2D, MaxPooling2D, DenseLayer), and non-trainable
+(InputLayer, FlattenLayer, DropoutLayer, BatchNormalization). The difference between the two categories is the type of the operations
+performed, and whether or not they facilitate the learning process.\\
+
+For the trainable layers we choosen the \textit{RMSProp}(Root Mean Squared Propagation) optimizer, which works
+by using a moving average of squared gradients to normalize the gradient. This normalization balances
+the step size (momentum), decreasing the step for large gradients to avoid exploding, and increasing the
+step for small gradients to avoid vanishing.\cite{rmsprop}
+
+The activation function we had choosen for the trainable layers is \textit{ReLU}(Rectified Linear Unit), while for
+the activation layer we preferred the \textit{SoftmaxActivation} because, unlike linear activation functions,
+the aforemetioned activation function returns the probability values normalized between 0 and 1, handling
+very small negative or exploding values by penalizing them.
+
+
+The metrics measured throughout the learning process are computed using \textit{CategoricalAccuracy} and
+\textit{CategoricalCrossentropy}.
+
+
+
 
 The Neural Network Engine consists of a model, which is a binary serialized file containing the weights and biases
 of the trainable layers from the figure \ref{model_arch}.
@@ -31,8 +52,22 @@ The model values and its performance are the result of the training process, whi
 inputs values (one second wav audio snippets), presented to the model in the form of \textit{batches} provided
 by the custom \textit{Data generator}, with each batch containing 32 samples.
 
+The data was gathered by web scraping various YouTube playlists, thus obtaining a diverse and feature rich dataset.
+The "Piano" category consists of isolated tracks which only contain piano snippets(any other combination of instruments
+will not be classified as expected by the model), while the "Other" category contains every other category of sounds.
+
+The distribution of the data is presented in the below figure:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 5.5in]{images/datadistr.png}
+	\caption{Data distribution by number of samples.}
+\label{dd}
+\end{figure}
+
 Initially we approached the problem without using Convolutional Operations, but after testing numerous configurations
-the results were below satisfying (with the loss stagnating at a value of about 0.5 ), as ilustrated in the figure below.
+the results were below satisfying (with the loss stagnating at a value of about 0.5 ) and the accuracy fluctuating between
+40-60%, as ilustrated in the figure below.
 
 
 \begin{figure}[H]
@@ -43,6 +78,12 @@ the results were below satisfying (with the loss stagnating at a value of about 
 \end{figure}
 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 5.5in]{images/badacc.png}
+	\caption{Model accuracy before adding Convolutional Operations to the Model}
+\label{bad_metrics2}
+\end{figure}
 By incorporating the Convolutional Operations and Layers into the Neural Network Framework, the model accuracy as well
 as the loss improved at a visible rate, as shown below.
 
@@ -54,6 +95,13 @@ as the loss improved at a visible rate, as shown below.
 \label{good_metrics}
 \end{figure}
 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 5.5in]{images/goodacc.png}
+	\caption{The model accuracy after incorporating Convolutional Layers}
+\label{good_metrics2}
+\end{figure}
 
 The general flow of the data in the Neural Network Framework is based on the forward-backward propagation principle,
 specific to the \textit{Convolutional Neural Network} architecture.
@@ -79,9 +127,16 @@ The following diagram ilustrates the forward-backward propagation of the Neural 
 \label{data_flow}
 \end{figure}
 
+Because the model of the Neural Network Engine is effectively a Convolutional Neural Network, the training process follows
+the following schema:
 
-The effective learning process is facilitated by the Optimizer Function, which adjusts the weights and biases of each individual
-layer.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 5.5in]{images/genericcnn.png}
+	\caption{Generic Convolutional Neural Network architecture (image source \cite{cnna})}
+\label{genarch}
+\end{figure}
 
 At the end of each iteration the model has to classify unseen data ( the \textit{validation data}), and based on the results of
 the classification, the model \textit{metrics} are computed, in the form of loss (computed with \textit{Categorical CrossEntropy})
@@ -94,7 +149,7 @@ The modus operandi of the input handling and processing pipeline is presented in
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 6.5in]{images/datapipe.png}
+	\includegraphics[width = 6.5in,height=1.3in]{images/datapipe.png}
 	\caption{User input handling pipeline}
 \label{mo}
 \end{figure}
@@ -107,7 +162,8 @@ The steps performed in order process the user input are as follows:
 	\item Downloading the video : Saving and converting the video at the specified link in a temporary folder.
 		The \textit{youtube-dl} utilitary facilitates this step by downloading the file using
 	a list of specified configuration parameters such as audio quality and the output format. After this step,
-	we will have obtained an audio file of format wav.
+	we will have obtained an audio file of format wav in a temporary folder, which will be deleted after
+	the finish of the prediction operation.
 	\item Audio file cleaning: Given the reason that the model was trained on 1 second snippets of audio files of sample rate of 16000,
 		the following operations are necessary to be performed to the audio file in order for it to be compatible with the Neural Network Engine:
 		\begin{itemize}
@@ -133,13 +189,14 @@ The steps performed in order process the user input are as follows:
 	\item Extracting a number of random sound samples: In order to offer an accurate prediction and reduce the
 	time cost required by the Neural Network Engine, we randomly extract a number of samples from the splitted audio
 	file.
-\item Loading the random sound samples into the model: The Neural Network Engine has also the \textit{inference}
+\item Loading the random sound samples into the model: The Neural Network Engine also presents the \textit{inference}
 	functionality. The inference/prediction is performed by transforming the input data (transformation performed
 	by the input layer), then performing the forward-backward data propagation once.
 	The transformations applied by the input layer are:
 	\begin{itemize}
 
 		\item Short Time Fourier Transformation
+
 		Short Time Fourier Transformation is a mathematical transformation technique used for
 		decomposing a function relative to its spatial and temporal dependencies. Since the audio signal is
 		composed of sound wave which only ilustrate the amplitude of
@@ -161,7 +218,8 @@ The steps performed in order process the user input are as follows:
 			of the sound variations and intensities of the a given audio sample. With the
 			\textit{MEL Filterbank transformation} we effectively represent the relevant information
 			of the input data, thus transforming the problem from an audio classification
-			into an image classification suited for the Convolutional Neuronal Network.
+			into an image classification one.
+
 
 			\begin{figure}[H]
 				\centering
@@ -172,6 +230,9 @@ The steps performed in order process the user input are as follows:
 
 
 	\end{itemize}
+
+
+
 	The output of the transformation is a \textit{ndarray} containing the MEL spectogram
 	of the input sample which represents the neural network model's input.\\
 	The inference output is an array containing floating point numbers which represent the confidence
@@ -188,26 +249,26 @@ The steps performed in order process the user input are as follows:
 \section{The Application-User Interaction}
 	The application provides a minimalistic Graphic User Interface which offers the end user the means for
 	classifying an YouTube song, as well as visualise the specific 3D Animation depending on the model prediction.
-	The following figure illustrate some of the application states.
+	The following figure illustrates some of the application states.
 
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width = 4.5in]{images/basic_interface.png}
+				\includegraphics[width = 5.5in]{images/basic_interface.png}
 				\caption{The Graphic User Interface at the start of the application}
 			\label{guis}
 			\end{figure}
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width = 4.5in]{images/piano.png}
+				\includegraphics[width = 5.5in]{images/piano.png}
 				\caption{The Graphic User Interface after predicting a song as a piano song.}
 			\label{guip}
 			\end{figure}
 
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width = 4.5in]{images/other.png}
+				\includegraphics[width = 5.5in]{images/other.png}
 				\caption{The Graphic User Interface after classifying a song as other.}
 			\label{guio}
 			\end{figure}

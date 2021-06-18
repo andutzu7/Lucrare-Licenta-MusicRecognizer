@@ -14,6 +14,5 @@ with open('trainingingfinal','r') as f:
         step.append(int(out[0]))
         acc.append(float(out[1]))
         loss.append(float(out[2]))
-
-plt.plot(loss)
+plt.plot(acc)
 plt.show()
