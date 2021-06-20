@@ -693,6 +693,7 @@ INPUT ./chapters/motivation.tex
 INPUT ./chapters/motivation.tex
 INPUT ./chapters/motivation.tex
 INPUT chapters/motivation.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri7t.tfm
 INPUT ./chapters/introduction.tex
 INPUT ./chapters/introduction.tex
 INPUT ./chapters/introduction.tex
@@ -704,6 +705,8 @@ INPUT ./chapters/introduction.tex
 INPUT ./chapters/introduction.tex
 INPUT ./chapters/introduction.tex
 INPUT chapters/introduction.tex
+INPUT /usr/share/texmf-dist/fonts/vf/adobe/palatino/pplri7t.vf
+INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/ts1ppl.fd
@@ -748,9 +751,6 @@ INPUT ./chapters/chapter2.tex
 INPUT ./chapters/chapter2.tex
 INPUT ./chapters/chapter2.tex
 INPUT chapters/chapter2.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri7t.tfm
-INPUT /usr/share/texmf-dist/fonts/vf/adobe/palatino/pplri7t.vf
-INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
 INPUT ./chapters/chapter3.tex
 INPUT ./chapters/chapter3.tex
 INPUT ./chapters/chapter3.tex

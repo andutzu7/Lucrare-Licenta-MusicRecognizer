@@ -43,18 +43,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}The Neuronal Network Engine}{12}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}User Input Handling and Processing}{21}{section.3.2}%
+\contentsline {section}{\numberline {3.2}User Input Handling and Processing}{19}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}The Application-User Interaction}{24}{section.3.3}%
+\contentsline {section}{\numberline {3.3}The Application-User Interaction}{22}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Use cases}{27}{chapter.4}%
+\contentsline {chapter}{\numberline {4}Use cases}{24}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}First use case}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.1}First use case}{24}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Second use case}{28}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Second use case}{25}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Third use case}{29}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Third use case}{25}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Final conclusions}{30}{chapter*.4}%
+\contentsline {chapter}{Final conclusions}{27}{chapter*.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{30}{chapter*.4}%
+\contentsline {chapter}{Bibliography}{27}{chapter*.4}%

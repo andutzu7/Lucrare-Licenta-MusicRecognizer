@@ -12,7 +12,18 @@ We will continue this chapter by entering into the details of each of the aforem
 
 \section{The Neuronal Network Engine}
 
-The the Neural Network Engine was developed using the Neural Network Framework which we implemented from scratch.
+The Neural Network Engine was developed using the Neural Network Framework which we implemented from scratch. The
+Neural Network Framework contains various tools for Neural Network problem solving such as layers, optimizers, metrics,
+etc. The Neural Network Framework operates a \textit{model} file, a binary serialized file which supports the following
+operations:
+	\begin{itemize}
+		\item Training: Initializing/improving the performance by performing predictions over the given input
+			data in order to adjust the \textit{weights and biases} (the model \textit{neurons})
+		\item Inference: Performing predictions over unseen data.
+		\item Loading: Loading a previously trained model in order to perform inference/ continue the training process
+		\item Saving: Creating/writing the results of the previous operations.
+
+	\end{itemize}
 The main application problem can be reduced to a binary classification problem ( the engine has to predict if a given
 input falls into the category Piano or Other), thus we choosen the following architecture:
 
@@ -45,63 +56,66 @@ The metrics measured throughout the learning process are computed using \textit{
 
 
 
-The Neural Network Engine consists of a model, which is a binary serialized file containing the weights and biases
-of the trainable layers from the figure \ref{model_arch}.
+The Neural Network Engine consists of a trained model, containing the weights and biases of the trainable layers from
+the figure \ref{model_arch}.
 
 The model values and its performance are the result of the training process, which consisted of five epochs over 33602
 inputs values (one second wav audio snippets), presented to the model in the form of \textit{batches} provided
-by the custom \textit{Data generator}, with each batch containing 32 samples.
+by the custom \textit{Data generator}, with each batch containing 32 samples. The batch size as well as other
+configuration parameters (e.g. \textit{filter shape, pool size, dropout rate}) are arbitrary values choosen
+after performing the \textit{fine tuning} phase of the training, which consists of repeatedly training models with
+different configurations (also known as \textit{hyperparameter adjusting}), in order to obtain an optimal configuration.
 
-The data was gathered by web scraping various YouTube playlists, thus obtaining a diverse and feature rich dataset.
+
+The data was gathered by web scraping various YouTube playlists using the \textit{youtube-dl} utilitary, obtaining a
+diverse and feature rich dataset.
 The "Piano" category consists of isolated tracks which only contain piano snippets(any other combination of instruments
 will not be classified as expected by the model), while the "Other" category contains every other category of sounds.
 
 The distribution of the data is presented in the below figure:
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width = 5.5in]{images/datadistr.png}
-	\caption{Data distribution by number of samples.}
+\begin{center}
+	\includegraphics[width = 4.2in]{images/datadistr.png}
+	\centerline{\captionof{Figure 3.2: }{Data distribution by number of samples.}}
 \label{dd}
-\end{figure}
+\end{center}
 
 Initially we approached the problem without using Convolutional Operations, but after testing numerous configurations
-the results were below satisfying (with the loss stagnating at a value of about 0.5 ) and the accuracy fluctuating between
-40-60%, as ilustrated in the figure below.
+the results were below satisfying (with the loss stagnating at a value of about 0.5 ) and the accuracy fluctuating between 40-60\%, as ilustrated in the figure below.
 
 
-\begin{figure}[H]
+\begin{center}
 	\centering
-	\includegraphics[width = 5.5in]{images/badmetricspng.png}
-	\caption{Model loss before adding Convolutional Operations to the Model}
+	\includegraphics[width = 4.2in]{images/badmetricspng.png}
+	\centerline{\captionof{Figure 3.3: }{Model loss before adding Convolutional Operations to the Model}}
 \label{bad_metrics}
-\end{figure}
+\end{center}
 
 
-\begin{figure}[H]
+\begin{center}
 	\centering
-	\includegraphics[width = 5.5in]{images/badacc.png}
-	\caption{Model accuracy before adding Convolutional Operations to the Model}
+	\includegraphics[width = 4.2in]{images/badacc.png}
+	\centerline{\captionof{Figure 3.4: }{Model accuracy before adding Convolutional Operations to the Model}}
 \label{bad_metrics2}
-\end{figure}
+\end{center}
 By incorporating the Convolutional Operations and Layers into the Neural Network Framework, the model accuracy as well
 as the loss improved at a visible rate, as shown below.
 
 
-\begin{figure}[H]
+\begin{center}
 	\centering
-	\includegraphics[width = 5.5in]{images/metrics.png}
-	\caption{The model loss after incorporating Convolutional Layers}
+	\includegraphics[width = 4.2in]{images/metrics.png}
+	\centerline{\captionof{Figure 3.5: }{The model loss after incorporating Convolutional Layers}}
 \label{good_metrics}
-\end{figure}
+\end{center}
 
 
-\begin{figure}[H]
+\begin{center}
 	\centering
-	\includegraphics[width = 5.5in]{images/goodacc.png}
-	\caption{The model accuracy after incorporating Convolutional Layers}
+	\includegraphics[width = 4.2in]{images/goodacc.png}
+	\centerline{\captionof{Figure 3.6: }{The model accuracy after incorporating Convolutional Layers}}
 \label{good_metrics2}
-\end{figure}
+\end{center}
 
 The general flow of the data in the Neural Network Framework is based on the forward-backward propagation principle,
 specific to the \textit{Convolutional Neural Network} architecture.
@@ -120,23 +134,23 @@ Each of the trainable model's layers have the following methods:
 
 The following diagram ilustrates the forward-backward propagation of the Neural Network Model.
 
-\begin{figure}[H]
+\begin{center}
 	\centering
-	\includegraphics[width = 5.5in]{images/fwbw.png}
-	\caption{Data flow throughout the model (image source \cite{fwbw})}
+	\includegraphics[width = 4.2in]{images/fwbw.png}
+ \centerline{\captionof{Figure 3.7: }{Data flow throughout the model (image source \cite{fwbw})}}
 \label{data_flow}
-\end{figure}
+\end{center}
 
 Because the model of the Neural Network Engine is effectively a Convolutional Neural Network, the training process follows
 the following schema:
 
 
-\begin{figure}[H]
+\begin{center}
 	\centering
 	\includegraphics[width = 5.5in]{images/genericcnn.png}
-	\caption{Generic Convolutional Neural Network architecture (image source \cite{cnna})}
+	\centerline{\captionof{Figure 3.8: Generic Convolutional Neural Network architecture (image source \cite{cnna})}}
 \label{genarch}
-\end{figure}
+\end{center}
 
 At the end of each iteration the model has to classify unseen data ( the \textit{validation data}), and based on the results of
 the classification, the model \textit{metrics} are computed, in the form of loss (computed with \textit{Categorical CrossEntropy})
@@ -150,7 +164,7 @@ The modus operandi of the input handling and processing pipeline is presented in
 \begin{figure}[H]
 	\centering
 	\includegraphics[width = 6.5in,height=1.3in]{images/datapipe.png}
-	\caption{User input handling pipeline}
+	\centerline{\captionof{Figure 3.9: User input handling pipeline}}
 \label{mo}
 \end{figure}
 
@@ -173,7 +187,7 @@ The steps performed in order process the user input are as follows:
 			\begin{figure}[H]
 				\centering
 				\includegraphics{images/soundenvelope.png}
-				\caption{Sound envelope example (Source \cite{sev})}
+				\centerline{\captionof{Figure 3.10: Sound envelope example (Source \cite{sev})}}
 			\label{se}
 			\end{figure}
 
@@ -206,7 +220,7 @@ The steps performed in order process the user input are as follows:
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width = 4.5in]{images/ft.png}
-				\caption{Fourier transformation (Source \cite{ft})}
+			\centerline{\captionof{Figure 3.11: Fourier transformation (Source \cite{ft})}}
 			\label{ft}
 			\end{figure}
 
@@ -224,7 +238,7 @@ The steps performed in order process the user input are as follows:
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width = 5.5in]{images/mel.png}
-				\caption{MEL Spectogram example}
+				\centerline{\captionof{Figure 3.12: MEL Spectogram example}}
 			\label{ms}
 			\end{figure}
 
@@ -249,26 +263,33 @@ The steps performed in order process the user input are as follows:
 \section{The Application-User Interaction}
 	The application provides a minimalistic Graphic User Interface which offers the end user the means for
 	classifying an YouTube song, as well as visualise the specific 3D Animation depending on the model prediction.
+	In order to enrich the visual experience, we have choosen two 3D animations, projected using \textit{Autodesk
+	Maya}. The main elements of the GUI are the textbox where the user inputs the link to the song, the submit
+	button which grabs the link inserted by the user and begins the inference process and the video stream box,
+	which appears after the model has performed the classification. The application runs over a \textit{main loop},
+	meaning that the user can input as many links as desired in a session.
+
+
 	The following figure illustrates some of the application states.
 
 
-			\begin{figure}[H]
+			\begin{center}
 				\centering
-				\includegraphics[width = 5.5in]{images/basic_interface.png}
-				\caption{The Graphic User Interface at the start of the application}
+				\includegraphics[width = 5.0in]{images/basic_interface.png}
+				\centerline{\captionof{Figure 3.13: The Graphic User Interface at the start of the application.}}
 			\label{guis}
-			\end{figure}
+			\end{center}
 
-			\begin{figure}[H]
+			\begin{center}
 				\centering
-				\includegraphics[width = 5.5in]{images/piano.png}
-				\caption{The Graphic User Interface after predicting a song as a piano song.}
+				\includegraphics[width = 5.0in]{images/piano.png}
+			\centerline{\captionof{Figure 3.14: The Graphic User Interface after predicting a song as a piano song.}}
 			\label{guip}
-			\end{figure}
+			\end{center}
 
-			\begin{figure}[H]
+			\begin{center}
 				\centering
-				\includegraphics[width = 5.5in]{images/other.png}
-				\caption{The Graphic User Interface after classifying a song as other.}
+				\includegraphics[width = 5.0in]{images/other.png}
+				\centerline{\captionof{Figure 3.15: The Graphic User Interface after classifying a song as other.}}
 			\label{guio}
-			\end{figure}
+			\end{center}

@@ -4,28 +4,29 @@ For illustrating the functionality of the aplication, we propose the following t
 
 \section{First use case}
 
-\begin{figure}[H]
+\begin{center}
 	\centering
 	\includegraphics[width = 5.5in]{images/usecase1.png}
-	\caption{Illustration of the application behaviour when the user inputs a correct link.}
+	\centerline{\captionof{Figure 4.1: Illustration of the behaviour when the user inputs a correct link.}}
 	\label{uc1}
-	\end{figure}
-The application has the expected behaviour.
+	\end{center}
+After inserting a valid link, it is inserted into the main application pipeline and the
+behaviour is the expected one.
 \section{Second use case}
-\begin{figure}[H]
+\begin{center}
 	\centering
 	\includegraphics[width = 5.5in]{images/usecase3.png}
-	\caption{Illustration of the application behaviour when the uses inputs an invalid link. }
+	\centerline{\captionof{Figure 4.2: Illustration of the behaviour when the uses inputs an invalid link. }}
 	\label{uc3}
-	\end{figure}
+	\end{center}
 The link introduced by the user is invalid. The youtube-dl library will throw an exception and the execution will be ceased, given that the input cannot be fetched.
 
 \section{Third use case}
 
-\begin{figure}[H]
+\begin{center}
 	\centering
 	\includegraphics[width = 5.5in]{images/usecase2.png}
-	\caption{Illustration of the application behaviour when the user inputs a confusing song to the application.}
+\centerline{\captionof{Figure 4.3: Illustration of the behaviour when the user inputs a confusing song to the application.}}
 	\label{uc2}
-	\end{figure}
+	\end{center}
  The input is confusing (e.g. a symphonic concert containing multiple other instruments beside a piano). Given that the model has been trained on piano-only samples, the prediction for such an input will be 'Other'.
