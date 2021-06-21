@@ -2371,6 +2371,7 @@
     <bcf:citekey order="19">sev</bcf:citekey>
     <bcf:citekey order="20">ft</bcf:citekey>
     <bcf:citekey order="21">ft</bcf:citekey>
+    <bcf:citekey order="0" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
