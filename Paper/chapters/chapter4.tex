@@ -8,7 +8,7 @@ The application is divided into three parts:
 		\item The Application-User interaction via the GUI
 	\end{itemize}
 
-We will continue this chapter by entering into the details of each of the aforementioned component.
+We will continue this chapter by entering into the details of each of the aforementioned components.
 
 \section{The Neuronal Network Engine}
 
@@ -25,7 +25,7 @@ operations:
 
 	\end{itemize}
 The main application problem can be reduced to a binary classification problem ( the engine has to predict if a given
-input falls into the category Piano or Other), thus we choosen the following architecture:
+input falls into the category Piano or Other), thus we chosen the following architecture:
 
 
 \begin{figure}[H]
@@ -39,13 +39,13 @@ The model is composed of layers, which fall into two categories: trainable (Conv
 (InputLayer, FlattenLayer, DropoutLayer, BatchNormalization). The difference between the two categories is the type of the operations
 performed, and whether or not they facilitate the learning process.\\
 
-For the trainable layers we choosen the \textit{Adam}(Adaptive Moment estimation) optimizer, which works
+For the trainable layers we chosen the \textit{Adam}(Adaptive Moment estimation) optimizer, which works
 by combining the \textit{Adagrad} and \textit{RMSProp} optimizers by calculating an exponential moving average
-of the gradient and the squared gradient, as well as controling the decay rates of these moving averages.\cite{nnfs}
+of the gradient and the squared gradient, as well as controlling the decay rates of these moving averages.\cite{nnfs}
 
-The activation function we had choosen for the trainable layers is \textit{ReLU}(Rectified Linear Unit), while for
+The activation function we had chosen for the trainable layers is \textit{ReLU}(Rectified Linear Unit), while for
 the activation layer we preferred the \textit{SoftmaxActivation} because, unlike linear activation functions,
-the aforemetioned activation function returns the probability values normalized between 0 and 1, handling
+the aforementioned activation function returns the probability values normalized between 0 and 1, handling
 very small negative or exploding values by penalizing them.
 
 
@@ -59,9 +59,9 @@ The Neural Network Engine consists of a trained model, containing the weights an
 the figure \ref{model_arch}.
 
 The model values and its performance are the result of the training process, which consisted of five epochs over 33602
-inputs values (one second wav audio snippets), presented to the model in the form of \textit{batches} provided
+input values (one second wav audio snippets), presented to the model in the form of \textit{batches} provided
 by the custom \textit{Data generator}, with each batch containing 32 samples. The batch size as well as other
-configuration parameters (e.g. \textit{filter shape, pool size, dropout rate}) are arbitrary values choosen
+configuration parameters (e.g. \textit{filter shape, pool size, dropout rate}) are arbitrary values chosen
 after performing the \textit{fine tuning} phase of the training, which consists of repeatedly training models with
 different configurations (also known as \textit{hyperparameter adjusting}), in order to obtain an optimal configuration.
 
@@ -80,7 +80,7 @@ The distribution of the data is presented in the below figure:
 \end{center}
 
 Initially we approached the problem without using Convolutional Operations, but after testing numerous configurations
-the results were below satisfying (with the loss stagnating at a value of about 0.5 ) and the accuracy fluctuating between 40-60\%, as ilustrated in the figures below.
+the results were below satisfying (with the loss stagnating at a value of about 0.5 ) and the accuracy fluctuating between 40-60\%, as illustrated in the figures below.
 
 
 \begin{center}
@@ -122,16 +122,16 @@ Each of the trainable model's layers have the following methods:
 
 \begin{enumerate}
 	\item :function:forward(inputs): A method which takes the previous layer output as the parameter(inputs)
-	and perform the specific operations, thus performing the forward data processing.
-	\item :function:backward(derivated values): A method which takes the previous layer output, which consists
-	of the gradient of the forward propagation end result(derivated values), performing the inverse
+	and performs the specific operations, thus performing the forward data processing.
+	\item :function:backward(derived values): A method which takes the previous layer output, which consists
+	of the gradient of the forward propagation end result(derived values), performing the inverse
 	computations in regards to the forward method, and then propagating the end result to the next layer.
 	\item :parameter:output: A \textit{ndarray} where the \textit{forward} function computations are stored.
-	\item :parameter:derivated input: A \textit{ndarray} where the \textit{backward} function computations are stored.
+	\item :parameter:derived input: A \textit{ndarray} where the \textit{backward} function computations are stored.
 
 \end{enumerate}
 
-The following diagram ilustrates the forward-backward propagation of the Neural Network Model.
+The following diagram illustrates the forward-backward propagation of the Neural Network Model.
 
 \begin{center}
 	\centering
@@ -212,7 +212,7 @@ The steps performed in order process the user input are as follows:
 
 		Short Time Fourier Transformation is a mathematical transformation technique used for
 		decomposing a function relative to its spatial and temporal dependencies. Since the audio signal is
-		composed of sound wave which only ilustrate the amplitude of
+		composed of sound wave which only illustrate the amplitude of
 		a recording, the Fourier transform allows for the creation of an illustration of a frequency
 		over time,called spectrum. \cite{ft}
 
@@ -226,8 +226,8 @@ The steps performed in order process the user input are as follows:
 
 		\item MEL Filterbank transformation
 
-			The \textit{MEL} scale is a reprezentation of the sounds that can be heard and
-			distinguished by the human ear. The \textit{MEL spectogram} is a graphical representation
+			The \textit{MEL} scale is a representation of the sounds that can be heard and
+			distinguished by the human ear. The \textit{MEL spectrogram} is a graphical representation
 			of the sound variations and intensities of the a given audio sample. With the
 			\textit{MEL Filterbank transformation} we effectively represent the relevant information
 			of the input data, thus transforming the problem from an audio classification
@@ -237,7 +237,7 @@ The steps performed in order process the user input are as follows:
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width = 5.5in]{images/mel.png}
-				\centerline{\captionof{Figure 4.12: MEL Spectogram example}}
+				\centerline{\captionof{Figure 4.12: MEL Spectrogram example}}
 			\label{ms}
 			\end{figure}
 
@@ -246,7 +246,7 @@ The steps performed in order process the user input are as follows:
 
 
 
-	The output of the transformation is a \textit{ndarray} containing the MEL spectogram
+	The output of the transformation is a \textit{ndarray} containing the MEL spectrogram
 	of the input sample which represents the neural network model's input.\\
 	The inference output is an array containing floating point numbers which represent the confidence
 	value of the model prediction.\\
@@ -262,7 +262,7 @@ The steps performed in order process the user input are as follows:
 \section{The Application-User Interaction}
 	The application provides a minimalistic Graphic User Interface which offers the end user the means for
 	classifying an YouTube song, as well as visualise the specific 3D Animation depending on the model prediction. \\
-	In order to enrich the visual experience, we have choosen two 3D animations, projected using \textit{Autodesk Maya}.\\
+	In order to enrich the visual experience, we have chosen two 3D animations, projected using \textit{Autodesk Maya}.\\
 	The main elements of the GUI are the textbox where the user inputs the link to the song, the submit
 	button which grabs the link inserted by the user and begins the inference process and the video stream box,
 	which appears after the model has performed the classification. The application runs over a \textit{main loop},

@@ -69,6 +69,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.3}Third use case}{30}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Final conclusions}{32}{chapter*.7}%
+\contentsline {chapter}{Conclusions and possible improvements}{32}{chapter*.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{32}{chapter*.7}%
+\contentsline {chapter}{Bibliography}{32}{section*.9}%

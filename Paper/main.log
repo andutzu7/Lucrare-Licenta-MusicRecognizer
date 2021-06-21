@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.20)  21 JUN 2021 19:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.20)  21 JUN 2021 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,7 +549,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 6.
-<images//logoFii.png, id=147, 193.47281pt x 188.95593pt>
+<images//logoFii.png, id=148, 193.47281pt x 188.95593pt>
 File: images//logoFii.png Graphic file (type png)
 <use images//logoFii.png>
 Package pdftex.def Info: images//logoFii.png  used on input line 13.
@@ -634,7 +634,7 @@ Overfull \hbox (6.38988pt too wide) in paragraph at lines 10--11
 []\OT1/ppl/m/n/12 Music Genre Clas-si-fi-ca-tion: Per-formed by a Con-vo-lu-tional Neu-ral Net-work Model
  []
 
-<images/spektrum.png, id=242, 402.50375pt x 315.1775pt>
+<images/spektrum.png, id=243, 402.50375pt x 315.1775pt>
 File: images/spektrum.png Graphic file (type png)
 <use images/spektrum.png>
 Package pdftex.def Info: images/spektrum.png  used on input line 17.
@@ -653,7 +653,7 @@ and I'll forget about whatever was undefined.
 [6
 
 ]
-<images/musenet.png, id=249, 1710.39pt x 733.74126pt>
+<images/musenet.png, id=250, 1710.39pt x 733.74126pt>
 File: images/musenet.png Graphic file (type png)
 <use images/musenet.png>
 Package pdftex.def Info: images/musenet.png  used on input line 31.
@@ -671,7 +671,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [7 <./images/spektrum.png> <./images/musenet.png>]
-<images/magenta.png, id=258, 1226.5825pt x 440.64626pt>
+<images/magenta.png, id=259, 1226.5825pt x 440.64626pt>
 File: images/magenta.png Graphic file (type png)
 <use images/magenta.png>
 Package pdftex.def Info: images/magenta.png  used on input line 43.
@@ -735,7 +735,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/genericneuron.png, id=289, 383.4325pt x 283.0575pt>
+<images/genericneuron.png, id=290, 383.4325pt x 283.0575pt>
 File: images/genericneuron.png Graphic file (type png)
 <use images/genericneuron.png>
 Package pdftex.def Info: images/genericneuron.png  used on input line 13.
@@ -754,7 +754,7 @@ and I'll forget about whatever was undefined.
 [12
 
  <./images/genericneuron.png>]
-<images/genericnn.png, id=295, 1204.5pt x 576.1525pt>
+<images/genericnn.png, id=296, 1204.5pt x 576.1525pt>
 File: images/genericnn.png Graphic file (type png)
 <use images/genericnn.png>
 Package pdftex.def Info: images/genericnn.png  used on input line 24.
@@ -771,7 +771,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/bn.png, id=297, 795.72281pt x 573.64313pt>
+<images/bn.png, id=298, 795.72281pt x 573.64313pt>
 File: images/bn.png Graphic file (type png)
 <use images/bn.png>
 Package pdftex.def Info: images/bn.png  used on input line 50.
@@ -790,7 +790,7 @@ and I'll forget about whatever was undefined.
 [13 <./images/genericnn.png>]
 ./chapters/chapter3.tex:57: Extra }, or forgotten \endgroup.
 l.57 	\item \^x}
-                 : The output of the normalization process, computed by subs...
+                 : The output of the normalization process, computed by subt...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -798,7 +798,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 [14 <./images/bn.png>]
-<images/relu.png, id=314, 736.7525pt x 469.755pt>
+<images/relu.png, id=315, 736.7525pt x 469.755pt>
 File: images/relu.png Graphic file (type png)
 <use images/relu.png>
 Package pdftex.def Info: images/relu.png  used on input line 80.
@@ -816,7 +816,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [15 <./images/relu.png>]
-<images/cm.png, id=323, 467.7475pt x 336.25626pt>
+<images/cm.png, id=324, 467.7475pt x 336.25626pt>
 File: images/cm.png Graphic file (type png)
 <use images/cm.png>
 Package pdftex.def Info: images/cm.png  used on input line 114.
@@ -843,7 +843,7 @@ Overfull \hbox (2.24924pt too wide) in paragraph at lines 20--22
 [17
 
 ]
-<images/summary.png, id=335, 317.185pt x 1747.52875pt>
+<images/summary.png, id=336, 317.185pt x 1747.52875pt>
 File: images/summary.png Graphic file (type png)
 <use images/summary.png>
 Package pdftex.def Info: images/summary.png  used on input line 33.
@@ -863,7 +863,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--41
                                                   
 l.41 
       <./images/summary.png>]
-<images/datadistr.png, id=344, 1102.1175pt x 996.72375pt>
+<images/datadistr.png, id=345, 1102.1175pt x 996.72375pt>
 File: images/datadistr.png Graphic file (type png)
 <use images/datadistr.png>
 Package pdftex.def Info: images/datadistr.png  used on input line 77.
@@ -881,7 +881,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [19]
-<images/badmetricspng.png, id=349, 797.8608pt x 721.9773pt>
+<images/badmetricspng.png, id=350, 797.8608pt x 721.9773pt>
 File: images/badmetricspng.png Graphic file (type png)
 <use images/badmetricspng.png>
 Package pdftex.def Info: images/badmetricspng.png  used on input line 88.
@@ -899,7 +899,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [20 <./images/datadistr.png> <./images/badmetricspng.png>]
-<images/badacc.png, id=357, 793.5246pt x 717.6411pt>
+<images/badacc.png, id=358, 793.5246pt x 717.6411pt>
 File: images/badacc.png Graphic file (type png)
 <use images/badacc.png>
 Package pdftex.def Info: images/badacc.png  used on input line 96.
@@ -916,7 +916,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/metrics.png, id=358, 797.8608pt x 721.9773pt>
+<images/metrics.png, id=359, 797.8608pt x 721.9773pt>
 File: images/metrics.png Graphic file (type png)
 <use images/metrics.png>
 Package pdftex.def Info: images/metrics.png  used on input line 106.
@@ -932,7 +932,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/goodacc.png, id=359, 793.5246pt x 717.6411pt>
+<images/goodacc.png, id=360, 793.5246pt x 717.6411pt>
 File: images/goodacc.png Graphic file (type png)
 <use images/goodacc.png>
 Package pdftex.def Info: images/goodacc.png  used on input line 114.
@@ -949,8 +949,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [21 <./images/badacc.png> <./images/metrics.png>]
-Overfull \hbox (25.40956pt too wide) in paragraph at lines 126--129
-\OT1/ppl/m/n/12 out-put, which con-sists of the gra-di-ent of the for-ward prop-a-ga-tion end re-sult(derivated
+Overfull \hbox (15.4977pt too wide) in paragraph at lines 126--129
+\OT1/ppl/m/n/12 out-put, which con-sists of the gra-di-ent of the for-ward prop-a-ga-tion end re-sult(derived
  []
 
 
@@ -958,7 +958,7 @@ Overfull \hbox (0.9049pt too wide) in paragraph at lines 129--130
 []\OT1/ppl/m/n/12 :parameter:output: A \OT1/ppl/m/it/12 ndar-ray \OT1/ppl/m/n/12 where the \OT1/ppl/m/it/12 for-ward \OT1/ppl/m/n/12 func-tion com-pu-ta-tions are stored. 
  []
 
-<images/fwbw.png, id=366, 770.88pt x 734.745pt>
+<images/fwbw.png, id=367, 770.88pt x 734.745pt>
 File: images/fwbw.png Graphic file (type png)
 <use images/fwbw.png>
 Package pdftex.def Info: images/fwbw.png  used on input line 138.
@@ -975,7 +975,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [22 <./images/goodacc.png>]
-<images/conv2d.png, id=377, 924.45375pt x 206.7725pt>
+<images/conv2d.png, id=378, 924.45375pt x 206.7725pt>
 File: images/conv2d.png Graphic file (type png)
 <use images/conv2d.png>
 Package pdftex.def Info: images/conv2d.png  used on input line 149.
@@ -992,7 +992,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/datapipe.png, id=378, 919.435pt x 139.52126pt>
+<images/datapipe.png, id=379, 919.435pt x 139.52126pt>
 File: images/datapipe.png Graphic file (type png)
 <use images/datapipe.png>
 Package pdftex.def Info: images/datapipe.png  used on input line 165.
@@ -1014,7 +1014,7 @@ Overfull \hbox (14.51733pt too wide) in paragraph at lines 165--168
  []
 
 [23 <./images/fwbw.png> <./images/conv2d.png>]
-<images/soundenvelope.png, id=386, 451.6875pt x 140.525pt>
+<images/soundenvelope.png, id=387, 451.6875pt x 140.525pt>
 File: images/soundenvelope.png Graphic file (type png)
 <use images/soundenvelope.png>
 Package pdftex.def Info: images/soundenvelope.png  used on input line 188.
@@ -1032,7 +1032,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [24 <./images/datapipe.png> <./images/soundenvelope.png>]
-<images/ft.png, id=400, 819.06pt x 467.7475pt>
+<images/ft.png, id=401, 819.06pt x 467.7475pt>
 File: images/ft.png Graphic file (type png)
 <use images/ft.png>
 Package pdftex.def Info: images/ft.png  used on input line 221.
@@ -1049,15 +1049,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/mel.png, id=402, 991.705pt x 664.4825pt>
+<images/mel.png, id=403, 991.705pt x 664.4825pt>
 File: images/mel.png Graphic file (type png)
 <use images/mel.png>
 Package pdftex.def Info: images/mel.png  used on input line 239.
 (pdftex.def)             Requested size: 397.48499pt x 266.32565pt.
 ./chapters/chapter4.tex:240: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 4.12: MEL Spectogram example}
-l.240 ...nof{Figure 4.12: MEL Spectogram example}}
+                      {Figure 4.12: MEL Spectrogram example}
+l.240 ...of{Figure 4.12: MEL Spectrogram example}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1066,7 +1066,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [25] [26 <./images/ft.png> <./images/mel.png (PNG copy)>]
-<images/basic_interface.png, id=417, 1927.2pt x 1084.05pt>
+<images/basic_interface.png, id=418, 1927.2pt x 1084.05pt>
 File: images/basic_interface.png Graphic file (type png)
 <use images/basic_interface.png>
 Package pdftex.def Info: images/basic_interface.png  used on input line 277.
@@ -1083,7 +1083,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/piano.png, id=418, 1927.2pt x 1084.05pt>
+<images/piano.png, id=419, 1927.2pt x 1084.05pt>
 File: images/piano.png Graphic file (type png)
 <use images/piano.png>
 Package pdftex.def Info: images/piano.png  used on input line 284.
@@ -1100,7 +1100,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [27 <./images/basic_interface.png>]
-<images/other.png, id=424, 1927.2pt x 1084.05pt>
+<images/other.png, id=425, 1927.2pt x 1084.05pt>
 File: images/other.png Graphic file (type png)
 <use images/other.png>
 Package pdftex.def Info: images/other.png  used on input line 291.
@@ -1119,7 +1119,7 @@ and I'll forget about whatever was undefined.
 
 ) (./chapters/chapter5.tex [28 <./images/piano.png> <./images/other.png>]
 Chapter 5.
-<images/usecase1.png, id=431, 1237.62375pt x 717.68124pt>
+<images/usecase1.png, id=432, 1237.62375pt x 717.68124pt>
 File: images/usecase1.png Graphic file (type png)
 <use images/usecase1.png>
 Package pdftex.def Info: images/usecase1.png  used on input line 9.
@@ -1135,7 +1135,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/usecase3.png, id=432, 1024.82875pt x 660.4675pt>
+<images/usecase3.png, id=433, 1024.82875pt x 660.4675pt>
 File: images/usecase3.png Graphic file (type png)
 <use images/usecase3.png>
 Package pdftex.def Info: images/usecase3.png  used on input line 18.
@@ -1143,7 +1143,7 @@ Package pdftex.def Info: images/usecase3.png  used on input line 18.
 ./chapters/chapter5.tex:19: Undefined control sequence.
 <argument> \captionof 
                       {Figure 4.2: Illustration of the behaviour when the us...
-l.19 ...r when the uses inputs an invalid link. }}
+l.19 ...r when the user inputs an invalid link. }}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1154,7 +1154,7 @@ and I'll forget about whatever was undefined.
 [29
 
  <./images/usecase1.png>]
-<images/usecase2.png, id=438, 1204.5pt x 705.63625pt>
+<images/usecase2.png, id=439, 1204.5pt x 705.63625pt>
 File: images/usecase2.png Graphic file (type png)
 <use images/usecase2.png>
 Package pdftex.def Info: images/usecase2.png  used on input line 28.
@@ -1182,22 +1182,22 @@ Overfull \hbox (6.9738pt too wide) in paragraph at lines 62--62
 
 ] [34] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FC8E09EE08C624E2D78EAD8331DAAE65;4498.
+(rerunfilecheck)             Checksum: F4B5D5EA561A9E3EAED9C9BD013D28B8;4604.
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17489 strings out of 479383
- 289132 string characters out of 5875830
+ 17492 strings out of 479383
+ 289165 string characters out of 5875830
  1020561 words of memory out of 5000000
- 34229 multiletter control sequences out of 15000+600000
+ 34230 multiletter control sequences out of 15000+600000
  424001 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,6n,73p,794b,2000s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (39 pages, 2399291 bytes).
+Output written on main.pdf (39 pages, 2399824 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 406 compressed objects within 5 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 410 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
  424 words of extra memory for PDF output out of 10000 (max. 10000000)
 
