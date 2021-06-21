@@ -1,6 +1,6 @@
 \chapter{Technologies used}
 Python provides many modules for numeric calculus, data processing and manipulation as  well as tools for user interaction.
-In the following chapter we will breafly touch on the modules and libraries used for achieving the goal
+In the following chapter we will briefly touch on the modules and libraries used for achieving the goal
 of the application, instrument classification.
 
 \section{Scipy}
@@ -14,29 +14,29 @@ operations performed throughout the application (e.g. the dot product, the data 
 array is represented as a matrix, whose dimensions are referred as \textit{shape}.
 Some of the advantages brought by the numpy module are:
 \begin{itemize}
-	\item Forward and backward operation compatibility for the various objects contained withing the application
+	\item Forward and backward operation compatibility for the various objects contained within the application
 	\item Fast execution time caused by the optimization of the library \cite{npd} (by using pre-compiled C code)
 	\item Support for large number/big data processing.
 \end{itemize}
 
 \section{TensorFlow}
-TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML powered applications.\cite{tf}
+TensorFlow is an open source platform for machine learning applications. It has a comprehensive, flexible ecosystem of tools, libraries and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML powered applications.\cite{tf}
 From the vast amount of methods and submodules contained within TensorFlow, we used Keras, an utilitary library
 built on top of the TensorFlow API. In order for the Neural Network Framework to be able to handle large amounts
 of data, we inherited in our custom \textit{DataGenerator class} the \textit{tensorflow.keras.utils.Sequence}
 class. The \textit{Keras DataGenerator class} along with the custom Neural Network Framework \textit{DataGenerator}
-provide among other functionalities the \textit{ getitem} method, which yields a batch of data at a given index, thus overcoming the big data handling problem.
+provide among other functionalities the \textit{getitem} method, which yields a batch of data at a given index, thus overcoming the handling of large data amounts.
 
 \section{Kapre}
 Kapre (Keras Audio Preprocessors) is an audio data preprocessing library built on top of \textit{Keras},
 specialized on audio signal handling.\cite{choi2017kapre}
 Kapre facilitates sound transformation by efficiently performing various operations (e.g. \textit{Short
-Time Fourier Transformation}, \textit{Magnitude} ) in a GPU optimized consistent manner . For the input data modeling we had chosen the
+Time Fourier Transformation}, \textit{Mel scaling} ) in a GPU optimized consistent manner . For the input data modeling we had chosen the
 \textit{get mel spectogram layer} function from the module \textit{kapre.composed}. It applies sequentially
 \textit{STFT, Magnitude and mel filterbank} transformations over the given input data, returning a mel spectogram
 with an user specified sample rate and output shape.
 \section{Librosa}
-Librosa is a python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems. \cite{mcfee2015librosa}
+Librosa is a python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems \cite{mcfee2015librosa}.
 Out of the Librosa API we have choosen the following tools :
 \begin{itemize}
 	\item \textit{resample}: A function that resamples an audio file from its original rate to an user
@@ -53,3 +53,8 @@ a song just by inserting a link to a YouTube video.
 \section{Tkinter}
 Tkinter is the standard Python GUI Toolkit, a simple yet versatile module was used for the minimalistic Graphic
 User Interface of the final application.
+
+\section{Autodesk Maya}
+Maya is a software program developed by Autodesk which provides a complex environment
+for 3D modeling and animation. In the context of the final application we have choosen Maya for projecting and
+animating the 3D visualisation of the classification.

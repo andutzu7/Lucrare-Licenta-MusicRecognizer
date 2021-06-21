@@ -8,18 +8,18 @@ The application consists of two major parts:\\
 	\addtolength{\itemindent}{1cm}
 		\item  First, the machine learning component, represented by a neuronal network framework, implemented from scratch (i.e. without the explicit support of existent frameworks or libraries). The module presents the necessary functionalities for constructing a neuronal network: layers, activation functions, metrics, optimizers, models and support for data generation and preprocessing.\\
 
-		\item Second, the visual support, compound of two illustrative animations, created in Autodesk Maya 2019, and a Graphical User Interface, in which a hypothetical user can interact with the application by feeding it an YouTube link of a song. As a result, the application will decide whether the input song is played on a piano or not (prediction Piano/Other). Depending on the decision of the neuronal network, the corresponding Maya animation will be played.\\
+		\item Second, the visual support, compound of two illustrative animations, created in Autodesk Maya 2019, and a Graphical User Interface, in which a hypothetical user can interact with the application by feeding it an YouTube link of a song. As a result, the application will decide whether the input song is played on a piano or not (prediction Piano/Other). Depending on the decision of the neuronal network, the corresponding 3D animation will be played.\\
 	\end{itemize}
 
 	\section{Context}
 
-	The first analogy between the way computers can process information and the way the human brain works (as we know, at least, to this day), has been made by Warren McCullough and Walter Pitts in 1944, who later became the founding members of what is sometimes called the first cognitive science department \cite{mitnn}. The primary idea is elegant in it's simplicity: the neuron, the basis of the human cognitive apparatus, can be modelled in machine learning as an unit in a network.
+	The first analogy between the way computers can process information and the way the human brain works (as we know, at least, to this day), has been made by Warren McCullough and Walter Pitts in 1944, who later became the founding members of what is sometimes called the first cognitive science department \cite{mitnn}. The primary idea is elegant in its simplicity: the neuron, the basis of the human cognitive apparatus, can be modelled in machine learning as an unit in a network.
 
 	Since then, numerous studies and breakthroughs have been made, as well as various frameworks and tools which make implementing a neuronal network accessible without possessing the full mathematical background needed prior.
 
 	\section{Purpose and modus operandi}
 
-	One of the purposes of this thesis is to implement the functionalities and the logic behind a neuronal network ab initio, as well as creating and fine-tuning a model. In order to complete this task, we consulted multiple sources( e.g. \cite{nnfs},\cite{DLFMIR},\cite{BACDNN} ) which presented the theoretical and mathematical aspects of constructing the aforementioned classifier. The implementation was constructed with the support of various tools from the Python programming language (e.g. Numpy, Librosa, Tenserflow Keras, Kapre), which will be extensively discussed in the following chapters.
+	One of the purposes of this thesis is to implement the functionalities and the logic behind a neuronal network, as well as creating and fine-tuning a model. In order to complete this task, we consulted multiple sources( e.g. \cite{nnfs},\cite{DLFMIR},\cite{BACDNN} ) which presented the theoretical and mathematical aspects of constructing the aforementioned classifier. The implementation was constructed with the support of various tools from the Python programming language (e.g. Numpy, Librosa, Tenserflow Keras, Kapre), which will be extensively discussed in the following chapters.
 
 	As discussed before, the second component of the thesis regards the visual part of the application. For obtaining a interactive use of the project, we used Autodesk Maya 2019 (for creating the animations) and Python tkinkter for creating a simplistic GUI.
 
@@ -47,12 +47,12 @@ The application consists of two major parts:\\
 		\end{itemize}
 	\item Chapter Three
 		\begin{itemize}
-		\item Architecture and implementation : in which the actual implementation is discussed explicitly. This section contains technical and theoretical aspects of the thesis and  showcases relevant code;
+		\item Architecture and implementation : in which the actual implementation is discussed explicitly. This section contains technical and theoretical aspects of the thesis.
 
 		\end{itemize}
 	\item Chapter Four
 		\begin{itemize}
-			\item Use cases:  in which the functionalities of the project are presented.
+			\item Use cases: in which a part of the functionalities of the project are presented;
 
 		\end{itemize}
 	\end{enumerate}

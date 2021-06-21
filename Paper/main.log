@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.20)  21 JUN 2021 00:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.20)  21 JUN 2021 19:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,7 +549,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 6.
-<images//logoFii.png, id=119, 193.47281pt x 188.95593pt>
+<images//logoFii.png, id=147, 193.47281pt x 188.95593pt>
 File: images//logoFii.png Graphic file (type png)
 <use images//logoFii.png>
 Package pdftex.def Info: images//logoFii.png  used on input line 13.
@@ -580,7 +580,7 @@ l.41     \input{front/declaration2}
                                     [2] (./main.tocpdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.50 ...}{\numberline {4}Use cases}{24}{chapter.4}
+l.54 ...\numberline {3.5}Metrics}{16}{section.3.5}
                                                   % [3
 
 ])
@@ -634,62 +634,216 @@ Overfull \hbox (6.38988pt too wide) in paragraph at lines 10--11
 []\OT1/ppl/m/n/12 Music Genre Clas-si-fi-ca-tion: Per-formed by a Con-vo-lu-tional Neu-ral Net-work Model
  []
 
-<images/spektrum.png, id=207, 402.50375pt x 315.1775pt>
+<images/spektrum.png, id=242, 402.50375pt x 315.1775pt>
 File: images/spektrum.png Graphic file (type png)
 <use images/spektrum.png>
 Package pdftex.def Info: images/spektrum.png  used on input line 17.
-(pdftex.def)             Requested size: 402.50276pt x 315.17673pt.
+(pdftex.def)             Requested size: 361.34999pt x 282.95016pt.
+./chapters/chapter1.tex:18: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 1.1: The interface of the Spektrum application...
+l.18 ...lication (Photo source: \cite{spektrum})}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 [6
 
 ]
-<images/musenet.png, id=214, 1710.39pt x 733.74126pt>
+<images/musenet.png, id=249, 1710.39pt x 733.74126pt>
 File: images/musenet.png Graphic file (type png)
 <use images/musenet.png>
 Package pdftex.def Info: images/musenet.png  used on input line 31.
-(pdftex.def)             Requested size: 505.89pt x 217.02278pt.
+(pdftex.def)             Requested size: 361.34999pt x 155.00827pt.
 
-Overfull \hbox (50.64589pt too wide) in paragraph at lines 31--32
- [][] 
- []
-
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+./chapters/chapter1.tex:32: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 1.2: An illustration of the MuseNet's function...
+l.32 ...alities (Photo sources : \cite{musenet})}}
                                                   
-l.35 
-      <./images/spektrum.png>]
-<images/magenta.png, id=221, 1226.5825pt x 440.64626pt>
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7 <./images/spektrum.png> <./images/musenet.png>]
+<images/magenta.png, id=258, 1226.5825pt x 440.64626pt>
 File: images/magenta.png Graphic file (type png)
 <use images/magenta.png>
 Package pdftex.def Info: images/magenta.png  used on input line 43.
-(pdftex.def)             Requested size: 505.89pt x 181.74193pt.
+(pdftex.def)             Requested size: 397.48499pt x 142.79146pt.
 
-Overfull \hbox (50.64589pt too wide) in paragraph at lines 43--44
- [][] 
- []
 
-) (./chapters/chapter2.tex [8pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+./chapters/chapter1.tex:44: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
-l.1 \chapter
-            {Technologies used}pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+l.44 ... Magenta (Photo sources: \cite{magenta})}}
                                                   
-l.1 \chapter
-            {Technologies used} <./images/musenet.png> <./images/magenta.png>]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./chapters/chapter1.tex:44: Undefined control sequence.
+\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
+                                                  \@captype }
+l.44 ... Magenta (Photo sources: \cite{magenta})}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chapters/chapter1.tex:44: Undefined control sequence.
+\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
+                                                  }
+l.44 ... Magenta (Photo sources: \cite{magenta})}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) (./chapters/chapter2.tex [8 <./images/magenta.png>]
 Chapter 2.
 [9
 
 ] [10]) (./chapters/chapter3.tex [11]
 Chapter 3.
+./chapters/chapter3.tex:5: Undefined control sequence.
+l.5 ...extit{neuron} consists in a set of \weights
+                                                  {weights} and a set of \te...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chapters/chapter3.tex:8: Undefined control sequence.
+l.8 ...be saved (basically representing the \texit
+                                                  {model}).
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<images/genericneuron.png, id=289, 383.4325pt x 283.0575pt>
+File: images/genericneuron.png Graphic file (type png)
+<use images/genericneuron.png>
+Package pdftex.def Info: images/genericneuron.png  used on input line 13.
+(pdftex.def)             Requested size: 303.53377pt x 224.08806pt.
+./chapters/chapter3.tex:14: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 3.1: }{Illustration of a generic neuron}
+l.14 ... 3.1: }{Illustration of a generic neuron}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[12
+
+ <./images/genericneuron.png>]
+<images/genericnn.png, id=295, 1204.5pt x 576.1525pt>
+File: images/genericnn.png Graphic file (type png)
+<use images/genericnn.png>
+Package pdftex.def Info: images/genericnn.png  used on input line 24.
+(pdftex.def)             Requested size: 303.53377pt x 145.18944pt.
+
+./chapters/chapter3.tex:25: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 3.2: }{Illustration of a generic neural networ...
+l.25 ...ral network (Image source \cite{gennn}) }}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<images/bn.png, id=297, 795.72281pt x 573.64313pt>
+File: images/bn.png Graphic file (type png)
+<use images/bn.png>
+Package pdftex.def Info: images/bn.png  used on input line 50.
+(pdftex.def)             Requested size: 303.53377pt x 218.81819pt.
+./chapters/chapter3.tex:51: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 3.3: }{The Batch Normalization formula(Image s...
+l.51 ...ization formula(Image source \cite{bn}) }}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[13 <./images/genericnn.png>]
+./chapters/chapter3.tex:57: Extra }, or forgotten \endgroup.
+l.57 	\item \^x}
+                 : The output of the normalization process, computed by subs...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[14 <./images/bn.png>]
+<images/relu.png, id=314, 736.7525pt x 469.755pt>
+File: images/relu.png Graphic file (type png)
+<use images/relu.png>
+Package pdftex.def Info: images/relu.png  used on input line 80.
+(pdftex.def)             Requested size: 303.53377pt x 193.53262pt.
+
+./chapters/chapter3.tex:81: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 3.4: }{The ReLU formula and graphic illustrati...
+l.81 ... illustration(Image source \cite{nnfs}) }}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[15 <./images/relu.png>]
+<images/cm.png, id=323, 467.7475pt x 336.25626pt>
+File: images/cm.png Graphic file (type png)
+<use images/cm.png>
+Package pdftex.def Info: images/cm.png  used on input line 114.
+(pdftex.def)             Requested size: 303.53377pt x 218.21507pt.
+
+./chapters/chapter3.tex:115: Undefined control sequence.
+<argument> \captionof 
+                      {Figure 3.5: Confusion matrix.}
+l.115 ...captionof{Figure 3.5: Confusion matrix.}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) (./chapters/chapter4.tex [16 <./images/cm.png>]
+Chapter 4.
 
 Overfull \hbox (2.24924pt too wide) in paragraph at lines 20--22
 []\OT1/ppl/m/n/12 Training: Ini-tial-iz-ing/improving the per-for-mance by per-form-ing pre-dic-tions over
  []
 
-[12
+[17
 
 ]
-<images/summary.png, id=257, 317.185pt x 1747.52875pt>
+<images/summary.png, id=335, 317.185pt x 1747.52875pt>
 File: images/summary.png Graphic file (type png)
 <use images/summary.png>
 Package pdftex.def Info: images/summary.png  used on input line 33.
@@ -704,33 +858,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
 
-[13pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+[18pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.41 
       <./images/summary.png>]
-
-./chapters/chapter3.tex:44: Package inputenc Error: Unicode character   (U+200A)
-(inputenc)                not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.44 the step size 
-                     (momentum), decreasing the step for large gradients to ...
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-<images/datadistr.png, id=266, 1102.1175pt x 996.72375pt>
+<images/datadistr.png, id=344, 1102.1175pt x 996.72375pt>
 File: images/datadistr.png Graphic file (type png)
 <use images/datadistr.png>
-Package pdftex.def Info: images/datadistr.png  used on input line 78.
+Package pdftex.def Info: images/datadistr.png  used on input line 77.
 (pdftex.def)             Requested size: 303.53377pt x 274.50291pt.
-./chapters/chapter3.tex:79: Undefined control sequence.
+
+./chapters/chapter4.tex:78: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.2: }{Data distribution by number of samples.}
-l.79 ...{Data distribution by number of samples.}}
+                      {Figure 4.2: }{Data distribution by number of samples.}
+l.78 ...{Data distribution by number of samples.}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -738,17 +880,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[14]
-<images/badmetricspng.png, id=273, 797.8608pt x 721.9773pt>
+[19]
+<images/badmetricspng.png, id=349, 797.8608pt x 721.9773pt>
 File: images/badmetricspng.png Graphic file (type png)
 <use images/badmetricspng.png>
-Package pdftex.def Info: images/badmetricspng.png  used on input line 89.
+Package pdftex.def Info: images/badmetricspng.png  used on input line 88.
 (pdftex.def)             Requested size: 303.53377pt x 274.66267pt.
 
-./chapters/chapter3.tex:90: Undefined control sequence.
+./chapters/chapter4.tex:89: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.3: }{Model loss before adding Convolutional ...
-l.90 ...ng Convolutional Operations to the Model}}
+                      {Figure 4.3: }{Model loss before adding Convolutional ...
+l.89 ...ng Convolutional Operations to the Model}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -756,17 +898,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[15 <./images/datadistr.png> <./images/badmetricspng.png>]
-<images/badacc.png, id=280, 793.5246pt x 717.6411pt>
+[20 <./images/datadistr.png> <./images/badmetricspng.png>]
+<images/badacc.png, id=357, 793.5246pt x 717.6411pt>
 File: images/badacc.png Graphic file (type png)
 <use images/badacc.png>
-Package pdftex.def Info: images/badacc.png  used on input line 97.
+Package pdftex.def Info: images/badacc.png  used on input line 96.
 (pdftex.def)             Requested size: 303.53377pt x 274.51324pt.
 
-./chapters/chapter3.tex:98: Undefined control sequence.
+./chapters/chapter4.tex:97: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.4: }{Model accuracy before adding Convolutio...
-l.98 ...ng Convolutional Operations to the Model}}
+                      {Figure 4.4: }{Model accuracy before adding Convolutio...
+l.97 ...ng Convolutional Operations to the Model}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -774,15 +916,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/metrics.png, id=281, 797.8608pt x 721.9773pt>
+<images/metrics.png, id=358, 797.8608pt x 721.9773pt>
 File: images/metrics.png Graphic file (type png)
 <use images/metrics.png>
-Package pdftex.def Info: images/metrics.png  used on input line 107.
+Package pdftex.def Info: images/metrics.png  used on input line 106.
 (pdftex.def)             Requested size: 303.53377pt x 274.66267pt.
-./chapters/chapter3.tex:108: Undefined control sequence.
+./chapters/chapter4.tex:107: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.5: }{The model loss after incorporating Conv...
-l.108 ...fter incorporating Convolutional Layers}}
+                      {Figure 4.5: }{The model loss after incorporating Conv...
+l.107 ...fter incorporating Convolutional Layers}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -790,15 +932,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/goodacc.png, id=282, 793.5246pt x 717.6411pt>
+<images/goodacc.png, id=359, 793.5246pt x 717.6411pt>
 File: images/goodacc.png Graphic file (type png)
 <use images/goodacc.png>
-Package pdftex.def Info: images/goodacc.png  used on input line 115.
+Package pdftex.def Info: images/goodacc.png  used on input line 114.
 (pdftex.def)             Requested size: 303.53377pt x 274.51324pt.
-./chapters/chapter3.tex:116: Undefined control sequence.
+./chapters/chapter4.tex:115: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.6: }{The model accuracy after incorporating ...
-l.116 ...fter incorporating Convolutional Layers}}
+                      {Figure 4.6: }{The model accuracy after incorporating ...
+l.115 ...fter incorporating Convolutional Layers}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -806,25 +948,25 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[16 <./images/badacc.png> <./images/metrics.png>]
-Overfull \hbox (25.40956pt too wide) in paragraph at lines 127--130
+[21 <./images/badacc.png> <./images/metrics.png>]
+Overfull \hbox (25.40956pt too wide) in paragraph at lines 126--129
 \OT1/ppl/m/n/12 out-put, which con-sists of the gra-di-ent of the for-ward prop-a-ga-tion end re-sult(derivated
  []
 
 
-Overfull \hbox (0.9049pt too wide) in paragraph at lines 130--131
+Overfull \hbox (0.9049pt too wide) in paragraph at lines 129--130
 []\OT1/ppl/m/n/12 :parameter:output: A \OT1/ppl/m/it/12 ndar-ray \OT1/ppl/m/n/12 where the \OT1/ppl/m/it/12 for-ward \OT1/ppl/m/n/12 func-tion com-pu-ta-tions are stored. 
  []
 
-<images/fwbw.png, id=289, 770.88pt x 734.745pt>
+<images/fwbw.png, id=366, 770.88pt x 734.745pt>
 File: images/fwbw.png Graphic file (type png)
 <use images/fwbw.png>
-Package pdftex.def Info: images/fwbw.png  used on input line 139.
+Package pdftex.def Info: images/fwbw.png  used on input line 138.
 (pdftex.def)             Requested size: 303.53377pt x 289.29616pt.
-./chapters/chapter3.tex:140: Undefined control sequence.
+./chapters/chapter4.tex:139: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.7: }{Data flow throughout the model (image s...
-l.140 ...ut the model (image source \cite{fwbw})}}
+                      {Figure 4.7: }{Data flow throughout the model (image s...
+l.139 ...ut the model (image source \cite{fwbw})}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -832,17 +974,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[17 <./images/goodacc.png>]
-<images/genericcnn.png, id=300, 831.105pt x 471.7625pt>
-File: images/genericcnn.png Graphic file (type png)
-<use images/genericcnn.png>
-Package pdftex.def Info: images/genericcnn.png  used on input line 150.
-(pdftex.def)             Requested size: 397.48499pt x 225.62279pt.
+[22 <./images/goodacc.png>]
+<images/conv2d.png, id=377, 924.45375pt x 206.7725pt>
+File: images/conv2d.png Graphic file (type png)
+<use images/conv2d.png>
+Package pdftex.def Info: images/conv2d.png  used on input line 149.
+(pdftex.def)             Requested size: 397.48499pt x 88.90413pt.
 
-./chapters/chapter3.tex:151: Undefined control sequence.
+./chapters/chapter4.tex:150: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.8: Generic Convolutional Neural Network arch...
-l.151 ...architecture (image source \cite{cnna})}}
+                      {Figure 4.8: Convolutional Neural Network architecture...
+l.150 ...ral Network architecture illustration. }}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -850,17 +992,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[18 <./images/fwbw.png> <./images/genericcnn.png>]
-<images/datapipe.png, id=311, 919.435pt x 139.52126pt>
+<images/datapipe.png, id=378, 919.435pt x 139.52126pt>
 File: images/datapipe.png Graphic file (type png)
 <use images/datapipe.png>
-Package pdftex.def Info: images/datapipe.png  used on input line 166.
+Package pdftex.def Info: images/datapipe.png  used on input line 165.
 (pdftex.def)             Requested size: 469.76144pt x 93.95349pt.
-
-./chapters/chapter3.tex:167: Undefined control sequence.
+./chapters/chapter4.tex:166: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.9: User input handling pipeline}
-l.167 ...igure 3.9: User input handling pipeline}}
+                      {Figure 4.9: User input handling pipeline}
+l.166 ...igure 4.9: User input handling pipeline}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -869,19 +1009,21 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (14.51733pt too wide) in paragraph at lines 166--169
+Overfull \hbox (14.51733pt too wide) in paragraph at lines 165--168
  [][] 
  []
 
-<images/soundenvelope.png, id=312, 451.6875pt x 140.525pt>
+[23 <./images/fwbw.png> <./images/conv2d.png>]
+<images/soundenvelope.png, id=386, 451.6875pt x 140.525pt>
 File: images/soundenvelope.png Graphic file (type png)
 <use images/soundenvelope.png>
-Package pdftex.def Info: images/soundenvelope.png  used on input line 189.
+Package pdftex.def Info: images/soundenvelope.png  used on input line 188.
 (pdftex.def)             Requested size: 451.68639pt x 140.52464pt.
-./chapters/chapter3.tex:190: Undefined control sequence.
+
+./chapters/chapter4.tex:189: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.10: Sound envelope example (Source \cite {se...
-l.190 ...nd envelope example (Source \cite{sev})}}
+                      {Figure 4.10: Sound envelope example (Source \cite {se...
+l.189 ...nd envelope example (Source \cite{sev})}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -889,17 +1031,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[19 <./images/datapipe.png>]
-<images/ft.png, id=324, 819.06pt x 467.7475pt>
+[24 <./images/datapipe.png> <./images/soundenvelope.png>]
+<images/ft.png, id=400, 819.06pt x 467.7475pt>
 File: images/ft.png Graphic file (type png)
 <use images/ft.png>
-Package pdftex.def Info: images/ft.png  used on input line 222.
+Package pdftex.def Info: images/ft.png  used on input line 221.
 (pdftex.def)             Requested size: 325.215pt x 185.72533pt.
 
-./chapters/chapter3.tex:223: Undefined control sequence.
+./chapters/chapter4.tex:222: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.11: Fourier transformation (Source \cite {ft})}
-l.223 ...urier transformation (Source \cite{ft})}}
+                      {Figure 4.11: Fourier transformation (Source \cite {ft})}
+l.222 ...urier transformation (Source \cite{ft})}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -907,17 +1049,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[20 <./images/soundenvelope.png>]
-<images/mel.png, id=336, 991.705pt x 664.4825pt>
+<images/mel.png, id=402, 991.705pt x 664.4825pt>
 File: images/mel.png Graphic file (type png)
 <use images/mel.png>
-Package pdftex.def Info: images/mel.png  used on input line 240.
+Package pdftex.def Info: images/mel.png  used on input line 239.
 (pdftex.def)             Requested size: 397.48499pt x 266.32565pt.
-
-./chapters/chapter3.tex:241: Undefined control sequence.
+./chapters/chapter4.tex:240: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.12: MEL Spectogram example}
-l.241 ...nof{Figure 3.12: MEL Spectogram example}}
+                      {Figure 4.12: MEL Spectogram example}
+l.240 ...nof{Figure 4.12: MEL Spectogram example}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -925,17 +1065,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[21 <./images/ft.png> <./images/mel.png (PNG copy)>]
-<images/basic_interface.png, id=342, 1927.2pt x 1084.05pt>
+[25] [26 <./images/ft.png> <./images/mel.png (PNG copy)>]
+<images/basic_interface.png, id=417, 1927.2pt x 1084.05pt>
 File: images/basic_interface.png Graphic file (type png)
 <use images/basic_interface.png>
-Package pdftex.def Info: images/basic_interface.png  used on input line 278.
-(pdftex.def)             Requested size: 361.34999pt x 203.25888pt.
+Package pdftex.def Info: images/basic_interface.png  used on input line 277.
+(pdftex.def)             Requested size: 397.48499pt x 223.57153pt.
 
-./chapters/chapter3.tex:279: Undefined control sequence.
+./chapters/chapter4.tex:278: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.13: The Graphic User Interface at the start ...
-l.279 ...erface at the start of the application.}}
+                      {Figure 4.13: The Graphic User Interface at the start ...
+l.278 ...erface at the start of the application.}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -943,17 +1083,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[22 <./images/basic_interface.png>]
-<images/piano.png, id=349, 1927.2pt x 1084.05pt>
+<images/piano.png, id=418, 1927.2pt x 1084.05pt>
 File: images/piano.png Graphic file (type png)
 <use images/piano.png>
-Package pdftex.def Info: images/piano.png  used on input line 285.
-(pdftex.def)             Requested size: 361.34999pt x 203.25888pt.
-
-./chapters/chapter3.tex:286: Undefined control sequence.
+Package pdftex.def Info: images/piano.png  used on input line 284.
+(pdftex.def)             Requested size: 397.48499pt x 223.57153pt.
+./chapters/chapter4.tex:285: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.14: The Graphic User Interface after predict...
-l.286 ...fter predicting a song as a piano song.}}
+                      {Figure 4.14: The Graphic User Interface after predict...
+l.285 ...fter predicting a song as a piano song.}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -961,15 +1099,17 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/other.png, id=350, 1927.2pt x 1084.05pt>
+[27 <./images/basic_interface.png>]
+<images/other.png, id=424, 1927.2pt x 1084.05pt>
 File: images/other.png Graphic file (type png)
 <use images/other.png>
-Package pdftex.def Info: images/other.png  used on input line 292.
-(pdftex.def)             Requested size: 361.34999pt x 203.25888pt.
-./chapters/chapter3.tex:293: Undefined control sequence.
+Package pdftex.def Info: images/other.png  used on input line 291.
+(pdftex.def)             Requested size: 397.48499pt x 223.57153pt.
+
+./chapters/chapter4.tex:292: Undefined control sequence.
 <argument> \captionof 
-                      {Figure 3.15: The Graphic User Interface after classif...
-l.293 ...face after classifying a song as other.}}
+                      {Figure 4.15: The Graphic User Interface after classif...
+l.292 ...face after classifying a song as other.}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -977,14 +1117,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) (./chapters/chapter4.tex [23 <./images/piano.png> <./images/other.png>]
-Chapter 4.
-<images/usecase1.png, id=357, 1237.62375pt x 717.68124pt>
+) (./chapters/chapter5.tex [28 <./images/piano.png> <./images/other.png>]
+Chapter 5.
+<images/usecase1.png, id=431, 1237.62375pt x 717.68124pt>
 File: images/usecase1.png Graphic file (type png)
 <use images/usecase1.png>
 Package pdftex.def Info: images/usecase1.png  used on input line 9.
 (pdftex.def)             Requested size: 397.48499pt x 230.49495pt.
-./chapters/chapter4.tex:10: Undefined control sequence.
+./chapters/chapter5.tex:10: Undefined control sequence.
 <argument> \captionof 
                       {Figure 4.1: Illustration of the behaviour when the us...
 l.10 ...our when the user inputs a correct link.}}
@@ -995,12 +1135,12 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<images/usecase3.png, id=358, 1024.82875pt x 660.4675pt>
+<images/usecase3.png, id=432, 1024.82875pt x 660.4675pt>
 File: images/usecase3.png Graphic file (type png)
 <use images/usecase3.png>
 Package pdftex.def Info: images/usecase3.png  used on input line 18.
 (pdftex.def)             Requested size: 397.48499pt x 256.1603pt.
-./chapters/chapter4.tex:19: Undefined control sequence.
+./chapters/chapter5.tex:19: Undefined control sequence.
 <argument> \captionof 
                       {Figure 4.2: Illustration of the behaviour when the us...
 l.19 ...r when the uses inputs an invalid link. }}
@@ -1011,16 +1151,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[24
+[29
 
  <./images/usecase1.png>]
-<images/usecase2.png, id=364, 1204.5pt x 705.63625pt>
+<images/usecase2.png, id=438, 1204.5pt x 705.63625pt>
 File: images/usecase2.png Graphic file (type png)
 <use images/usecase2.png>
 Package pdftex.def Info: images/usecase2.png  used on input line 28.
 (pdftex.def)             Requested size: 397.48499pt x 232.86067pt.
 
-./chapters/chapter4.tex:29: Undefined control sequence.
+./chapters/chapter5.tex:29: Undefined control sequence.
 <argument> \captionof 
                       {Figure 4.3: Illustration of the behaviour when the us...
 l.29 ...uts a confusing song to the application.}}
@@ -1031,42 +1171,33 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [25 <./images/usecase3.png> <./images/usecase2.png>] (./chapters/conclusions.tex [26]) [27
+) [30 <./images/usecase3.png> <./images/usecase2.png>] (./chapters/conclusions.tex [31]) [32
 
 ]
-Overfull \hbox (6.9738pt too wide) in paragraph at lines 61--61
+Overfull \hbox (6.9738pt too wide) in paragraph at lines 62--62
 []\OT1/ppl/m/n/12 Narayan Srini-vasan. ``Build-ing an Au-dio Clas-si-fier us-ing Deep Neu-ral Net-works''.
  []
 
-[28
+[33
 
-] (./main.aux)
+] [34] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A08217D07FA75940A5F1227351A7FE9D;3657.
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: FC8E09EE08C624E2D78EAD8331DAAE65;4498.
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 17425 strings out of 479383
- 288107 string characters out of 5875830
- 1020412 words of memory out of 5000000
- 34187 multiletter control sequences out of 15000+600000
+ 17489 strings out of 479383
+ 289132 string characters out of 5875830
+ 1020561 words of memory out of 5000000
+ 34229 multiletter control sequences out of 15000+600000
  424001 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,6n,73p,794b,2019s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (33 pages, 2366017 bytes).
+ 66i,6n,73p,794b,2000s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (39 pages, 2399291 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 336 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 510 PDF objects out of 1000 (max. 8388607)
+ 406 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 424 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -39,22 +39,36 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.7}Tkinter}{11}{section.2.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Architecture and implementation}{12}{chapter.3}%
+\contentsline {section}{\numberline {2.8}Autodesk Maya}{11}{section.2.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}The Neuronal Network Engine}{12}{section.3.1}%
+\contentsline {chapter}{\numberline {3}Theoretical Aspects}{12}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}User Input Handling and Processing}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.1}Neuronal Network}{12}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}The Application-User Interaction}{22}{section.3.3}%
+\contentsline {section}{\numberline {3.2}Layers}{13}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Use cases}{24}{chapter.4}%
+\contentsline {section}{\numberline {3.3}Activation Functions}{14}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}First use case}{24}{section.4.1}%
+\contentsline {section}{\numberline {3.4}Optimizers}{15}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Second use case}{25}{section.4.2}%
+\contentsline {section}{\numberline {3.5}Metrics}{16}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Third use case}{25}{section.4.3}%
+\contentsline {chapter}{\numberline {4}Architecture and implementation}{17}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Final conclusions}{27}{chapter*.4}%
+\contentsline {section}{\numberline {4.1}The Neuronal Network Engine}{17}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{27}{chapter*.4}%
+\contentsline {section}{\numberline {4.2}User Input Handling and Processing}{23}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}The Application-User Interaction}{27}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Use cases}{29}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}First use case}{29}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Second use case}{30}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Third use case}{30}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Final conclusions}{32}{chapter*.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{32}{chapter*.7}%

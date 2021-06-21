@@ -137,59 +137,25 @@
       \field{labeltitlesource}{title}
       \field{title}{Tensorflow Official Documentation}
     \endentry
-    \entry{rmsprop}{article}{}
+    \entry{gennn}{inproceedings}{}
       \name{author}{1}{}{%
-        {{hash=ffb2e1f6d47fa06b63ab645a65d4144a}{%
-           family={DeepAI},
-           familyi={D\bibinitperiod}}}%
+        {{hash=b1e921d00c0be970c3b2053b2c933cbb}{%
+           family={Community},
+           familyi={C\bibinitperiod},
+           given={The\bibnamedelima Wikipedia},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
       }
-      \strng{namehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \strng{fullhash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \strng{bibnamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \strng{authorbibnamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \strng{authornamehash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \strng{authorfullhash}{ffb2e1f6d47fa06b63ab645a65d4144a}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \strng{namehash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \strng{fullhash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \strng{bibnamehash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \strng{authorbibnamehash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \strng{authornamehash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \strng{authorfullhash}{b1e921d00c0be970c3b2053b2c933cbb}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{What is RMSProp}
-    \endentry
-    \entry{cnna}{article}{}
-      \name{author}{4}{}{%
-        {{hash=b3432ea07b220a623d8c84caab3808fc}{%
-           family={Du},
-           familyi={D\bibinitperiod},
-           given={Kangning},
-           giveni={K\bibinitperiod}}}%
-        {{hash=34c84c1bdddda5ae24aa118bcce6a3b7}{%
-           family={Deng},
-           familyi={D\bibinitperiod},
-           given={Yunkai},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=5d3aa804c30a3f672ca1d34584c76da9}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Robert\bibnamedelimb Wangand\bibnamedelima Tuan},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=f7b82bb0e43430adcc2f78b727392107}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Ning},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{b861e40ac4da6d581234e6cc8ee391e7}
-      \strng{fullhash}{e0a58fd5838d320af62c654497437fff}
-      \strng{bibnamehash}{b861e40ac4da6d581234e6cc8ee391e7}
-      \strng{authorbibnamehash}{b861e40ac4da6d581234e6cc8ee391e7}
-      \strng{authornamehash}{b861e40ac4da6d581234e6cc8ee391e7}
-      \strng{authorfullhash}{e0a58fd5838d320af62c654497437fff}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{SAR ATR based on displacement- and rotation-insensitive CNN}
-      \field{year}{2016}
+      \field{title}{Generative adversarial network}
     \endentry
     \entry{mitnn}{article}{}
       \name{author}{1}{}{%
@@ -257,6 +223,27 @@
       \field{labeltitlesource}{title}
       \field{title}{Neural Networks from Scratch in Python}
       \field{year}{2020}
+    \endentry
+    \entry{bn}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a7052b680363d9de6c3620554225a705}{%
+           family={Kratzert},
+           familyi={K\bibinitperiod},
+           given={Frederik},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7052b680363d9de6c3620554225a705}
+      \strng{fullhash}{a7052b680363d9de6c3620554225a705}
+      \strng{bibnamehash}{a7052b680363d9de6c3620554225a705}
+      \strng{authorbibnamehash}{a7052b680363d9de6c3620554225a705}
+      \strng{authornamehash}{a7052b680363d9de6c3620554225a705}
+      \strng{authorfullhash}{a7052b680363d9de6c3620554225a705}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding the backward pass through Batch Normalization Layer}
+      \field{year}{2016}
     \endentry
     \entry{mcfee2015librosa}{inproceedings}{}
       \name{author}{7}{}{%
@@ -353,6 +340,48 @@
       \field{labeltitlesource}{title}
       \field{title}{Building an Audio Classifier using Deep Neural Networks}
       \field{year}{2017}
+    \endentry
+    \entry{magenta}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=35f5c8d2613b12930a98a536357e929e}{%
+           family={Team},
+           familyi={T\bibinitperiod},
+           given={The\bibnamedelima GoogleAI/Magenta},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{35f5c8d2613b12930a98a536357e929e}
+      \strng{fullhash}{35f5c8d2613b12930a98a536357e929e}
+      \strng{bibnamehash}{35f5c8d2613b12930a98a536357e929e}
+      \strng{authorbibnamehash}{35f5c8d2613b12930a98a536357e929e}
+      \strng{authornamehash}{35f5c8d2613b12930a98a536357e929e}
+      \strng{authorfullhash}{35f5c8d2613b12930a98a536357e929e}
+      \field{extraname}{1}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Magenta Demos}
+    \endentry
+    \entry{musenet}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=82bfdc4bc671630759da912406bf554f}{%
+           family={Team},
+           familyi={T\bibinitperiod},
+           given={The\bibnamedelima OpenAI},
+           giveni={T\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{82bfdc4bc671630759da912406bf554f}
+      \strng{fullhash}{82bfdc4bc671630759da912406bf554f}
+      \strng{bibnamehash}{82bfdc4bc671630759da912406bf554f}
+      \strng{authorbibnamehash}{82bfdc4bc671630759da912406bf554f}
+      \strng{authornamehash}{82bfdc4bc671630759da912406bf554f}
+      \strng{authorfullhash}{82bfdc4bc671630759da912406bf554f}
+      \field{extraname}{2}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MuseNet Projects}
     \endentry
     \entry{spektrum}{article}{}
       \name{author}{5}{}{%
